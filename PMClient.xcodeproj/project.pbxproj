@@ -13,6 +13,13 @@
 		2702B1A523AC0E6C009F0A68 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2702B1A423AC0E6C009F0A68 /* Assets.xcassets */; };
 		2702B1A823AC0E6C009F0A68 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2702B1A723AC0E6C009F0A68 /* Preview Assets.xcassets */; };
 		2702B1AB23AC0E6C009F0A68 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2702B1A923AC0E6C009F0A68 /* LaunchScreen.storyboard */; };
+		27AA027923AD456800C97A23 /* Member.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AA027523AD456700C97A23 /* Member.swift */; };
+		27AA027A23AD456800C97A23 /* DataType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AA027623AD456800C97A23 /* DataType.swift */; };
+		27AA027B23AD456800C97A23 /* Household.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AA027723AD456800C97A23 /* Household.swift */; };
+		27AA027C23AD456800C97A23 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AA027823AD456800C97A23 /* Address.swift */; };
+		27AA027E23AD47C000C97A23 /* DataFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AA027D23AD47C000C97A23 /* DataFetcher.swift */; };
+		27AA028123AD4B9E00C97A23 /* CrudOoperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AA027F23AD4B9E00C97A23 /* CrudOoperation.swift */; };
+		27AA028223AD4B9E00C97A23 /* CollectionName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AA028023AD4B9E00C97A23 /* CollectionName.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +31,14 @@
 		2702B1A723AC0E6C009F0A68 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		2702B1AA23AC0E6C009F0A68 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2702B1AC23AC0E6C009F0A68 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2702B1B223AC0E8A009F0A68 /* PMClient.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PMClient.entitlements; sourceTree = "<group>"; };
+		27AA027523AD456700C97A23 /* Member.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Member.swift; sourceTree = "<group>"; };
+		27AA027623AD456800C97A23 /* DataType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataType.swift; sourceTree = "<group>"; };
+		27AA027723AD456800C97A23 /* Household.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Household.swift; sourceTree = "<group>"; };
+		27AA027823AD456800C97A23 /* Address.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
+		27AA027D23AD47C000C97A23 /* DataFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataFetcher.swift; sourceTree = "<group>"; };
+		27AA027F23AD4B9E00C97A23 /* CrudOoperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CrudOoperation.swift; sourceTree = "<group>"; };
+		27AA028023AD4B9E00C97A23 /* CollectionName.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionName.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +71,13 @@
 		2702B19D23AC0E6B009F0A68 /* PMClient */ = {
 			isa = PBXGroup;
 			children = (
+				27AA028023AD4B9E00C97A23 /* CollectionName.swift */,
+				27AA027F23AD4B9E00C97A23 /* CrudOoperation.swift */,
+				27AA027823AD456800C97A23 /* Address.swift */,
+				27AA027623AD456800C97A23 /* DataType.swift */,
+				27AA027723AD456800C97A23 /* Household.swift */,
+				27AA027523AD456700C97A23 /* Member.swift */,
+				2702B1B223AC0E8A009F0A68 /* PMClient.entitlements */,
 				2702B19E23AC0E6B009F0A68 /* AppDelegate.swift */,
 				2702B1A023AC0E6B009F0A68 /* SceneDelegate.swift */,
 				2702B1A223AC0E6B009F0A68 /* ContentView.swift */,
@@ -63,6 +85,7 @@
 				2702B1A923AC0E6C009F0A68 /* LaunchScreen.storyboard */,
 				2702B1AC23AC0E6C009F0A68 /* Info.plist */,
 				2702B1A623AC0E6C009F0A68 /* Preview Content */,
+				27AA027D23AD47C000C97A23 /* DataFetcher.swift */,
 			);
 			path = PMClient;
 			sourceTree = "<group>";
@@ -91,6 +114,8 @@
 			dependencies = (
 			);
 			name = PMClient;
+			packageProductDependencies = (
+			);
 			productName = PMClient;
 			productReference = 2702B19B23AC0E6B009F0A68 /* PMClient.app */;
 			productType = "com.apple.product-type.application";
@@ -119,6 +144,8 @@
 				Base,
 			);
 			mainGroup = 2702B19223AC0E6B009F0A68;
+			packageReferences = (
+			);
 			productRefGroup = 2702B19C23AC0E6B009F0A68 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -147,8 +174,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				2702B19F23AC0E6B009F0A68 /* AppDelegate.swift in Sources */,
+				27AA027A23AD456800C97A23 /* DataType.swift in Sources */,
 				2702B1A123AC0E6B009F0A68 /* SceneDelegate.swift in Sources */,
+				27AA027B23AD456800C97A23 /* Household.swift in Sources */,
 				2702B1A323AC0E6B009F0A68 /* ContentView.swift in Sources */,
+				27AA028123AD4B9E00C97A23 /* CrudOoperation.swift in Sources */,
+				27AA028223AD4B9E00C97A23 /* CollectionName.swift in Sources */,
+				27AA027923AD456800C97A23 /* Member.swift in Sources */,
+				27AA027C23AD456800C97A23 /* Address.swift in Sources */,
+				27AA027E23AD47C000C97A23 /* DataFetcher.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,7 +318,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = PMClient/PMClient.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"PMClient/Preview Content\"";
 				DEVELOPMENT_TEAM = KRGB7TX9DU;
 				ENABLE_PREVIEWS = YES;
@@ -295,8 +331,9 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.tyndalesoft.PMClient;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Debug;
 		};
@@ -304,7 +341,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = PMClient/PMClient.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"PMClient/Preview Content\"";
 				DEVELOPMENT_TEAM = KRGB7TX9DU;
 				ENABLE_PREVIEWS = YES;
@@ -315,8 +354,9 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.tyndalesoft.PMClient;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Release;
 		};
