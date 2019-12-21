@@ -9,13 +9,38 @@
 import SwiftUI
 
 struct ContentView: View {
+    var dataFetcher = DataFetcher.sharedInstance
+    
     var body: some View {
-        Text("Hello, World!")
+        HStack {
+            MemberListView()
+         }
+        .environmentObject(dataFetcher)
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+    }
+}
+
+struct MemberListView: View {
+    @EnvironmentObject var dataFetcher: DataFetcher
+    
+    var body: some View {
+        //Text("count: \(dataFetcher.members.count)")
+        List {
+            ForEach(dataFetcher.members, id: \.id) {
+                Text($0.value.fullName())
+            }
+        }
+    }
+}
+
+
+struct MemberListView_Previews: PreviewProvider {
+    static var previews: some View {
+        MemberListView()
     }
 }
