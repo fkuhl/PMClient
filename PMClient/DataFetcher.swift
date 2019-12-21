@@ -35,6 +35,7 @@ class DataFetcher: ObservableObject {
             .map { $0.data }
             .decode(type: [Member].self, decoder: jsonDecoder)
             .replaceError(with: []) //dunno bout this
+            .map { $0.sorted { $0.value.fullName() < $1.value.fullName() } }
             .eraseToAnyPublisher()
         sub = publisher?
             .receive(on: RunLoop.main)
