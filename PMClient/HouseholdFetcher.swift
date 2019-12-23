@@ -10,9 +10,6 @@ import Foundation
 import Combine
 
 class HouseholdFetcher: ObservableObject {
-    private let dataServerHost = "localhost"
-    private let dataServerPort = 8123
-    private let readAllBody = try! jsonEncoder.encode("{}")
     private let fetchingQueue = DispatchQueue(label: "com.tamelea.PMClient.household", qos: .background)
     
     
