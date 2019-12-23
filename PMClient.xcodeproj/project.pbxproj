@@ -17,9 +17,11 @@
 		27AA027A23AD456800C97A23 /* DataType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AA027623AD456800C97A23 /* DataType.swift */; };
 		27AA027B23AD456800C97A23 /* Household.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AA027723AD456800C97A23 /* Household.swift */; };
 		27AA027C23AD456800C97A23 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AA027823AD456800C97A23 /* Address.swift */; };
-		27AA027E23AD47C000C97A23 /* DataFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AA027D23AD47C000C97A23 /* DataFetcher.swift */; };
 		27AA028123AD4B9E00C97A23 /* CrudOoperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AA027F23AD4B9E00C97A23 /* CrudOoperation.swift */; };
 		27AA028223AD4B9E00C97A23 /* CollectionName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AA028023AD4B9E00C97A23 /* CollectionName.swift */; };
+		27C40AC423B10C2400B337A7 /* MemberFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AA027D23AD47C000C97A23 /* MemberFetcher.swift */; };
+		27C40AC723B10CE600B337A7 /* HouseholdFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C40AC523B10CE600B337A7 /* HouseholdFetcher.swift */; };
+		27C40AC823B10CE600B337A7 /* AddressFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C40AC623B10CE600B337A7 /* AddressFetcher.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,9 +38,11 @@
 		27AA027623AD456800C97A23 /* DataType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataType.swift; sourceTree = "<group>"; };
 		27AA027723AD456800C97A23 /* Household.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Household.swift; sourceTree = "<group>"; };
 		27AA027823AD456800C97A23 /* Address.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
-		27AA027D23AD47C000C97A23 /* DataFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataFetcher.swift; sourceTree = "<group>"; };
+		27AA027D23AD47C000C97A23 /* MemberFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberFetcher.swift; sourceTree = "<group>"; };
 		27AA027F23AD4B9E00C97A23 /* CrudOoperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CrudOoperation.swift; sourceTree = "<group>"; };
 		27AA028023AD4B9E00C97A23 /* CollectionName.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionName.swift; sourceTree = "<group>"; };
+		27C40AC523B10CE600B337A7 /* HouseholdFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HouseholdFetcher.swift; sourceTree = "<group>"; };
+		27C40AC623B10CE600B337A7 /* AddressFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddressFetcher.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +75,8 @@
 		2702B19D23AC0E6B009F0A68 /* PMClient */ = {
 			isa = PBXGroup;
 			children = (
+				27C40AC623B10CE600B337A7 /* AddressFetcher.swift */,
+				27C40AC523B10CE600B337A7 /* HouseholdFetcher.swift */,
 				27AA028023AD4B9E00C97A23 /* CollectionName.swift */,
 				27AA027F23AD4B9E00C97A23 /* CrudOoperation.swift */,
 				27AA027823AD456800C97A23 /* Address.swift */,
@@ -85,7 +91,7 @@
 				2702B1A923AC0E6C009F0A68 /* LaunchScreen.storyboard */,
 				2702B1AC23AC0E6C009F0A68 /* Info.plist */,
 				2702B1A623AC0E6C009F0A68 /* Preview Content */,
-				27AA027D23AD47C000C97A23 /* DataFetcher.swift */,
+				27AA027D23AD47C000C97A23 /* MemberFetcher.swift */,
 			);
 			path = PMClient;
 			sourceTree = "<group>";
@@ -173,16 +179,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				27C40AC423B10C2400B337A7 /* MemberFetcher.swift in Sources */,
 				2702B19F23AC0E6B009F0A68 /* AppDelegate.swift in Sources */,
 				27AA027A23AD456800C97A23 /* DataType.swift in Sources */,
+				27C40AC723B10CE600B337A7 /* HouseholdFetcher.swift in Sources */,
 				2702B1A123AC0E6B009F0A68 /* SceneDelegate.swift in Sources */,
 				27AA027B23AD456800C97A23 /* Household.swift in Sources */,
+				27C40AC823B10CE600B337A7 /* AddressFetcher.swift in Sources */,
 				2702B1A323AC0E6B009F0A68 /* ContentView.swift in Sources */,
 				27AA028123AD4B9E00C97A23 /* CrudOoperation.swift in Sources */,
 				27AA028223AD4B9E00C97A23 /* CollectionName.swift in Sources */,
 				27AA027923AD456800C97A23 /* Member.swift in Sources */,
 				27AA027C23AD456800C97A23 /* Address.swift in Sources */,
-				27AA027E23AD47C000C97A23 /* DataFetcher.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

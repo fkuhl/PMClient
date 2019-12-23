@@ -9,7 +9,7 @@
 import Foundation
 import Combine
 
-class DataFetcher: ObservableObject {
+class MemberFetcher: ObservableObject {
     private let dataServerHost = "localhost"
     private let dataServerPort = 8123
     private let readAllBody = try! jsonEncoder.encode("{}")
@@ -23,7 +23,7 @@ class DataFetcher: ObservableObject {
 
     // MARK: - Singleton
     
-    public static let sharedInstance = DataFetcher()
+    public static let sharedInstance = MemberFetcher()
     private init() {}
     
     func fetch() {
@@ -47,29 +47,5 @@ class DataFetcher: ObservableObject {
         sub = publisher?
             .receive(on: RunLoop.main)
             .assign(to: \.members, on: self)
-//            .sink(receiveValue: { members in
-//                NSLog("sunk update of \(members.count) members")
-//            })
-        
-//        let task = URLSession.shared.dataTask(with: request) { data, response, error in
-//            if let error = error {
-//                NSLog("error on call: \(error)")
-//                return
-//            }
-//            //could check HTTP status too
-//            //check mime type?
-//            guard data != nil else {
-//                NSLog("no data returned")
-//                return
-//            }
-//            do {
-//                self.members = try jsonDecoder.decode([Member].self, from: data!)
-//                NSLog("succeded with \(self.members.count) Members")
-//            } catch {
-//                NSLog("error decoding response: \(error.localizedDescription)")
-//                return
-//            }
-//        }
-//        task.resume()
     }
 }

@@ -9,13 +9,17 @@
 import SwiftUI
 
 struct ContentView: View {
-    var dataFetcher = DataFetcher.sharedInstance
+    var memberFetcher = MemberFetcher.sharedInstance
+    var householdFetcher = HouseholdFetcher.sharedInstance
+    var addressFetcher = AddressFetcher.sharedInstance
     
     var body: some View {
         HStack {
             MemberListView()
          }
-        .environmentObject(dataFetcher)
+        .environmentObject(memberFetcher)
+        .environmentObject(householdFetcher)
+        .environmentObject(addressFetcher)
     }
 }
 
@@ -26,12 +30,12 @@ struct ContentView_Previews: PreviewProvider {
 }
 
 struct MemberListView: View {
-    @EnvironmentObject var dataFetcher: DataFetcher
+    @EnvironmentObject var memberFetcher: MemberFetcher
     
     var body: some View {
         //Text("count: \(dataFetcher.members.count)")
         List {
-            ForEach(dataFetcher.members, id: \.id) {
+            ForEach(memberFetcher.members, id: \.id) {
                 Text($0.value.fullName())
             }
         }
