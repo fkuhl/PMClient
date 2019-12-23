@@ -33,11 +33,11 @@ class AddressFetcher: ObservableObject {
     }
     
     func loadData() {
-        let url = URL(string: "http://\(dataServerHost):\(dataServerPort)/\(CollectionName.addresses.rawValue)/\(CrudOperation.readAll.rawValue)")!
+        let url = DataFetcher.url(forCollection: .addresses, operation: .readAll)
         var request = URLRequest(url: url)
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.httpMethod = "POST"
-        request.httpBody = readAllBody
+        request.httpBody = DataFetcher.readAllBody
         publisher = URLSession.shared.dataTaskPublisher(for: request)
             .map { $0.data }  //discard HTTP error return
             .decode(type: [Address].self, decoder: jsonDecoder)

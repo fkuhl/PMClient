@@ -12,11 +12,29 @@ struct ContentView: View {
     var memberFetcher = MemberFetcher.sharedInstance
     var householdFetcher = HouseholdFetcher.sharedInstance
     var addressFetcher = AddressFetcher.sharedInstance
-    
+    @State private var selection = 0
+
     var body: some View {
-        HStack {
-            MemberListView()
-         }
+        TabView(selection: $selection) {
+            MemberView()
+                .font(.title)
+                .tabItem {
+                    VStack {
+                        Image(systemName: "person.2.fill")
+                        Text("Members")
+                    }
+            }
+            .tag(0)
+            HouseholdView()
+                .font(.title)
+                .tabItem {
+                    VStack {
+                        Image(systemName: "house.fill")
+                        Text("Households")
+                    }
+            }
+            .tag(1)
+        }
         .environmentObject(memberFetcher)
         .environmentObject(householdFetcher)
         .environmentObject(addressFetcher)
@@ -26,25 +44,5 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
-    }
-}
-
-struct MemberListView: View {
-    @EnvironmentObject var memberFetcher: MemberFetcher
-    
-    var body: some View {
-        //Text("count: \(dataFetcher.members.count)")
-        List {
-            ForEach(memberFetcher.members, id: \.id) {
-                Text($0.value.fullName())
-            }
-        }
-    }
-}
-
-
-struct MemberListView_Previews: PreviewProvider {
-    static var previews: some View {
-        MemberListView()
     }
 }

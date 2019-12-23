@@ -1,5 +1,5 @@
 //
-//  DataFetcher.swift
+//  MemberFetcher.swift
 //  PMClient
 //
 //  Created by Frederick Kuhl on 12/20/19.
@@ -10,9 +10,6 @@ import Foundation
 import Combine
 
 class MemberFetcher: ObservableObject {
-    private let dataServerHost = "localhost"
-    private let dataServerPort = 8123
-    private let readAllBody = try! jsonEncoder.encode("{}")
     private let fetchingQueue = DispatchQueue(label: "com.tamelea.PMClient.member", qos: .background)
     
     
@@ -33,11 +30,10 @@ class MemberFetcher: ObservableObject {
     }
     
     func loadData() {
-        let url = URL(string: "http://\(dataServerHost):\(dataServerPort)/\(CollectionName.members.rawValue)/\(CrudOperation.readAll.rawValue)")!
-        var request = URLRequest(url: url)
+        var request = URLRequest(url: DataFetcher.url(forCollection: .members, operation: .readAll))
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.httpMethod = "POST"
-        request.httpBody = readAllBody
+        request.httpBody = DataFetcher.readAllBody
         publisher = URLSession.shared.dataTaskPublisher(for: request)
             .map { $0.data }  //discard HTTP error return
             .decode(type: [Member].self, decoder: jsonDecoder)
