@@ -13,9 +13,15 @@ class HouseholdFetcher: ObservableObject {
     private let fetchingQueue = DispatchQueue(label: "com.tamelea.PMClient.household", qos: .background)
     
     
-    @Published public var households = [Household]()
+    @Published public var households = [Household]() {
+        didSet {
+            AddressFetcher.sharedInstance.fetch()
+        }
+    }
+    
     //these need to be ivars, so they don't go out of scope!
     private var publisher: AnyPublisher<[Household], Never>? = nil
+    private var pub2: AnyPublisher<[Household], Never>? = nil
     private var sub: Cancellable? = nil
 
     // MARK: - Singleton
@@ -39,13 +45,13 @@ class HouseholdFetcher: ObservableObject {
             .map { $0.data }  //discard HTTP error return
             .decode(type: [Household].self, decoder: jsonDecoder)
             .replaceError(with: []) //dunno bout this
-            //.map { $0.sorted { $0.value.fullName() < $1.value.fullName() } }
+            .map { $0.sorted { /*print("n0: \($0.value.name()) n1: \($1.value.name())");*/ return $0.value.name() < $1.value.name() } }
             .eraseToAnyPublisher()
         sub = publisher?
             .receive(on: RunLoop.main)
-        .sink(receiveValue: {
-            NSLog("fetched \($0.count) households")
-        })
-        //.assign(to: \.households, on: self)
+            .assign(to: \.households, on: self)
+        //        .sink(receiveValue: {
+        //            NSLog("fetched \($0.count) households")
+        //        })
     }
 }

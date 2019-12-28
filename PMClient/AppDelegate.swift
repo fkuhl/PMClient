@@ -16,9 +16,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
 
+        //Start chain of fetching Members, Households, Addresses
         MemberFetcher.sharedInstance.fetch()
-        HouseholdFetcher.sharedInstance.fetch()
-        AddressFetcher.sharedInstance.fetch()
         return true
     }
 

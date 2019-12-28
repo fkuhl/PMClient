@@ -22,7 +22,7 @@ struct MemberView: View {
                     Text("Active Members").tag(1)
                 }).pickerStyle(SegmentedPickerStyle())
             List {
-                ForEach(allOrActive == 0 ? memberFetcher.members : memberFetcher.members.filter { $0.value.status.isActive() }, id: \.id) {
+                ForEach(allOrActive == 0 ? memberFetcher.members : memberFetcher.activeMembers, id: \.id) {
                     Text($0.value.fullName())
                 }
             }

@@ -13,27 +13,23 @@ struct ContentView: View {
     var householdFetcher = HouseholdFetcher.sharedInstance
     var addressFetcher = AddressFetcher.sharedInstance
     @State private var selection = 0
-
+    
     var body: some View {
         TabView(selection: $selection) {
             MemberView()
                 .font(.title)
                 .tabItem {
-                    VStack {
-                        Image(systemName: "person.2.fill")
-                        Text("Members")
-                    }
-            }
-            .tag(0)
+                    Image(systemName: "person.2.fill")
+                    Text("Members")
+                }
+                .tag(0)
             HouseholdView()
                 .font(.title)
                 .tabItem {
-                    VStack {
-                        Image(systemName: "house.fill")
-                        Text("Households")
-                    }
-            }
-            .tag(1)
+                    Image(systemName: "house.fill")
+                    Text("Households")
+                }
+                .tag(1)
         }
         .environmentObject(memberFetcher)
         .environmentObject(householdFetcher)

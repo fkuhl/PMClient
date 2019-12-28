@@ -12,8 +12,18 @@ import Combine
 class MemberFetcher: ObservableObject {
     private let fetchingQueue = DispatchQueue(label: "com.tamelea.PMClient.member", qos: .background)
     
+    @Published public var members = [Member]() {
+        didSet {
+            activeMembers = members.filter { $0.value.status.isActive() }
+            membersById = [Id : Member]()
+            for member in members { membersById[member.id] = member }
+            HouseholdFetcher.sharedInstance.fetch()
+}
+    }
+    public var activeMembers = [Member]()
+    public var membersById = [Id : Member]()
     
-    @Published public var members = [Member]()
+    
     //these need to be ivars, so they don't go out of scope!
     private var publisher: AnyPublisher<[Member], Never>? = nil
     private var sub: Cancellable? = nil

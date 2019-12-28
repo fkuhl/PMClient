@@ -42,9 +42,9 @@ class AddressFetcher: ObservableObject {
             .eraseToAnyPublisher()
         sub = publisher?
             .receive(on: RunLoop.main)
-        .sink(receiveValue: {
-            NSLog("fetched \($0.count) addresses")
-        })
-            //.assign(to: \.addresses, on: self)
+            .assign(to: \.addresses, on: self)
+//        .sink(receiveValue: {
+//            NSLog("fetched \($0.count) addresses")
+//        })
     }
 }

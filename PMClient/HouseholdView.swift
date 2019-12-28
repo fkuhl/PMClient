@@ -9,8 +9,15 @@
 import SwiftUI
 
 struct HouseholdView: View {
+    @EnvironmentObject var householdFetcher: HouseholdFetcher
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            List {
+                ForEach(householdFetcher.households, id: \.id) {
+                    Text($0.value.name())
+                }
+            }
+        }
     }
 }
 
