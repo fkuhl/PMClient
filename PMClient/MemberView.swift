@@ -31,8 +31,9 @@ struct MemberView: View {
 }
 
 
+
 struct MemberView_Previews: PreviewProvider {
     static var previews: some View {
-        MemberView()
+        MemberView().environmentObject(MemberFetcher.mockedInstance)
     }
 }

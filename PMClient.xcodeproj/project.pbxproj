@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2700229323B7EA3F009EF8EE /* MockedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2700229223B7EA3E009EF8EE /* MockedData.swift */; };
 		2702B19F23AC0E6B009F0A68 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2702B19E23AC0E6B009F0A68 /* AppDelegate.swift */; };
 		2702B1A123AC0E6B009F0A68 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2702B1A023AC0E6B009F0A68 /* SceneDelegate.swift */; };
 		2702B1A323AC0E6B009F0A68 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2702B1A223AC0E6B009F0A68 /* ContentView.swift */; };
@@ -28,6 +29,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2700229223B7EA3E009EF8EE /* MockedData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockedData.swift; sourceTree = "<group>"; };
 		2702B19B23AC0E6B009F0A68 /* PMClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PMClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2702B19E23AC0E6B009F0A68 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2702B1A023AC0E6B009F0A68 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -101,6 +103,7 @@
 				2702B1B223AC0E8A009F0A68 /* PMClient.entitlements */,
 				2702B1A623AC0E6C009F0A68 /* Preview Content */,
 				2702B1A023AC0E6B009F0A68 /* SceneDelegate.swift */,
+				2700229223B7EA3E009EF8EE /* MockedData.swift */,
 			);
 			path = PMClient;
 			sourceTree = "<group>";
@@ -196,6 +199,7 @@
 				27C40ACC23B1631800B337A7 /* HouseholdView.swift in Sources */,
 				27C40AC723B10CE600B337A7 /* HouseholdFetcher.swift in Sources */,
 				2702B1A123AC0E6B009F0A68 /* SceneDelegate.swift in Sources */,
+				2700229323B7EA3F009EF8EE /* MockedData.swift in Sources */,
 				27AA027B23AD456800C97A23 /* Household.swift in Sources */,
 				27C40AC823B10CE600B337A7 /* AddressFetcher.swift in Sources */,
 				2702B1A323AC0E6B009F0A68 /* ContentView.swift in Sources */,

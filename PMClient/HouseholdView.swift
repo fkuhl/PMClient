@@ -23,6 +23,6 @@ struct HouseholdView: View {
 
 struct HouseholdView_Previews: PreviewProvider {
     static var previews: some View {
-        HouseholdView()
+        HouseholdView().environmentObject(HouseholdFetcher.mockedInstance)
     }
 }

@@ -28,6 +28,10 @@ class HouseholdFetcher: ObservableObject {
     
     public static let sharedInstance = HouseholdFetcher()
     private init() {}
+    public static let mockedInstance = HouseholdFetcher(households: [household0])
+    private init(households: [Household]) {
+        self.households = households
+    }
     
     func fetch() {
         fetchingQueue.async {

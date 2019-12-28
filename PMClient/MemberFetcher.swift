@@ -32,7 +32,13 @@ class MemberFetcher: ObservableObject {
     
     public static let sharedInstance = MemberFetcher()
     private init() {}
-    
+    public static let mockedInstance = MemberFetcher(members: [member1, member2])
+    private init(members: [Member]) {
+        self.members = members
+        self.activeMembers = members
+        self.membersById = ["1": member1, "2": member2 ]
+    }
+
     func fetch() {
         fetchingQueue.async {
             self.loadData()
