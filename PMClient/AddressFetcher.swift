@@ -13,7 +13,14 @@ class AddressFetcher: ObservableObject {
     private let fetchingQueue = DispatchQueue(label: "com.tamelea.PMClient.address", qos: .background)
     
     
-    @Published public var addresses = [Address]()
+    @Published public var addresses = [Address]() {
+        didSet {
+            addressesById = [Id : Address]()
+            for address in addresses { addressesById[address.id] = address }
+        }
+    }
+    public var addressesById = [Id : Address]()
+    
     //these need to be ivars, so they don't go out of scope!
     private var publisher: AnyPublisher<[Address], Never>? = nil
     private var sub: Cancellable? = nil

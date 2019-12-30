@@ -15,14 +15,27 @@ class HouseholdFetcher: ObservableObject {
     
     @Published public var households = [Household]() {
         didSet {
+            householdsById = [Id : Household]()
+            for household in households { householdsById[household.id] = household }
             AddressFetcher.sharedInstance.fetch()
+            checkTheHeadless()
         }
     }
+    public var householdsById = [Id : Household]()
     
     //these need to be ivars, so they don't go out of scope!
     private var publisher: AnyPublisher<[Household], Never>? = nil
-    private var pub2: AnyPublisher<[Household], Never>? = nil
     private var sub: Cancellable? = nil
+    
+    private func checkTheHeadless() {
+        let headless = households.filter { $0.value.head == nil }
+        for household in headless {
+            print("hdls: \(String(data: try! jsonEncoder.encode(household), encoding: .utf8) ?? "bad data")")
+        }
+        let headlessIds = headless.map { $0.id }
+        let referrers = MemberFetcher.sharedInstance.members.filter { headlessIds.contains($0.value.household) }
+        for member in referrers { print("ref: \(member.value.fullName())")}
+    }
 
     // MARK: - Singleton
     
