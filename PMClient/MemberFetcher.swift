@@ -8,6 +8,7 @@
 
 import Foundation
 import Combine
+import PMDataTypes
 
 class MemberFetcher: ObservableObject {
     private let fetchingQueue = DispatchQueue(label: "com.tamelea.PMClient.member", qos: .background)

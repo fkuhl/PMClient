@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import PMDataTypes
 
 class DataFetcher {
     private static let dataServerHost = "localhost"
