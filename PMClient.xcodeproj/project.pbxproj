@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,12 +14,8 @@
 		2702B1A523AC0E6C009F0A68 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2702B1A423AC0E6C009F0A68 /* Assets.xcassets */; };
 		2702B1A823AC0E6C009F0A68 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2702B1A723AC0E6C009F0A68 /* Preview Assets.xcassets */; };
 		2702B1AB23AC0E6C009F0A68 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2702B1A923AC0E6C009F0A68 /* LaunchScreen.storyboard */; };
-		27AA027923AD456800C97A23 /* Member.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AA027523AD456700C97A23 /* Member.swift */; };
-		27AA027A23AD456800C97A23 /* DataType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AA027623AD456800C97A23 /* DataType.swift */; };
-		27AA027B23AD456800C97A23 /* Household.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AA027723AD456800C97A23 /* Household.swift */; };
-		27AA027C23AD456800C97A23 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AA027823AD456800C97A23 /* Address.swift */; };
-		27AA028123AD4B9E00C97A23 /* CrudOoperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AA027F23AD4B9E00C97A23 /* CrudOoperation.swift */; };
-		27AA028223AD4B9E00C97A23 /* CollectionName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AA028023AD4B9E00C97A23 /* CollectionName.swift */; };
+		2738F67923BAA0C300B86A3E /* HouseholdValue+name.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2738F67823BAA0C300B86A3E /* HouseholdValue+name.swift */; };
+		2738F68123BAAEC900B86A3E /* PMDataTypes in Frameworks */ = {isa = PBXBuildFile; productRef = 2738F68023BAAEC900B86A3E /* PMDataTypes */; };
 		27C40AC423B10C2400B337A7 /* MemberFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AA027D23AD47C000C97A23 /* MemberFetcher.swift */; };
 		27C40AC723B10CE600B337A7 /* HouseholdFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C40AC523B10CE600B337A7 /* HouseholdFetcher.swift */; };
 		27C40AC823B10CE600B337A7 /* AddressFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C40AC623B10CE600B337A7 /* AddressFetcher.swift */; };
@@ -39,13 +35,8 @@
 		2702B1AA23AC0E6C009F0A68 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2702B1AC23AC0E6C009F0A68 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2702B1B223AC0E8A009F0A68 /* PMClient.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PMClient.entitlements; sourceTree = "<group>"; };
-		27AA027523AD456700C97A23 /* Member.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Member.swift; sourceTree = "<group>"; };
-		27AA027623AD456800C97A23 /* DataType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataType.swift; sourceTree = "<group>"; };
-		27AA027723AD456800C97A23 /* Household.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Household.swift; sourceTree = "<group>"; };
-		27AA027823AD456800C97A23 /* Address.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
+		2738F67823BAA0C300B86A3E /* HouseholdValue+name.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HouseholdValue+name.swift"; sourceTree = "<group>"; };
 		27AA027D23AD47C000C97A23 /* MemberFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberFetcher.swift; sourceTree = "<group>"; };
-		27AA027F23AD4B9E00C97A23 /* CrudOoperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CrudOoperation.swift; sourceTree = "<group>"; };
-		27AA028023AD4B9E00C97A23 /* CollectionName.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionName.swift; sourceTree = "<group>"; };
 		27C40AC523B10CE600B337A7 /* HouseholdFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HouseholdFetcher.swift; sourceTree = "<group>"; };
 		27C40AC623B10CE600B337A7 /* AddressFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddressFetcher.swift; sourceTree = "<group>"; };
 		27C40AC923B1628800B337A7 /* MemberView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberView.swift; sourceTree = "<group>"; };
@@ -58,6 +49,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2738F68123BAAEC900B86A3E /* PMDataTypes in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -69,6 +61,7 @@
 			children = (
 				2702B19D23AC0E6B009F0A68 /* PMClient */,
 				2702B19C23AC0E6B009F0A68 /* Products */,
+				2738F67F23BAAEC800B86A3E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -83,27 +76,22 @@
 		2702B19D23AC0E6B009F0A68 /* PMClient */ = {
 			isa = PBXGroup;
 			children = (
-				27AA027823AD456800C97A23 /* Address.swift */,
 				27C40AC623B10CE600B337A7 /* AddressFetcher.swift */,
 				2702B19E23AC0E6B009F0A68 /* AppDelegate.swift */,
 				2702B1A423AC0E6C009F0A68 /* Assets.xcassets */,
-				27AA028023AD4B9E00C97A23 /* CollectionName.swift */,
 				2702B1A223AC0E6B009F0A68 /* ContentView.swift */,
-				27AA027F23AD4B9E00C97A23 /* CrudOoperation.swift */,
 				27C40ACD23B1678300B337A7 /* DataFetcher.swift */,
-				27AA027623AD456800C97A23 /* DataType.swift */,
-				27AA027723AD456800C97A23 /* Household.swift */,
 				27C40AC523B10CE600B337A7 /* HouseholdFetcher.swift */,
 				27C40ACB23B1631800B337A7 /* HouseholdView.swift */,
 				2702B1AC23AC0E6C009F0A68 /* Info.plist */,
 				2702B1A923AC0E6C009F0A68 /* LaunchScreen.storyboard */,
-				27AA027523AD456700C97A23 /* Member.swift */,
 				27AA027D23AD47C000C97A23 /* MemberFetcher.swift */,
 				27C40AC923B1628800B337A7 /* MemberView.swift */,
 				2702B1B223AC0E8A009F0A68 /* PMClient.entitlements */,
 				2702B1A623AC0E6C009F0A68 /* Preview Content */,
 				2702B1A023AC0E6B009F0A68 /* SceneDelegate.swift */,
 				2700229223B7EA3E009EF8EE /* MockedData.swift */,
+				2738F67823BAA0C300B86A3E /* HouseholdValue+name.swift */,
 			);
 			path = PMClient;
 			sourceTree = "<group>";
@@ -114,6 +102,13 @@
 				2702B1A723AC0E6C009F0A68 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		2738F67F23BAAEC800B86A3E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -133,6 +128,7 @@
 			);
 			name = PMClient;
 			packageProductDependencies = (
+				2738F68023BAAEC900B86A3E /* PMDataTypes */,
 			);
 			productName = PMClient;
 			productReference = 2702B19B23AC0E6B009F0A68 /* PMClient.app */;
@@ -163,6 +159,7 @@
 			);
 			mainGroup = 2702B19223AC0E6B009F0A68;
 			packageReferences = (
+				2738F67C23BAA68B00B86A3E /* XCRemoteSwiftPackageReference "PMDataTypes" */,
 			);
 			productRefGroup = 2702B19C23AC0E6B009F0A68 /* Products */;
 			projectDirPath = "";
@@ -195,18 +192,13 @@
 				27C40ACA23B1628800B337A7 /* MemberView.swift in Sources */,
 				27C40AC423B10C2400B337A7 /* MemberFetcher.swift in Sources */,
 				2702B19F23AC0E6B009F0A68 /* AppDelegate.swift in Sources */,
-				27AA027A23AD456800C97A23 /* DataType.swift in Sources */,
 				27C40ACC23B1631800B337A7 /* HouseholdView.swift in Sources */,
 				27C40AC723B10CE600B337A7 /* HouseholdFetcher.swift in Sources */,
 				2702B1A123AC0E6B009F0A68 /* SceneDelegate.swift in Sources */,
 				2700229323B7EA3F009EF8EE /* MockedData.swift in Sources */,
-				27AA027B23AD456800C97A23 /* Household.swift in Sources */,
 				27C40AC823B10CE600B337A7 /* AddressFetcher.swift in Sources */,
+				2738F67923BAA0C300B86A3E /* HouseholdValue+name.swift in Sources */,
 				2702B1A323AC0E6B009F0A68 /* ContentView.swift in Sources */,
-				27AA028123AD4B9E00C97A23 /* CrudOoperation.swift in Sources */,
-				27AA028223AD4B9E00C97A23 /* CollectionName.swift in Sources */,
-				27AA027923AD456800C97A23 /* Member.swift in Sources */,
-				27AA027C23AD456800C97A23 /* Address.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -406,6 +398,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		2738F67C23BAA68B00B86A3E /* XCRemoteSwiftPackageReference "PMDataTypes" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@github.com:fkuhl/PMDataTypes.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		2738F68023BAAEC900B86A3E /* PMDataTypes */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2738F67C23BAA68B00B86A3E /* XCRemoteSwiftPackageReference "PMDataTypes" */;
+			productName = PMDataTypes;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 2702B19323AC0E6B009F0A68 /* Project object */;
 }

@@ -17,15 +17,5 @@ struct HouseholdValue: ValueType {
     var spouse: Id?
     var others: [Id]
     var address: Id
-
-    func name() -> String {
-        guard let head = head else {
-            return "<no head>"
-        }
-        guard let member  = MemberFetcher.sharedInstance.membersById[head] else {
-            return "<no member among \(MemberFetcher.sharedInstance.membersById.count)>"
-        }
-        return member.value.fullName()
-    }
 }
 

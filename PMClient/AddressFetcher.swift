@@ -8,6 +8,7 @@
 
 import Foundation
 import Combine
+import PMDataTypes
 
 class AddressFetcher: ObservableObject {
     private let fetchingQueue = DispatchQueue(label: "com.tamelea.PMClient.address", qos: .background)
