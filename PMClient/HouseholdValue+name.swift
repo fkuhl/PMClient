@@ -11,9 +11,6 @@ import PMDataTypes
 
 extension HouseholdValue {
     func name() -> String {
-        guard let head = head else {
-            return "<no head>"
-        }
         guard let member  = MemberFetcher.sharedInstance.membersById[head] else {
             return "<no member among \(MemberFetcher.sharedInstance.membersById.count)>"
         }
