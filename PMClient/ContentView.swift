@@ -30,6 +30,13 @@ struct ContentView: View {
                     Text("Households")
                 }
                 .tag(1)
+            DataCheckerView()
+                .font(.title)
+                .tabItem {
+                    Image(systemName: "text.badge.checkmark")
+                    Text("Check Data")
+                }
+                .tag(2)
         }
         .environmentObject(memberFetcher)
         .environmentObject(householdFetcher)

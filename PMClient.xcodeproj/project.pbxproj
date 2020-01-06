@@ -15,7 +15,8 @@
 		2702B1A823AC0E6C009F0A68 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2702B1A723AC0E6C009F0A68 /* Preview Assets.xcassets */; };
 		2702B1AB23AC0E6C009F0A68 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2702B1A923AC0E6C009F0A68 /* LaunchScreen.storyboard */; };
 		2738F67923BAA0C300B86A3E /* HouseholdValue+name.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2738F67823BAA0C300B86A3E /* HouseholdValue+name.swift */; };
-		2738F68123BAAEC900B86A3E /* PMDataTypes in Frameworks */ = {isa = PBXBuildFile; productRef = 2738F68023BAAEC900B86A3E /* PMDataTypes */; };
+		2776DDC323BD2D5900F0CE04 /* DataCheckerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2776DDC223BD2D5900F0CE04 /* DataCheckerView.swift */; };
+		27ADA23123C3D1EF0011053F /* PMDataTypes in Frameworks */ = {isa = PBXBuildFile; productRef = 27ADA23023C3D1EF0011053F /* PMDataTypes */; };
 		27C40AC423B10C2400B337A7 /* MemberFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AA027D23AD47C000C97A23 /* MemberFetcher.swift */; };
 		27C40AC723B10CE600B337A7 /* HouseholdFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C40AC523B10CE600B337A7 /* HouseholdFetcher.swift */; };
 		27C40AC823B10CE600B337A7 /* AddressFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C40AC623B10CE600B337A7 /* AddressFetcher.swift */; };
@@ -36,6 +37,7 @@
 		2702B1AC23AC0E6C009F0A68 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2702B1B223AC0E8A009F0A68 /* PMClient.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PMClient.entitlements; sourceTree = "<group>"; };
 		2738F67823BAA0C300B86A3E /* HouseholdValue+name.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HouseholdValue+name.swift"; sourceTree = "<group>"; };
+		2776DDC223BD2D5900F0CE04 /* DataCheckerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataCheckerView.swift; sourceTree = "<group>"; };
 		27AA027D23AD47C000C97A23 /* MemberFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberFetcher.swift; sourceTree = "<group>"; };
 		27C40AC523B10CE600B337A7 /* HouseholdFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HouseholdFetcher.swift; sourceTree = "<group>"; };
 		27C40AC623B10CE600B337A7 /* AddressFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddressFetcher.swift; sourceTree = "<group>"; };
@@ -49,7 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2738F68123BAAEC900B86A3E /* PMDataTypes in Frameworks */,
+				27ADA23123C3D1EF0011053F /* PMDataTypes in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -92,6 +94,7 @@
 				2702B1A023AC0E6B009F0A68 /* SceneDelegate.swift */,
 				2700229223B7EA3E009EF8EE /* MockedData.swift */,
 				2738F67823BAA0C300B86A3E /* HouseholdValue+name.swift */,
+				2776DDC223BD2D5900F0CE04 /* DataCheckerView.swift */,
 			);
 			path = PMClient;
 			sourceTree = "<group>";
@@ -128,7 +131,7 @@
 			);
 			name = PMClient;
 			packageProductDependencies = (
-				2738F68023BAAEC900B86A3E /* PMDataTypes */,
+				27ADA23023C3D1EF0011053F /* PMDataTypes */,
 			);
 			productName = PMClient;
 			productReference = 2702B19B23AC0E6B009F0A68 /* PMClient.app */;
@@ -159,7 +162,7 @@
 			);
 			mainGroup = 2702B19223AC0E6B009F0A68;
 			packageReferences = (
-				2738F67C23BAA68B00B86A3E /* XCRemoteSwiftPackageReference "PMDataTypes" */,
+				27ADA22F23C3D1EF0011053F /* XCRemoteSwiftPackageReference "PMDataTypes" */,
 			);
 			productRefGroup = 2702B19C23AC0E6B009F0A68 /* Products */;
 			projectDirPath = "";
@@ -194,6 +197,7 @@
 				2702B19F23AC0E6B009F0A68 /* AppDelegate.swift in Sources */,
 				27C40ACC23B1631800B337A7 /* HouseholdView.swift in Sources */,
 				27C40AC723B10CE600B337A7 /* HouseholdFetcher.swift in Sources */,
+				2776DDC323BD2D5900F0CE04 /* DataCheckerView.swift in Sources */,
 				2702B1A123AC0E6B009F0A68 /* SceneDelegate.swift in Sources */,
 				2700229323B7EA3F009EF8EE /* MockedData.swift in Sources */,
 				27C40AC823B10CE600B337A7 /* AddressFetcher.swift in Sources */,
@@ -400,9 +404,9 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		2738F67C23BAA68B00B86A3E /* XCRemoteSwiftPackageReference "PMDataTypes" */ = {
+		27ADA22F23C3D1EF0011053F /* XCRemoteSwiftPackageReference "PMDataTypes" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "git@github.com:fkuhl/PMDataTypes.git";
+			repositoryURL = "file:///Users/fkuhl/Documents/workspace/pm-http/pm-data-types/PMDataTypes";
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 2.0.0;
@@ -411,9 +415,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		2738F68023BAAEC900B86A3E /* PMDataTypes */ = {
+		27ADA23023C3D1EF0011053F /* PMDataTypes */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 2738F67C23BAA68B00B86A3E /* XCRemoteSwiftPackageReference "PMDataTypes" */;
+			package = 27ADA22F23C3D1EF0011053F /* XCRemoteSwiftPackageReference "PMDataTypes" */;
 			productName = PMDataTypes;
 		};
 /* End XCSwiftPackageProductDependency section */
