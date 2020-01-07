@@ -16,6 +16,7 @@ class HouseholdFetcher: ObservableObject {
     
     @Published public var households = [Household]() {
         didSet {
+            NSLog("fetched \(households.count) Households")
             householdsById = [Id : Household]()
             for household in households { householdsById[household.id] = household }
             AddressFetcher.sharedInstance.fetch()

@@ -15,6 +15,7 @@ class MemberFetcher: ObservableObject {
     
     @Published public var members = [Member]() {
         didSet {
+            NSLog("fetched \(members.count) Members")
             activeMembers = members.filter { $0.value.status.isActive() }
             membersById = [Id : Member]()
             for member in members { membersById[member.id] = member }
@@ -52,9 +53,17 @@ class MemberFetcher: ObservableObject {
         request.httpMethod = "POST"
         request.httpBody = DataFetcher.readAllBody
         publisher = URLSession.shared.dataTaskPublisher(for: request)
+            .mapError { error -> URLError in
+                NSLog("error fetching members: \(error.localizedDescription)")
+                return error
+            }
             .map { $0.data }  //discard HTTP error return
             .decode(type: [Member].self, decoder: jsonDecoder)
-            .replaceError(with: []) //dunno bout this
+            .mapError { error -> Error in
+                NSLog("decoding error fetching Members: \(error.localizedDescription)")
+                return error
+            }
+            .replaceError(with: []) //return empty array on decode error
             .map { $0.sorted { $0.value.fullName() < $1.value.fullName() } }
             .eraseToAnyPublisher()
         sub = publisher?
