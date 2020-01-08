@@ -27,7 +27,7 @@ class MemberFetcher: ObservableObject {
     
     
     //these need to be ivars, so they don't go out of scope!
-    private var publisher: AnyPublisher<[Member], Never>? = nil
+    private var publisher: AnyPublisher<[Member], CallError>? = nil
     private var sub: Cancellable? = nil
 
     // MARK: - Singleton
@@ -53,21 +53,57 @@ class MemberFetcher: ObservableObject {
         request.httpMethod = "POST"
         request.httpBody = DataFetcher.readAllBody
         publisher = URLSession.shared.dataTaskPublisher(for: request)
-            .mapError { error -> URLError in
-                NSLog("error fetching members: \(error.localizedDescription)")
-                return error
+            .tryMap {
+                data, response in
+                guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
+                    do {
+                        let log = String(data: data, encoding: .utf8)
+                        NSLog("err resp: \(log ?? "nada")")
+                        let errorResponse = try jsonDecoder.decode(ErrorResponse.self, from: data)
+                        throw CallError(errorString: errorResponse.error, reason: errorResponse.response)
+                    } catch {
+                        throw CallError(errorString: error.localizedDescription, reason: "failed to decode error response")
+                    }
+                }
+                do {
+                    let members = try jsonDecoder.decode([Member].self, from: data)
+                    return members
+                } catch {
+                    throw CallError(errorString: error.localizedDescription, reason: "decode of [Member] failed")
+                }
             }
-            .map { $0.data }  //discard HTTP error return
-            .decode(type: [Member].self, decoder: jsonDecoder)
-            .mapError { error -> Error in
-                NSLog("decoding error fetching Members: \(error.localizedDescription)")
-                return error
+            .mapError {
+                error in
+                if let error = error as? CallError { return error }
+                else { return CallError(errorString: error.localizedDescription, reason: "some unk err")}
             }
-            .replaceError(with: []) //return empty array on decode error
-            .map { $0.sorted { $0.value.fullName() < $1.value.fullName() } }
+//            .map { $0.data }  //discard HTTP error return
+//            .decode(type: [Member].self, decoder: jsonDecoder)
+//            .mapError { error -> Error in
+//                NSLog("decoding error fetching Members: \(error.localizedDescription)")
+//                return error
+//            }
+//            .replaceError(with: []) //return empty array on decode error
+//            .map { $0.sorted { $0.value.fullName() < $1.value.fullName() } }
             .eraseToAnyPublisher()
         sub = publisher?
             .receive(on: RunLoop.main)
-            .assign(to: \.members, on: self)
+            .sink(receiveCompletion: { completion in
+                switch completion {
+                case .finished:
+                    break
+                case .failure(let error /*as CallError*/):
+                    NSLog("call failure, err: \(error.errorString), response: \(error.reason)")
+                    //TODO: error handling for UI
+                }
+            }, receiveValue: { members in
+                let sorted = members.sorted { $0.value.fullName() < $1.value.fullName() }
+                self.members = sorted
+            })
     }
+}
+
+struct CallError: Error {
+    let errorString: String
+    let reason: String
 }
