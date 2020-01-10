@@ -56,20 +56,17 @@ class MemberFetcher: ObservableObject {
             .tryMap {
                 data, response in
                 guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
-                    do {
-                        let log = String(data: data, encoding: .utf8)
-                        NSLog("err resp: \(log ?? "nada")")
-                        let errorResponse = try jsonDecoder.decode(ErrorResponse.self, from: data)
-                        throw CallError(errorString: errorResponse.error, reason: errorResponse.response)
-                    } catch {
-                        throw CallError(errorString: error.localizedDescription, reason: "failed to decode error response")
-                    }
+                    let log = String(data: data, encoding: .utf8)
+                    NSLog("client got err resp: \(log ?? "nada")")
+                    let errorResponse = try jsonDecoder.decode(ErrorResponse.self, from: data)
+                    NSLog("client decoded err resp, err: \(errorResponse.error), response: \(errorResponse.response)")
+                    throw CallError(errorString: errorResponse.error, reason: errorResponse.response)
                 }
                 do {
                     let members = try jsonDecoder.decode([Member].self, from: data)
                     return members
                 } catch {
-                    throw CallError(errorString: error.localizedDescription, reason: "decode of [Member] failed")
+                    throw CallError(errorString: error.localizedDescription, reason: "client decode of [Member] failed")
                 }
             }
             .mapError {
@@ -92,7 +89,7 @@ class MemberFetcher: ObservableObject {
                 switch completion {
                 case .finished:
                     break
-                case .failure(let error /*as CallError*/):
+                case .failure(let error):
                     NSLog("call failure, err: \(error.errorString), response: \(error.reason)")
                     //TODO: error handling for UI
                 }

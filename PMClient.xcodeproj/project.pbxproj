@@ -23,7 +23,6 @@
 		27C40ACA23B1628800B337A7 /* MemberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C40AC923B1628800B337A7 /* MemberView.swift */; };
 		27C40ACC23B1631800B337A7 /* HouseholdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C40ACB23B1631800B337A7 /* HouseholdView.swift */; };
 		27C40ACE23B1678300B337A7 /* DataFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C40ACD23B1678300B337A7 /* DataFetcher.swift */; };
-		27CFC00423C67DBB00B740D8 /* ErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CFC00323C67DBB00B740D8 /* ErrorResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,7 +44,6 @@
 		27C40AC923B1628800B337A7 /* MemberView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberView.swift; sourceTree = "<group>"; };
 		27C40ACB23B1631800B337A7 /* HouseholdView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseholdView.swift; sourceTree = "<group>"; };
 		27C40ACD23B1678300B337A7 /* DataFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataFetcher.swift; sourceTree = "<group>"; };
-		27CFC00323C67DBB00B740D8 /* ErrorResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,7 +78,6 @@
 		2702B19D23AC0E6B009F0A68 /* PMClient */ = {
 			isa = PBXGroup;
 			children = (
-				27CFC00323C67DBB00B740D8 /* ErrorResponse.swift */,
 				27C40AC623B10CE600B337A7 /* AddressFetcher.swift */,
 				2702B19E23AC0E6B009F0A68 /* AppDelegate.swift */,
 				2702B1A423AC0E6C009F0A68 /* Assets.xcassets */,
@@ -206,7 +203,6 @@
 				27C40AC823B10CE600B337A7 /* AddressFetcher.swift in Sources */,
 				2738F67923BAA0C300B86A3E /* HouseholdValue+name.swift in Sources */,
 				2702B1A323AC0E6B009F0A68 /* ContentView.swift in Sources */,
-				27CFC00423C67DBB00B740D8 /* ErrorResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
