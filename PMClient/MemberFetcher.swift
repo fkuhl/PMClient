@@ -24,14 +24,18 @@ class MemberFetcher: ObservableObject {
     }
     public var activeMembers = [Member]()
     public var membersById = [Id : Member]()
-    
+    public var fetchError: CallError? = nil {
+        didSet {
+            showingAlert = fetchError != nil
+        }
+    }
+    @Published var showingAlert = false
     
     //these need to be ivars, so they don't go out of scope!
     private var publisher: AnyPublisher<[Member], CallError>? = nil
     private var sub: Cancellable? = nil
 
     // MARK: - Singleton
-    
     public static let sharedInstance = MemberFetcher()
     private init() {}
     public static let mockedInstance = MemberFetcher(members: [member1, member2])
@@ -57,11 +61,12 @@ class MemberFetcher: ObservableObject {
                     break
                 case .failure(let error):
                     NSLog("call failure, err: \(error.errorString), response: \(error.reason)")
-                    //TODO: error handling for UI
+                    self.fetchError = error
                 }
             }, receiveValue: { members in
                 let sorted = members.sorted { $0.value.fullName() < $1.value.fullName() }
                 self.members = sorted
+                self.fetchError = nil
             })
     }
 }

@@ -13,7 +13,7 @@ import PMDataTypes
 func readAllPublisher<D: DataType>(collection: CollectionName) -> AnyPublisher<[D], CallError> {
     var request = URLRequest(url: DataFetcher.url(forCollection: collection, operation: .readAll))
     request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-    request.httpMethod = "GET"
+    request.httpMethod = "POST"
     request.httpBody = DataFetcher.readAllBody
     return URLSession.shared.dataTaskPublisher(for: request)
         .tryMap {
