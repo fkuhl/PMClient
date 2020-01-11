@@ -48,41 +48,7 @@ class MemberFetcher: ObservableObject {
     }
     
     func loadData() {
-        var request = URLRequest(url: DataFetcher.url(forCollection: .members, operation: .readAll))
-        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.httpMethod = "POST"
-        request.httpBody = DataFetcher.readAllBody
-        publisher = URLSession.shared.dataTaskPublisher(for: request)
-            .tryMap {
-                data, response in
-                guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
-                    let log = String(data: data, encoding: .utf8)
-                    NSLog("client got err resp: \(log ?? "nada")")
-                    let errorResponse = try jsonDecoder.decode(ErrorResponse.self, from: data)
-                    NSLog("client decoded err resp, err: \(errorResponse.error), response: \(errorResponse.response)")
-                    throw CallError(errorString: errorResponse.error, reason: errorResponse.response)
-                }
-                do {
-                    let members = try jsonDecoder.decode([Member].self, from: data)
-                    return members
-                } catch {
-                    throw CallError(errorString: error.localizedDescription, reason: "client decode of [Member] failed")
-                }
-            }
-            .mapError {
-                error in
-                if let error = error as? CallError { return error }
-                else { return CallError(errorString: error.localizedDescription, reason: "some unk err")}
-            }
-//            .map { $0.data }  //discard HTTP error return
-//            .decode(type: [Member].self, decoder: jsonDecoder)
-//            .mapError { error -> Error in
-//                NSLog("decoding error fetching Members: \(error.localizedDescription)")
-//                return error
-//            }
-//            .replaceError(with: []) //return empty array on decode error
-//            .map { $0.sorted { $0.value.fullName() < $1.value.fullName() } }
-            .eraseToAnyPublisher()
+        publisher = readAllPublisher(collection: .members)
         sub = publisher?
             .receive(on: RunLoop.main)
             .sink(receiveCompletion: { completion in
@@ -98,9 +64,4 @@ class MemberFetcher: ObservableObject {
                 self.members = sorted
             })
     }
-}
-
-struct CallError: Error {
-    let errorString: String
-    let reason: String
 }
