@@ -16,14 +16,14 @@ struct ContentView: View {
     
     var body: some View {
         TabView(selection: $selection) {
-            MemberView()
+            MembersView()
                 .font(.title)
                 .tabItem {
                     Image(systemName: "person.2.fill")
                     Text("Members")
                 }
                 .tag(0)
-            HouseholdView()
+            HouseholdsView()
                 .font(.title)
                 .tabItem {
                     Image(systemName: "house.fill")

@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct HouseholdView: View {
+struct HouseholdsView: View {
     @EnvironmentObject var householdFetcher: HouseholdFetcher
     var body: some View {
         VStack {
@@ -23,6 +23,6 @@ struct HouseholdView: View {
 
 struct HouseholdView_Previews: PreviewProvider {
     static var previews: some View {
-        HouseholdView().environmentObject(HouseholdFetcher.mockedInstance)
+        HouseholdsView().environmentObject(HouseholdFetcher.mockedInstance)
     }
 }
