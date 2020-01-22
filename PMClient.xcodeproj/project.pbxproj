@@ -18,6 +18,9 @@
 		2731796823D1286C00BC707E /* MemberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2731796723D1286C00BC707E /* MemberView.swift */; };
 		2731796A23D12AB200BC707E /* MemberRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2731796923D12AB200BC707E /* MemberRowView.swift */; };
 		2738F67923BAA0C300B86A3E /* HouseholdValue+name.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2738F67823BAA0C300B86A3E /* HouseholdValue+name.swift */; };
+		277273F823D64F5F00EE4FDA /* DataCheckReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277273F723D64F5F00EE4FDA /* DataCheckReport.swift */; };
+		277273FA23D64FA700EE4FDA /* DataCheckReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277273F923D64FA700EE4FDA /* DataCheckReportView.swift */; };
+		277273FC23D650CB00EE4FDA /* DataChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277273FB23D650CB00EE4FDA /* DataChecker.swift */; };
 		2776DDC323BD2D5900F0CE04 /* DataCheckerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2776DDC223BD2D5900F0CE04 /* DataCheckerView.swift */; };
 		27ADA23123C3D1EF0011053F /* PMDataTypes in Frameworks */ = {isa = PBXBuildFile; productRef = 27ADA23023C3D1EF0011053F /* PMDataTypes */; };
 		27C40AC423B10C2400B337A7 /* MemberFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AA027D23AD47C000C97A23 /* MemberFetcher.swift */; };
@@ -43,6 +46,9 @@
 		2731796723D1286C00BC707E /* MemberView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemberView.swift; sourceTree = "<group>"; };
 		2731796923D12AB200BC707E /* MemberRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberRowView.swift; sourceTree = "<group>"; };
 		2738F67823BAA0C300B86A3E /* HouseholdValue+name.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HouseholdValue+name.swift"; sourceTree = "<group>"; };
+		277273F723D64F5F00EE4FDA /* DataCheckReport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataCheckReport.swift; sourceTree = "<group>"; };
+		277273F923D64FA700EE4FDA /* DataCheckReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataCheckReportView.swift; sourceTree = "<group>"; };
+		277273FB23D650CB00EE4FDA /* DataChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataChecker.swift; sourceTree = "<group>"; };
 		2776DDC223BD2D5900F0CE04 /* DataCheckerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataCheckerView.swift; sourceTree = "<group>"; };
 		27AA027D23AD47C000C97A23 /* MemberFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberFetcher.swift; sourceTree = "<group>"; };
 		27C40AC523B10CE600B337A7 /* HouseholdFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HouseholdFetcher.swift; sourceTree = "<group>"; };
@@ -84,14 +90,9 @@
 		2702B19D23AC0E6B009F0A68 /* PMClient */ = {
 			isa = PBXGroup;
 			children = (
-				2776DDC223BD2D5900F0CE04 /* DataCheckerView.swift */,
-				27C40AC523B10CE600B337A7 /* HouseholdFetcher.swift */,
-				27C40ACB23B1631800B337A7 /* HouseholdsView.swift */,
-				2738F67823BAA0C300B86A3E /* HouseholdValue+name.swift */,
-				2731796723D1286C00BC707E /* MemberView.swift */,
-				27C40AC923B1628800B337A7 /* MembersView.swift */,
-				27AA027D23AD47C000C97A23 /* MemberFetcher.swift */,
-				2731796923D12AB200BC707E /* MemberRowView.swift */,
+				277273F423D64E9900EE4FDA /* DataChecker */,
+				277273F623D64F0200EE4FDA /* Households */,
+				277273F523D64EB000EE4FDA /* Members */,
 				27C40AC623B10CE600B337A7 /* AddressFetcher.swift */,
 				2702B19E23AC0E6B009F0A68 /* AppDelegate.swift */,
 				2702B1A423AC0E6C009F0A68 /* Assets.xcassets */,
@@ -121,6 +122,38 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		277273F423D64E9900EE4FDA /* DataChecker */ = {
+			isa = PBXGroup;
+			children = (
+				2776DDC223BD2D5900F0CE04 /* DataCheckerView.swift */,
+				277273F723D64F5F00EE4FDA /* DataCheckReport.swift */,
+				277273F923D64FA700EE4FDA /* DataCheckReportView.swift */,
+				277273FB23D650CB00EE4FDA /* DataChecker.swift */,
+			);
+			name = DataChecker;
+			sourceTree = "<group>";
+		};
+		277273F523D64EB000EE4FDA /* Members */ = {
+			isa = PBXGroup;
+			children = (
+				2731796723D1286C00BC707E /* MemberView.swift */,
+				27C40AC923B1628800B337A7 /* MembersView.swift */,
+				27AA027D23AD47C000C97A23 /* MemberFetcher.swift */,
+				2731796923D12AB200BC707E /* MemberRowView.swift */,
+			);
+			name = Members;
+			sourceTree = "<group>";
+		};
+		277273F623D64F0200EE4FDA /* Households */ = {
+			isa = PBXGroup;
+			children = (
+				27C40AC523B10CE600B337A7 /* HouseholdFetcher.swift */,
+				27C40ACB23B1631800B337A7 /* HouseholdsView.swift */,
+				2738F67823BAA0C300B86A3E /* HouseholdValue+name.swift */,
+			);
+			name = Households;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -204,15 +237,18 @@
 				27C40ACA23B1628800B337A7 /* MembersView.swift in Sources */,
 				2731796823D1286C00BC707E /* MemberView.swift in Sources */,
 				27C40AC423B10C2400B337A7 /* MemberFetcher.swift in Sources */,
+				277273F823D64F5F00EE4FDA /* DataCheckReport.swift in Sources */,
 				2702B19F23AC0E6B009F0A68 /* AppDelegate.swift in Sources */,
 				27C40ACC23B1631800B337A7 /* HouseholdsView.swift in Sources */,
 				27C40AC723B10CE600B337A7 /* HouseholdFetcher.swift in Sources */,
+				277273FA23D64FA700EE4FDA /* DataCheckReportView.swift in Sources */,
 				2776DDC323BD2D5900F0CE04 /* DataCheckerView.swift in Sources */,
 				2702B1A123AC0E6B009F0A68 /* SceneDelegate.swift in Sources */,
 				2731796A23D12AB200BC707E /* MemberRowView.swift in Sources */,
 				2700229323B7EA3F009EF8EE /* MockedData.swift in Sources */,
 				27C40AC823B10CE600B337A7 /* AddressFetcher.swift in Sources */,
 				2728A7CE23CA3E9700655298 /* DataPublishers.swift in Sources */,
+				277273FC23D650CB00EE4FDA /* DataChecker.swift in Sources */,
 				2738F67923BAA0C300B86A3E /* HouseholdValue+name.swift in Sources */,
 				2702B1A323AC0E6B009F0A68 /* ContentView.swift in Sources */,
 			);

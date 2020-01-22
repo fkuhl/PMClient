@@ -12,6 +12,7 @@ struct ContentView: View {
     var memberFetcher = MemberFetcher.sharedInstance
     var householdFetcher = HouseholdFetcher.sharedInstance
     var addressFetcher = AddressFetcher.sharedInstance
+    var dataChecker = DataChecker.sharedInstance
     @State private var selection = 0
     
     var body: some View {
@@ -41,6 +42,7 @@ struct ContentView: View {
         .environmentObject(memberFetcher)
         .environmentObject(householdFetcher)
         .environmentObject(addressFetcher)
+        .environmentObject(dataChecker)
     }
 }
 

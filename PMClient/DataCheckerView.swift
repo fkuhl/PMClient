@@ -9,8 +9,19 @@
 import SwiftUI
 
 struct DataCheckerView: View {
+    @EnvironmentObject var dataChecker: DataChecker
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack(alignment: .leading, spacing: 20) {
+            Button("Check data") {
+                self.dataChecker.check()
+            }
+            List {
+                ForEach(dataChecker.reports, id: \.name) {
+                    DataCheckReportView(report: $0)
+                }
+            }
+        }
     }
 }
 
