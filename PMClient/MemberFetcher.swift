@@ -20,7 +20,7 @@ class MemberFetcher: ObservableObject {
             membersById = [Id : Member]()
             for member in members { membersById[member.id] = member }
             HouseholdFetcher.sharedInstance.fetch()
-}
+        }
     }
     public var activeMembers = [Member]()
     public var membersById = [Id : Member]()

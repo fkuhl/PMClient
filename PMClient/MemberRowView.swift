@@ -13,7 +13,7 @@ struct MemberRowView: View {
     var item: Member
     
     var body: some View {
-        NavigationLink(destination: Text(item.value.fullName())) {
+        NavigationLink(destination: MemberView(member: item)) {
             Text(item.value.fullName())
         }
     }
