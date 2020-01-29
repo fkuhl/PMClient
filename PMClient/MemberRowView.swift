@@ -15,6 +15,7 @@ struct MemberRowView: View {
     var body: some View {
         NavigationLink(destination: MemberView(member: item)) {
             Text(item.value.fullName())
+                .font(.body)
         }
     }
 }

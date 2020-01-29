@@ -14,12 +14,13 @@ struct MemberView: View {
     
     var body: some View {
         List {
-            HStack { Text("family name:"); Text(member.value.familyName) }
-            HStack { Text("given name:"); Text(member.value.givenName) }
-//            member.value.middleName.map {
-//                HStack { Text("middle name:"); Text($0) }
-//            }
-            
+            MemberTextAttributeView(caption: "family name:", text: member.value.familyName)
+            MemberTextAttributeView(caption: "given name:", text: member.value.givenName)
+            MemberTextAttributeView(caption: "middle name:", text: member.value.middleName)
+            MemberTextAttributeView(caption: "prev fam name:", text: member.value.previousFamilyName)
+            MemberTextAttributeView(caption: "suffix:", text: member.value.nameSuffix)
+            MemberTextAttributeView(caption: "sex:", text: member.value.sex.rawValue)
+            MemberTextAttributeView(caption: "date of birth:", text: dateForDisplay(member.value.dateOfBirth))
         }
     }
 }
@@ -27,5 +28,13 @@ struct MemberView: View {
 struct MemberView_Previews: PreviewProvider {
     static var previews: some View {
         MemberView(member: member1)
+    }
+}
+
+func dateForDisplay(_ date: Date?) -> String {
+    if let date = date {
+        return dateFormatter.string(from: date)
+    } else {
+        return "[none]"
     }
 }

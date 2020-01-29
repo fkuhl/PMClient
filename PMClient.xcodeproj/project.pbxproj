@@ -29,6 +29,7 @@
 		27C40ACA23B1628800B337A7 /* MembersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C40AC923B1628800B337A7 /* MembersView.swift */; };
 		27C40ACC23B1631800B337A7 /* HouseholdsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C40ACB23B1631800B337A7 /* HouseholdsView.swift */; };
 		27C40ACE23B1678300B337A7 /* DataFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C40ACD23B1678300B337A7 /* DataFetcher.swift */; };
+		27CCBB8623E2148500CE2C5F /* MemberTextAttributeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CCBB8523E2148500CE2C5F /* MemberTextAttributeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +57,7 @@
 		27C40AC923B1628800B337A7 /* MembersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MembersView.swift; sourceTree = "<group>"; };
 		27C40ACB23B1631800B337A7 /* HouseholdsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseholdsView.swift; sourceTree = "<group>"; };
 		27C40ACD23B1678300B337A7 /* DataFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataFetcher.swift; sourceTree = "<group>"; };
+		27CCBB8523E2148500CE2C5F /* MemberTextAttributeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberTextAttributeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +144,7 @@
 				27C40AC923B1628800B337A7 /* MembersView.swift */,
 				27AA027D23AD47C000C97A23 /* MemberFetcher.swift */,
 				2731796923D12AB200BC707E /* MemberRowView.swift */,
+				27CCBB8523E2148500CE2C5F /* MemberTextAttributeView.swift */,
 			);
 			name = Members;
 			sourceTree = "<group>";
@@ -243,6 +246,7 @@
 				27C40AC723B10CE600B337A7 /* HouseholdFetcher.swift in Sources */,
 				277273FA23D64FA700EE4FDA /* DataCheckReportView.swift in Sources */,
 				2776DDC323BD2D5900F0CE04 /* DataCheckerView.swift in Sources */,
+				27CCBB8623E2148500CE2C5F /* MemberTextAttributeView.swift in Sources */,
 				2702B1A123AC0E6B009F0A68 /* SceneDelegate.swift in Sources */,
 				2731796A23D12AB200BC707E /* MemberRowView.swift in Sources */,
 				2700229323B7EA3F009EF8EE /* MockedData.swift in Sources */,
