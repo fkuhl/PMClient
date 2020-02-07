@@ -22,6 +22,7 @@
 		277273FA23D64FA700EE4FDA /* DataCheckReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277273F923D64FA700EE4FDA /* DataCheckReportView.swift */; };
 		277273FC23D650CB00EE4FDA /* DataChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277273FB23D650CB00EE4FDA /* DataChecker.swift */; };
 		2776DDC323BD2D5900F0CE04 /* DataCheckerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2776DDC223BD2D5900F0CE04 /* DataCheckerView.swift */; };
+		277AA60123E9F2390015312D /* MemberEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277AA60023E9F2390015312D /* MemberEditView.swift */; };
 		27ADA23123C3D1EF0011053F /* PMDataTypes in Frameworks */ = {isa = PBXBuildFile; productRef = 27ADA23023C3D1EF0011053F /* PMDataTypes */; };
 		27C40AC423B10C2400B337A7 /* MemberFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AA027D23AD47C000C97A23 /* MemberFetcher.swift */; };
 		27C40AC723B10CE600B337A7 /* HouseholdFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C40AC523B10CE600B337A7 /* HouseholdFetcher.swift */; };
@@ -51,6 +52,7 @@
 		277273F923D64FA700EE4FDA /* DataCheckReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataCheckReportView.swift; sourceTree = "<group>"; };
 		277273FB23D650CB00EE4FDA /* DataChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataChecker.swift; sourceTree = "<group>"; };
 		2776DDC223BD2D5900F0CE04 /* DataCheckerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataCheckerView.swift; sourceTree = "<group>"; };
+		277AA60023E9F2390015312D /* MemberEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberEditView.swift; sourceTree = "<group>"; };
 		27AA027D23AD47C000C97A23 /* MemberFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberFetcher.swift; sourceTree = "<group>"; };
 		27C40AC523B10CE600B337A7 /* HouseholdFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HouseholdFetcher.swift; sourceTree = "<group>"; };
 		27C40AC623B10CE600B337A7 /* AddressFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddressFetcher.swift; sourceTree = "<group>"; };
@@ -145,6 +147,7 @@
 				27AA027D23AD47C000C97A23 /* MemberFetcher.swift */,
 				2731796923D12AB200BC707E /* MemberRowView.swift */,
 				27CCBB8523E2148500CE2C5F /* MemberTextAttributeView.swift */,
+				277AA60023E9F2390015312D /* MemberEditView.swift */,
 			);
 			name = Members;
 			sourceTree = "<group>";
@@ -240,6 +243,7 @@
 				27C40ACA23B1628800B337A7 /* MembersView.swift in Sources */,
 				2731796823D1286C00BC707E /* MemberView.swift in Sources */,
 				27C40AC423B10C2400B337A7 /* MemberFetcher.swift in Sources */,
+				277AA60123E9F2390015312D /* MemberEditView.swift in Sources */,
 				277273F823D64F5F00EE4FDA /* DataCheckReport.swift in Sources */,
 				2702B19F23AC0E6B009F0A68 /* AppDelegate.swift in Sources */,
 				27C40ACC23B1631800B337A7 /* HouseholdsView.swift in Sources */,
