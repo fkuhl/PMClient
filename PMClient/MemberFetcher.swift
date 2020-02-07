@@ -11,8 +11,16 @@ import Combine
 import PMDataTypes
 
 class MemberFetcher: ObservableObject {
-    private let fetchingQueue = DispatchQueue(label: "com.tamelea.PMClient.member", qos: .background)
+    private let fetchingQueue = DispatchQueue(label: "com.tamelea.PMClient.readAllMembers", qos: .background)
+    //these need to be ivars, so they don't go out of scope!
+    private var fetchPublisher: AnyPublisher<[Member], CallError>? = nil
+    private var fetchSubscriber: Cancellable? = nil
     
+    private let updatingQueue = DispatchQueue(label: "com.tamelea.PMClient.updateMember", qos: .background)
+    //these need to be ivars, so they don't go out of scope!
+    private var updatingPublisher: AnyPublisher<Member, CallError>? = nil
+    private var updatingSubscriber: Cancellable? = nil
+
     @Published public var members = [Member]() {
         didSet {
             NSLog("fetched \(members.count) Members")
@@ -31,9 +39,7 @@ class MemberFetcher: ObservableObject {
     }
     @Published var showingAlert = false
     
-    //these need to be ivars, so they don't go out of scope!
-    private var publisher: AnyPublisher<[Member], CallError>? = nil
-    private var sub: Cancellable? = nil
+    
 
     // MARK: - Singleton
     public static let sharedInstance = MemberFetcher()
@@ -51,9 +57,9 @@ class MemberFetcher: ObservableObject {
         }
     }
     
-    func loadData() {
-        publisher = readAllPublisher(collection: .members)
-        sub = publisher?
+    fileprivate func loadData() {
+        fetchPublisher = readAllPublisher(collection: .members)
+        fetchSubscriber = fetchPublisher?
             .receive(on: RunLoop.main)
             .sink(receiveCompletion: { completion in
                 switch completion {
@@ -68,5 +74,29 @@ class MemberFetcher: ObservableObject {
                 self.members = sorted
                 self.fetchError = nil
             })
+    }
+    
+    func update(to newValue: Member) {
+        updatingQueue.async {
+            self.updateData(to: newValue)
+        }
+    }
+    
+    fileprivate func updateData(to newValue: Member) {
+        updatingPublisher = updatePublisher(collection: .members, to: newValue)
+        updatingSubscriber = updatingPublisher?
+        .receive(on: RunLoop.main)
+        .sink(receiveCompletion: { completion in
+            switch completion {
+            case .finished:
+                break
+            case .failure(let error):
+                NSLog("call failure, err: \(error.errorString), response: \(error.reason)")
+                self.fetchError = error
+            }
+        }, receiveValue: { members in
+            self.fetch() //reload 'em all
+            self.fetchError = nil
+        })
     }
 }

@@ -11,9 +11,7 @@ import PMDataTypes
 
 struct MemberEditView: View {
     @Binding var showingEdit: Bool
-    var member: Member
-    @State var newFam: String
-//    @State var newValue: MemberValue
+    @State var member: Member
     
     var body: some View {
         VStack {
@@ -22,22 +20,25 @@ struct MemberEditView: View {
                 Button(action: {
                     self.showingEdit.toggle()
                 }) {
-                    Image(systemName: "tray.and.arrow.down")
+                    Text("Save and close")
+                        .font(.body)
                 }
             }.padding()
             Form {
-                Section {
-                    Text("Family name:")
-                    TextField("Family name", text: $newFam)
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                Section { //Section to group in sets of <= 10
+                    MemberEditTextView(caption: "Family name:", text: $member.value.familyName)
+                    MemberEditTextView(caption: "Given name:", text: $member.value.givenName)
                 }
             }
+        }.onDisappear() {
+            NSLog("onDis: val is \(self.member.value.givenName)")
+            MemberFetcher.sharedInstance.update(to: self.member)
         }
     }
 }
 
 struct MemberEditView_Previews: PreviewProvider {
     static var previews: some View {
-        MemberEditView(showingEdit: .constant(false), member: member1, newFam: "stuff" /*, newValue: member1.value*/)
+        MemberEditView(showingEdit: .constant(false), member: member1)
     }
 }

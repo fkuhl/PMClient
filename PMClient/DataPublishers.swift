@@ -40,6 +40,36 @@ func readAllPublisher<D: DataType>(collection: CollectionName) -> AnyPublisher<[
         .eraseToAnyPublisher()
 }
 
+func updatePublisher<D: DataType>(collection: CollectionName, to newValue: D) -> AnyPublisher<D, CallError> {
+    var request = URLRequest(url: DataFetcher.url(forCollection: collection, operation: .update))
+    request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+    request.httpMethod = "POST"
+    request.httpBody = try! jsonEncoder.encode(newValue) //TODO hmmm
+    return URLSession.shared.dataTaskPublisher(for: request)
+        .tryMap {
+            data, response in
+            guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else { //TODO respond to NOTFOUND?
+                let log = String(data: data, encoding: .utf8)
+                NSLog("client got err resp: \(log ?? "nada")")
+                let errorResponse = try jsonDecoder.decode(ErrorResponse.self, from: data)
+                NSLog("client decoded err resp, err: \(errorResponse.error), response: \(errorResponse.response)")
+                throw CallError(errorString: errorResponse.error, reason: errorResponse.response)
+            }
+            do {
+                let updated = try jsonDecoder.decode(D.self, from: data)
+                return updated
+            } catch {
+                throw CallError(errorString: error.localizedDescription, reason: "client decode of \(collection) failed")
+            }
+    }
+    .mapError {
+        error in
+        if let error = error as? CallError { return error }
+        else { return CallError(errorString: error.localizedDescription, reason: "some unk err")}
+    }
+    .eraseToAnyPublisher()
+}
+
 
 
 struct CallError: Error {

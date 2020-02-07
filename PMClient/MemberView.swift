@@ -40,7 +40,7 @@ struct MemberView: View {
                 MemberTextAttributeView(caption: "date of birth:", text: dateForDisplay(member.value.dateOfBirth))
             }
         }.sheet(isPresented: $showingEdit) {
-            MemberEditView(showingEdit: self.$showingEdit, member: self.member, newFam: "Hornswoggle")
+            MemberEditView(showingEdit: self.$showingEdit, member: self.member)
         }
     }
 }
