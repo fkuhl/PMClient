@@ -13,7 +13,7 @@ import PMDataTypes
 func readAllPublisher<D: DataType>(collection: CollectionName) -> AnyPublisher<[D], CallError> {
     var request = URLRequest(url: DataFetcher.url(forCollection: collection, operation: .readAll))
     request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-    request.httpMethod = "POST"
+    request.httpMethod = "GET"
     request.httpBody = DataFetcher.readAllBody
     return URLSession.shared.dataTaskPublisher(for: request)
         .tryMap {
@@ -35,7 +35,7 @@ func readAllPublisher<D: DataType>(collection: CollectionName) -> AnyPublisher<[
         .mapError {
             error in
             if let error = error as? CallError { return error }
-            else { return CallError(errorString: error.localizedDescription, reason: "some unk err")}
+            return CallError(errorString: error.localizedDescription, reason: "Server not running?")
         }
         .eraseToAnyPublisher()
 }
