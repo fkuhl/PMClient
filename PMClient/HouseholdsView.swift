@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct HouseholdsView: View {
-    @EnvironmentObject var householdFetcher: HouseholdFetcher
+    @ObservedObject var householdFetcher = HouseholdFetcher.sharedInstance
     var body: some View {
         VStack {
             List {

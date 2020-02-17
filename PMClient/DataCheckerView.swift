@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct DataCheckerView: View {
-    @EnvironmentObject var dataChecker: DataChecker
+    @ObservedObject var dataChecker = DataChecker.sharedInstance
 
     var body: some View {
         VStack(alignment: .leading, spacing: 20) {

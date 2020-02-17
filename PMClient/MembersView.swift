@@ -10,7 +10,7 @@ import SwiftUI
 
 
 struct MembersView: View {
-    @EnvironmentObject var memberFetcher: MemberFetcher
+    @ObservedObject var memberFetcher = MemberFetcher.sharedInstance
     @State private var allOrActive = 0
     @State private var showingAlert = false
     
@@ -43,6 +43,6 @@ struct MembersView: View {
 
 struct MembersView_Previews: PreviewProvider {
     static var previews: some View {
-        MembersView().environmentObject(MemberFetcher.mockedInstance)
+        MembersView(memberFetcher: MemberFetcher.mockedInstance)
     }
 }
