@@ -26,19 +26,19 @@ struct MemberEditView: View {
             }.padding()
             Form {
                 Section { //Section to group in sets of <= 10
-                    MemberEditTextView(caption: "Family name:", text: $member.value.familyName)
-                    MemberEditTextView(caption: "Given name:", text: $member.value.givenName)
+                    MemberEditTextView(caption: "Family name:", text: $member.familyName)
+                    MemberEditTextView(caption: "Given name:", text: $member.givenName)
                 }
             }
         }.onDisappear() {
-            NSLog("onDis: val is \(self.member.value.givenName)")
-            MemberFetcher.sharedInstance.update(to: self.member)
+            NSLog("onDis: val is \(self.member.givenName)")
+            DataFetcher.sharedInstance.update(to: self.member)
         }
     }
 }
 
-struct MemberEditView_Previews: PreviewProvider {
-    static var previews: some View {
-        MemberEditView(showingEdit: .constant(false), member: member1)
-    }
-}
+//struct MemberEditView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        MemberEditView(showingEdit: .constant(false), member: member1)
+//    }
+//}

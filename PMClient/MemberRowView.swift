@@ -14,14 +14,14 @@ struct MemberRowView: View {
     
     var body: some View {
         NavigationLink(destination: MemberView(member: item)) {
-            Text(item.value.fullName())
+            Text(item.fullName())
                 .font(.body)
         }
     }
 }
 
-struct MemberRowView_Previews: PreviewProvider {
-    static var previews: some View {
-        MemberRowView(item: member1)
-    }
-}
+//struct MemberRowView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        //MemberRowView(item: member1)
+//    }
+//}

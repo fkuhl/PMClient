@@ -34,13 +34,13 @@ class DataChecker: ObservableObject {
     }
     
     func checkData() {
-        let reports: [DataCheckReport] = MemberFetcher.sharedInstance.members.compactMap {
-            guard let lastTransaction = $0.value.transactions.last else {
+        let reports: [DataCheckReport] = DataFetcher.sharedInstance.sortedMembers.compactMap {
+            guard let lastTransaction = $0.transactions.last else {
                 return nil //nothing to check
             }
             let lastTT = lastTransaction.type
-            let status = $0.value.status
-            let name = $0.value.fullName()
+            let status = $0.status
+            let name = $0.fullName()
             switch status {
             case .NONCOMMUNING:
                 switch lastTT {

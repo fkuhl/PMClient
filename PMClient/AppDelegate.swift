@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
 
         //Start chain of fetching Members, Households, Addresses
-        MemberFetcher.sharedInstance.fetch()
+        DataFetcher.sharedInstance.fetch()
         return true
     }
 

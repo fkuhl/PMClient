@@ -10,7 +10,7 @@ import SwiftUI
 
 
 struct MembersView: View {
-    @ObservedObject var memberFetcher = MemberFetcher.sharedInstance
+    @ObservedObject var dataFetcher = DataFetcher.sharedInstance
     @State private var allOrActive = 0
     @State private var showingAlert = false
     
@@ -24,14 +24,14 @@ struct MembersView: View {
                         Text("Active Members").tag(1)
                 }).pickerStyle(SegmentedPickerStyle())
                 List {
-                    ForEach(allOrActive == 0 ? memberFetcher.members : memberFetcher.activeMembers, id: \.id) {
+                    ForEach(allOrActive == 0 ? dataFetcher.sortedMembers : dataFetcher.activeMembers, id: \.id) {
                         MemberRowView(item: $0)
                     }
                 }
             }
-            .alert(isPresented: $memberFetcher.showingAlert) {
+            .alert(isPresented: $dataFetcher.showingAlert) {
                 Alert(title: Text("Failed to fetch Members"),
-                      message: Text("\(memberFetcher.fetchError?.reason ?? "")\n\(memberFetcher.fetchError?.errorString ?? "")"),
+                      message: Text("\(dataFetcher.fetchError?.reason ?? "")\n\(dataFetcher.fetchError?.errorString ?? "")"),
                       dismissButton: .default(Text("OK")))
             }
             .navigationBarTitle(allOrActive == 0 ? "All Members" : "Active Members")
@@ -41,8 +41,8 @@ struct MembersView: View {
 
 
 
-struct MembersView_Previews: PreviewProvider {
-    static var previews: some View {
-        MembersView(memberFetcher: MemberFetcher.mockedInstance)
-    }
-}
+//struct MembersView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        MembersView(memberFetcher: MemberFetcher.mockedInstance)
+//    }
+//}

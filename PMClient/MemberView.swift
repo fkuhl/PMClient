@@ -25,19 +25,19 @@ struct MemberView: View {
                 }
             }.padding()
             List {
-                MemberTextAttributeView(caption: "family name:", text: member.value.familyName)
-                MemberTextAttributeView(caption: "given name:", text: member.value.givenName)
-                if member.value.middleName != nil {
-                    MemberTextAttributeView(caption: "middle name:", text: member.value.middleName)
+                MemberTextAttributeView(caption: "family name:", text: member.familyName)
+                MemberTextAttributeView(caption: "given name:", text: member.givenName)
+                if member.middleName != nil {
+                    MemberTextAttributeView(caption: "middle name:", text: member.middleName)
                 }
-                if member.value.previousFamilyName != nil {
-                    MemberTextAttributeView(caption: "prev fam name:", text: member.value.previousFamilyName)
+                if member.previousFamilyName != nil {
+                    MemberTextAttributeView(caption: "prev fam name:", text: member.previousFamilyName)
                 }
-                if member.value.nameSuffix != nil {
-                    MemberTextAttributeView(caption: "suffix:", text: member.value.nameSuffix)
+                if member.nameSuffix != nil {
+                    MemberTextAttributeView(caption: "suffix:", text: member.nameSuffix)
                 }
-                MemberTextAttributeView(caption: "sex:", text: member.value.sex.rawValue)
-                MemberTextAttributeView(caption: "date of birth:", text: dateForDisplay(member.value.dateOfBirth))
+                MemberTextAttributeView(caption: "sex:", text: member.sex.rawValue)
+                MemberTextAttributeView(caption: "date of birth:", text: dateForDisplay(member.dateOfBirth))
             }
         }.sheet(isPresented: $showingEdit) {
             MemberEditView(showingEdit: self.$showingEdit, member: self.member)
@@ -45,11 +45,11 @@ struct MemberView: View {
     }
 }
 
-struct MemberView_Previews: PreviewProvider {
-    static var previews: some View {
-        MemberView(member: member1)
-    }
-}
+//struct MemberView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        MemberView(member: member1)
+//    }
+//}
 
 func dateForDisplay(_ date: Date?) -> String {
     if let date = date {

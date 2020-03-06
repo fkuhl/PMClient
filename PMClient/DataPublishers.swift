@@ -10,8 +10,8 @@ import Foundation
 import Combine
 import PMDataTypes
 
-func readAllPublisher<D: DataType>(collection: CollectionName) -> AnyPublisher<[D], CallError> {
-    var request = URLRequest(url: DataFetcher.url(forCollection: collection, operation: .readAll))
+func readAllPublisher() -> AnyPublisher<[HouseholdDocument], CallError> {
+    var request = URLRequest(url: DataFetcher.url(operation: .readAll))
     request.setValue("application/json", forHTTPHeaderField: "Content-Type")
     request.httpMethod = "GET"
     request.httpBody = nil
@@ -26,10 +26,10 @@ func readAllPublisher<D: DataType>(collection: CollectionName) -> AnyPublisher<[
                 throw CallError(errorString: errorResponse.error, reason: errorResponse.response)
             }
             do {
-                let documents = try jsonDecoder.decode([D].self, from: data)
+                let documents = try jsonDecoder.decode([HouseholdDocument].self, from: data)
                 return documents
             } catch {
-                throw CallError(errorString: error.localizedDescription, reason: "client decode of \(collection) failed")
+                throw CallError(errorString: error.localizedDescription, reason: "client decode of HouseholdDocument failed")
             }
         }
         .mapError {
@@ -40,8 +40,8 @@ func readAllPublisher<D: DataType>(collection: CollectionName) -> AnyPublisher<[
         .eraseToAnyPublisher()
 }
 
-func updatePublisher<D: DataType>(collection: CollectionName, to newValue: D) -> AnyPublisher<D, CallError> {
-    var request = URLRequest(url: DataFetcher.url(forCollection: collection, operation: .update))
+func updatePublisher(to newValue: HouseholdDocument) -> AnyPublisher<HouseholdDocument, CallError> {
+    var request = URLRequest(url: DataFetcher.url(operation: .update))
     request.setValue("application/json", forHTTPHeaderField: "Content-Type")
     request.httpMethod = "POST"
     request.httpBody = try! jsonEncoder.encode(newValue) //TODO hmmm
@@ -56,10 +56,10 @@ func updatePublisher<D: DataType>(collection: CollectionName, to newValue: D) ->
                 throw CallError(errorString: errorResponse.error, reason: errorResponse.response)
             }
             do {
-                let updated = try jsonDecoder.decode(D.self, from: data)
+                let updated = try jsonDecoder.decode(HouseholdDocument.self, from: data)
                 return updated
             } catch {
-                throw CallError(errorString: error.localizedDescription, reason: "client decode of \(collection) failed")
+                throw CallError(errorString: error.localizedDescription, reason: "client decode of HouseholdDocument failed")
             }
     }
     .mapError {

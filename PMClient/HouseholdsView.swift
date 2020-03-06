@@ -9,20 +9,20 @@
 import SwiftUI
 
 struct HouseholdsView: View {
-    @ObservedObject var householdFetcher = HouseholdFetcher.sharedInstance
+    @ObservedObject var dataFetcher = DataFetcher.sharedInstance
     var body: some View {
         VStack {
             List {
-                ForEach(householdFetcher.households, id: \.id) {
-                    Text($0.value.name())
+                ForEach(dataFetcher.households, id: \.id) {
+                    Text($0.head.fullName())
                 }
             }
         }
     }
 }
 
-struct HouseholdView_Previews: PreviewProvider {
-    static var previews: some View {
-        HouseholdsView().environmentObject(HouseholdFetcher.mockedInstance)
-    }
-}
+//struct HouseholdView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        HouseholdsView().environmentObject(HouseholdFetcher.mockedInstance)
+//    }
+//}
