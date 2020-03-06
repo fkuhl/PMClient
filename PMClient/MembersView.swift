@@ -31,7 +31,7 @@ struct MembersView: View {
             }
             .alert(isPresented: $memberFetcher.showingAlert) {
                 Alert(title: Text("Failed to fetch Members"),
-                      message: Text("\(memberFetcher.fetchError?.errorString ?? "nada")"),
+                      message: Text("\(memberFetcher.fetchError?.reason ?? "")\n\(memberFetcher.fetchError?.errorString ?? "")"),
                       dismissButton: .default(Text("OK")))
             }
             .navigationBarTitle(allOrActive == 0 ? "All Members" : "Active Members")
