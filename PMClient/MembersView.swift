@@ -12,7 +12,6 @@ import SwiftUI
 struct MembersView: View {
     @ObservedObject var dataFetcher = DataFetcher.sharedInstance
     @State private var allOrActive = 0
-    @State private var showingAlert = false
     
     var body: some View {
         NavigationView {
