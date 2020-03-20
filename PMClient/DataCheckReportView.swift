@@ -13,9 +13,9 @@ struct DataCheckReportView: View {
     
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
-            Text(report.name)
+            Text(report.name).font(.body)
             Text("status: \(report.status.rawValue), last trans: \(report.trans.rawValue)")
-                .font(Font.body)
+                .font(Font.caption)
         }
     }
 }

@@ -13,9 +13,13 @@ struct DataCheckerView: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: 20) {
-            Button("Check data") {
-                self.dataChecker.check()
-            }
+            HStack {
+                Button(action: {
+                    self.dataChecker.check()
+                }) {
+                    Text("Check data").font(.body)
+                }
+            }.padding()
             List {
                 ForEach(dataChecker.reports, id: \.name) {
                     DataCheckReportView(report: $0)

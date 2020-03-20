@@ -27,11 +27,11 @@ struct ContentView: View {
                     Text("Households")
                 }
                 .tag(1)
-            DataCheckerView()
+            TransactionsView()
                 .font(.title)
                 .tabItem {
-                    Image(systemName: "text.badge.checkmark")
-                    Text("Check Data")
+                    Image(systemName: "pencil.circle")
+                    Text("Transactions")
                 }
                 .tag(2)
         }

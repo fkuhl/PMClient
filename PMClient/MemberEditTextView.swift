@@ -13,7 +13,7 @@ struct MemberEditTextView: View {
     @Binding var text: String
     
     var body: some View {
-        HStack {
+        HStack(alignment: .lastTextBaseline) {
             Text(caption)
                 .frame(width: 150, alignment: .trailing) //a magic number for you
                 .font(.caption)

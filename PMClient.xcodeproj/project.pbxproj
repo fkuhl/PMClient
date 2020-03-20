@@ -17,6 +17,9 @@
 		2728A7CE23CA3E9700655298 /* DataPublishers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2728A7CD23CA3E9700655298 /* DataPublishers.swift */; };
 		2731796823D1286C00BC707E /* MemberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2731796723D1286C00BC707E /* MemberView.swift */; };
 		2731796A23D12AB200BC707E /* MemberRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2731796923D12AB200BC707E /* MemberRowView.swift */; };
+		2749A06324250B2E001E0571 /* TransactionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2749A06224250B2E001E0571 /* TransactionsView.swift */; };
+		2749A06524250E1D001E0571 /* Bundle+decode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2749A06424250E1D001E0571 /* Bundle+decode.swift */; };
+		2749A06A24256153001E0571 /* FamilyInitialEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2749A06924256153001E0571 /* FamilyInitialEntryView.swift */; };
 		277273F823D64F5F00EE4FDA /* DataCheckReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277273F723D64F5F00EE4FDA /* DataCheckReport.swift */; };
 		277273FA23D64FA700EE4FDA /* DataCheckReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277273F923D64FA700EE4FDA /* DataCheckReportView.swift */; };
 		277273FC23D650CB00EE4FDA /* DataChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277273FB23D650CB00EE4FDA /* DataChecker.swift */; };
@@ -44,6 +47,9 @@
 		2728A7CD23CA3E9700655298 /* DataPublishers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPublishers.swift; sourceTree = "<group>"; };
 		2731796723D1286C00BC707E /* MemberView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemberView.swift; sourceTree = "<group>"; };
 		2731796923D12AB200BC707E /* MemberRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberRowView.swift; sourceTree = "<group>"; };
+		2749A06224250B2E001E0571 /* TransactionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsView.swift; sourceTree = "<group>"; };
+		2749A06424250E1D001E0571 /* Bundle+decode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+decode.swift"; sourceTree = "<group>"; };
+		2749A06924256153001E0571 /* FamilyInitialEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyInitialEntryView.swift; sourceTree = "<group>"; };
 		277273F723D64F5F00EE4FDA /* DataCheckReport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataCheckReport.swift; sourceTree = "<group>"; };
 		277273F923D64FA700EE4FDA /* DataCheckReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataCheckReportView.swift; sourceTree = "<group>"; };
 		277273FB23D650CB00EE4FDA /* DataChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataChecker.swift; sourceTree = "<group>"; };
@@ -88,6 +94,8 @@
 		2702B19D23AC0E6B009F0A68 /* PMClient */ = {
 			isa = PBXGroup;
 			children = (
+				2749A0682425611B001E0571 /* Family */,
+				2749A06124250B03001E0571 /* Transactions */,
 				277273F423D64E9900EE4FDA /* DataChecker */,
 				277273F623D64F0200EE4FDA /* Households */,
 				277273F523D64EB000EE4FDA /* Members */,
@@ -102,6 +110,7 @@
 				2702B1A023AC0E6B009F0A68 /* SceneDelegate.swift */,
 				2700229223B7EA3E009EF8EE /* MockedData.swift */,
 				2728A7CD23CA3E9700655298 /* DataPublishers.swift */,
+				2749A06424250E1D001E0571 /* Bundle+decode.swift */,
 			);
 			path = PMClient;
 			sourceTree = "<group>";
@@ -119,6 +128,22 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2749A06124250B03001E0571 /* Transactions */ = {
+			isa = PBXGroup;
+			children = (
+				2749A06224250B2E001E0571 /* TransactionsView.swift */,
+			);
+			name = Transactions;
+			sourceTree = "<group>";
+		};
+		2749A0682425611B001E0571 /* Family */ = {
+			isa = PBXGroup;
+			children = (
+				2749A06924256153001E0571 /* FamilyInitialEntryView.swift */,
+			);
+			name = Family;
 			sourceTree = "<group>";
 		};
 		277273F423D64E9900EE4FDA /* DataChecker */ = {
@@ -234,7 +259,9 @@
 				27C40ACA23B1628800B337A7 /* MembersView.swift in Sources */,
 				2731796823D1286C00BC707E /* MemberView.swift in Sources */,
 				277AA60123E9F2390015312D /* MemberEditView.swift in Sources */,
+				2749A06524250E1D001E0571 /* Bundle+decode.swift in Sources */,
 				277273F823D64F5F00EE4FDA /* DataCheckReport.swift in Sources */,
+				2749A06324250B2E001E0571 /* TransactionsView.swift in Sources */,
 				2702B19F23AC0E6B009F0A68 /* AppDelegate.swift in Sources */,
 				27C40ACC23B1631800B337A7 /* HouseholdsView.swift in Sources */,
 				277273FA23D64FA700EE4FDA /* DataCheckReportView.swift in Sources */,
@@ -244,6 +271,7 @@
 				2731796A23D12AB200BC707E /* MemberRowView.swift in Sources */,
 				2700229323B7EA3F009EF8EE /* MockedData.swift in Sources */,
 				2728A7CE23CA3E9700655298 /* DataPublishers.swift in Sources */,
+				2749A06A24256153001E0571 /* FamilyInitialEntryView.swift in Sources */,
 				277BDB6C23EDBEC000415CD5 /* MemberEditTextView.swift in Sources */,
 				277273FC23D650CB00EE4FDA /* DataChecker.swift in Sources */,
 				2702B1A323AC0E6B009F0A68 /* ContentView.swift in Sources */,
