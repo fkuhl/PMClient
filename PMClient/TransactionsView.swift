@@ -9,12 +9,11 @@
 import SwiftUI
 
 struct TransactionsView: View {
-    //@State private var list = Bundle.main.decode([Section].self, from: "TransactionList.json")
     var body: some View {
         NavigationView {
             List {
                 Section(header: Text("Families")) {
-                    NavigationLink(destination: FamilyInitialEntryView()) {
+                    NavigationLink(destination: FamilyInitialEntryView().environmentObject(FamilyAccumulator.sharedInstance.clear())) {
                         Text("Family joins").font(.body)
                     }
                 }

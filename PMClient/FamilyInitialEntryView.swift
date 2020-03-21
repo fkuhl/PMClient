@@ -9,8 +9,12 @@
 import SwiftUI
 
 struct FamilyInitialEntryView: View {
+    @EnvironmentObject var accumulator: FamilyAccumulator
     var body: some View {
-        Text("Enter a family!")
+        Form {
+            EditEnumeration(cases: ReceptionType.self, pickerTitle: "", captionWidth: 150, caption: "Reception type")
+        }
+    .navigationBarTitle("Manner of Reception")
     }
 }
 

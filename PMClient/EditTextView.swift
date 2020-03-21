@@ -1,21 +1,22 @@
 //
-//  MemberEditTextView.swift
+//  EditTextView.swift
 //  PMClient
 //
-//  Created by Frederick Kuhl on 2/7/20.
+//  Created by Frederick Kuhl on 3/21/20.
 //  Copyright © 2020 TyndaleSoft LLC. All rights reserved.
 //
 
 import SwiftUI
 
-struct MemberEditTextView: View {
+struct EditTextView: View {
+    var captionWidth: CGFloat = 150
     var caption: String
     @Binding var text: String
     
     var body: some View {
         HStack(alignment: .lastTextBaseline) {
             Text(caption)
-                .frame(width: 150, alignment: .trailing) //a magic number for you
+                .frame(width: captionWidth, alignment: .trailing)
                 .font(.caption)
             TextField(caption, text: $text)
             .textFieldStyle(RoundedBorderTextFieldStyle())
@@ -25,8 +26,8 @@ struct MemberEditTextView: View {
     }
 }
 
-struct MemberEditTextView_Previews: PreviewProvider {
+struct EditTextView_Previews: PreviewProvider {
     static var previews: some View {
-        MemberEditTextView(caption: "a field", text: .constant("stuff"))
+        EditTextView(caption: "a field", text: .constant("stuff"))
     }
 }

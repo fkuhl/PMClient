@@ -26,8 +26,8 @@ struct MemberEditView: View {
             }.padding()
             Form {
                 Section { //Section to group in sets of <= 10
-                    MemberEditTextView(caption: "Family name:", text: $member.familyName)
-                    MemberEditTextView(caption: "Given name:", text: $member.givenName)
+                    EditTextView(caption: "Family name:", text: $member.familyName)
+                    EditTextView(caption: "Given name:", text: $member.givenName)
                 }
             }
         }.onDisappear() {

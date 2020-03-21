@@ -39,7 +39,8 @@ struct MemberView: View {
                 MemberTextAttributeView(caption: "sex:", text: member.sex.rawValue)
                 MemberTextAttributeView(caption: "date of birth:", text: dateForDisplay(member.dateOfBirth))
             }
-        }.sheet(isPresented: $showingEdit) {
+        }.navigationBarTitle("\(member.fullName())")
+        .sheet(isPresented: $showingEdit) {
             MemberEditView(showingEdit: self.$showingEdit, member: self.member)
         }
     }
