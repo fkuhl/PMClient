@@ -497,7 +497,7 @@
 			repositoryURL = "file:///Users/fkuhl/Documents/workspace/pm-http/pm-data-types/PMDataTypes";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 3.1.0;
+				minimumVersion = 4.0.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */

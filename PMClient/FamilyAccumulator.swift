@@ -12,34 +12,24 @@ import Foundation
  */
 
 class FamilyAccumulator: ObservableObject {
-    var seed = UUID()
-    var dateReceived = Date()
-    var receptionType: ReceptionType = .TRANSFER
-    var churchFrom = ""
+    @Published var seed = UUID().uuidString
+    @Published var dateReceived = Date()
+    //The picker needs an Int index, and it needs to be stored here.
+    @Published var receptionTypeIndex = 2
+    @Published var churchFrom = ""
     
-
-    // MARK: - Singleton
-    public static let sharedInstance = FamilyAccumulator()
-    private init() {}
-    
-    /**
-     Prepare accumulator to accumulate fresh data
-     */
-    func clear() -> FamilyAccumulator {
-        seed = UUID()
-        return self
+    init() {
+        NSLog("new accum \(seed)")
     }
 }
 
-protocol Stringable: CaseIterable {
-    var string: String { get }
-}
-
-enum ReceptionType: String, Stringable {
-        var string: String {
-            return rawValue
+enum ReceptionType: String, CaseIterable {
+    static var stringArray: [String] {
+        get {
+            ReceptionType.allCases.map { $0.rawValue }
         }
-        
+    }
+    
     case PROFESSION
     case AFFIRMATION
     case TRANSFER

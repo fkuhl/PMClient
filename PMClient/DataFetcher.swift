@@ -17,22 +17,22 @@ class DataFetcher: ObservableObject {
     
     private let fetchingQueue = DispatchQueue(label: "com.tamelea.PMClient.readAll", qos: .background)
     //these need to be ivars, so they don't go out of scope!
-    private var fetchPublisher: AnyPublisher<[HouseholdDocument], CallError>? = nil
+    private var fetchPublisher: AnyPublisher<[Household], CallError>? = nil
     private var fetchSubscriber: Cancellable? = nil
     
     private let updatingQueue = DispatchQueue(label: "com.tamelea.PMClient.update", qos: .background)
     //these need to be ivars, so they don't go out of scope!
-    private var updatingPublisher: AnyPublisher<HouseholdDocument, CallError>? = nil
+    private var updatingPublisher: AnyPublisher<Household, CallError>? = nil
     private var updatingSubscriber: Cancellable? = nil
     
     
     // MARK: - Household data cache
-    @Published public var householdIndex = [Id: HouseholdDocument]() {
+    @Published public var householdIndex = [Id: Household]() {
         didSet {
-            self.households = [HouseholdDocument](householdIndex.values)
+            self.households = [Household](householdIndex.values)
         }
     }
-    @Published public var households = [HouseholdDocument]()
+    @Published public var households = [Household]()
     
     // MARK: - Member data cache
     @Published public var memberIndex = [Id: MemberIndexRecord]() {
@@ -85,7 +85,7 @@ class DataFetcher: ObservableObject {
                 }
             }, receiveValue: { households in
                 self.fetchError = nil //indicate no error
-                var newIndex = [Id: HouseholdDocument]()
+                var newIndex = [Id: Household]()
                 var newMemberIndex = [Id: MemberIndexRecord]()
                 households.forEach {
                     newIndex[$0.id] = $0
@@ -119,7 +119,7 @@ class DataFetcher: ObservableObject {
             updated.spouse = updatedMember
         case .other:
             var newOthers = updated.others
-            for i in 0..<newOthers.count { //yeah, I'm writing Fortran in Swift
+            for i in 0 ..< newOthers.count { //yeah, I'm writing Fortran in Swift
                 if newOthers[i].id == updatedMember.id {
                     newOthers[i] = updatedMember
                     break
@@ -132,9 +132,9 @@ class DataFetcher: ObservableObject {
         }
     }
     
-    fileprivate func updateData(to newValue: HouseholdDocument) {
-        updatingPublisher = updatePublisher(to: newValue)
-        updatingSubscriber = updatingPublisher?
+    fileprivate func updateData(to newValue: Household) {
+        let updatingPublisher = updatePublisher(to: newValue)
+        updatingSubscriber = updatingPublisher
         .receive(on: RunLoop.main)
         .sink(receiveCompletion: { completion in
             switch completion {
@@ -150,10 +150,10 @@ class DataFetcher: ObservableObject {
         })
     }
 
-    static func url(operation: CrudOperation) -> URL {
-        return URL(string: "http://\(dataServerHost):\(dataServerPort)/\(CollectionName.households.rawValue)/\(operation.rawValue)")!
-    }
-
+//    static func url(operation: CrudOperation) -> URL {
+//        return URL(string: "http://\(dataServerHost):\(dataServerPort)/\(CollectionName.households.rawValue)/\(operation.rawValue)")!
+//    }
+//
 }
 
 enum HouseholdRelation {

@@ -10,8 +10,10 @@ import Foundation
 import Combine
 import PMDataTypes
 
-func readAllPublisher() -> AnyPublisher<[HouseholdDocument], CallError> {
-    var request = URLRequest(url: DataFetcher.url(operation: .readAll))
+fileprivate let urlPrefix = "http://localhost:8000"
+
+func readAllPublisher() -> AnyPublisher<[Household], CallError> {
+    var request = URLRequest(url: URL(string: "\(urlPrefix)\(Endpoint.households.rawValue)?scope=all")!)
     request.setValue("application/json", forHTTPHeaderField: "Content-Type")
     request.httpMethod = "GET"
     request.httpBody = nil
@@ -19,17 +21,15 @@ func readAllPublisher() -> AnyPublisher<[HouseholdDocument], CallError> {
         .tryMap {
             data, response in
             guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
-                let log = String(data: data, encoding: .utf8)
-                NSLog("client got err resp: \(log ?? "nada")")
-                let errorResponse = try jsonDecoder.decode(ErrorResponse.self, from: data)
-                NSLog("client decoded err resp, err: \(errorResponse.error), response: \(errorResponse.response)")
-                throw CallError(errorString: errorResponse.error, reason: errorResponse.response)
+                let log = String(data: data, encoding: .utf8) ?? "nada"
+                NSLog("client got err resp: \(log)")
+                throw CallError(errorString: "read all households failed", reason: log)
             }
             do {
-                let documents = try jsonDecoder.decode([HouseholdDocument].self, from: data)
+                let documents = try jsonDecoder.decode([Household].self, from: data)
                 return documents
             } catch {
-                throw CallError(errorString: error.localizedDescription, reason: "client decode of HouseholdDocument failed")
+                throw CallError(errorString: error.localizedDescription, reason: "client decode of Household failed")
             }
         }
         .mapError {
@@ -40,27 +40,25 @@ func readAllPublisher() -> AnyPublisher<[HouseholdDocument], CallError> {
         .eraseToAnyPublisher()
 }
 
-func updatePublisher(to newValue: HouseholdDocument) -> AnyPublisher<HouseholdDocument, CallError> {
-    var request = URLRequest(url: DataFetcher.url(operation: .update))
+func updatePublisher(to newValue: Household) -> AnyPublisher<Void, CallError> {
+    var request = URLRequest(url: URL(string: "\(urlPrefix)\(Endpoint.households.rawValue)?id=\(newValue.id)")!)
     request.setValue("application/json", forHTTPHeaderField: "Content-Type")
     request.httpMethod = "POST"
     request.httpBody = try! jsonEncoder.encode(newValue) //TODO hmmm
     return URLSession.shared.dataTaskPublisher(for: request)
         .tryMap {
             data, response in
-            guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else { //TODO respond to NOTFOUND?
-                let log = String(data: data, encoding: .utf8)
-                NSLog("client got err resp: \(log ?? "nada")")
-                let errorResponse = try jsonDecoder.decode(ErrorResponse.self, from: data)
-                NSLog("client decoded err resp, err: \(errorResponse.error), response: \(errorResponse.response)")
-                throw CallError(errorString: errorResponse.error, reason: errorResponse.response)
+            guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
+                let log = String(data: data, encoding: .utf8) ?? "nada"
+                NSLog("client got err resp: \(log)")
+                throw CallError(errorString: "update household failed", reason: log)
             }
-            do {
-                let updated = try jsonDecoder.decode(HouseholdDocument.self, from: data)
-                return updated
-            } catch {
-                throw CallError(errorString: error.localizedDescription, reason: "client decode of HouseholdDocument failed")
-            }
+//            do {
+//                let updated = try jsonDecoder.decode(Household.self, from: data)
+//                return updated
+//            } catch {
+//                throw CallError(errorString: "error.localizedDescription", reason: "client decode of Household failed")
+//            }
     }
     .mapError {
         error in

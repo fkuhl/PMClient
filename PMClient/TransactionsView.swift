@@ -13,7 +13,7 @@ struct TransactionsView: View {
         NavigationView {
             List {
                 Section(header: Text("Families")) {
-                    NavigationLink(destination: FamilyInitialEntryView().environmentObject(FamilyAccumulator.sharedInstance.clear())) {
+                    NavigationLink(destination: FamilyInitialEntryView()) {
                         Text("Family joins").font(.body)
                     }
                 }
