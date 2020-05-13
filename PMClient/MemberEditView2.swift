@@ -9,10 +9,16 @@
 import SwiftUI
 import PMDataTypes
 
+protocol MemberEditDelegate {
+    func processA(member: Member) -> Void
+    func processB(member: Member) -> Void
+    func processC(member: Member) -> Void
+}
+
 struct MemberEditView2: View {
     @EnvironmentObject var accumulator: FamilyAccumulator
     @State var member: Member
-    var closingAction: (_ member: Member, _ accumulator: FamilyAccumulator) -> Void
+    var closingAction: (_ member: Member, _ delegate: MemberEditDelegate) -> Void
     
     var body: some View {
         VStack {

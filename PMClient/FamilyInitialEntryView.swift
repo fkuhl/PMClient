@@ -17,7 +17,7 @@ struct FamilyInitialEntryView: View {
                               caption: "Date received")
             ReceptionTypeView(captionWidth: 150,
                               caption: "Reception type")
-            NavigationLink(destination: MemberEditView2(member: accumulator.head, closingAction: { $1.head = $0 })) {
+            NavigationLink(destination: MemberEditView2(member: accumulator.head, closingAction: { $1.processA(member: $0) })) {
                 MemberLinkView(captionWidth: 150,
                                caption: "Head of household")
             }
