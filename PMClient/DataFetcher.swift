@@ -12,7 +12,7 @@ import Combine
 
 class DataFetcher: ObservableObject {
     private static let dataServerHost = "localhost"
-    private static let dataServerPort = 8123
+    private static let dataServerPort = 8000
     static let readAllBody = try! jsonEncoder.encode("{}")
     
     private let fetchingQueue = DispatchQueue(label: "com.tamelea.PMClient.readAll", qos: .background)
@@ -72,7 +72,8 @@ class DataFetcher: ObservableObject {
     }
     
     fileprivate func loadData() {
-        fetchPublisher = readAllPublisher()
+        fetchPublisher = readAllPublisher(dataServerHost: DataFetcher.dataServerHost,
+                                          dataServerPort: DataFetcher.dataServerPort)
         fetchSubscriber = fetchPublisher?
             .receive(on: RunLoop.main)
             .sink(receiveCompletion: { completion in
@@ -133,7 +134,9 @@ class DataFetcher: ObservableObject {
     }
     
     fileprivate func updateData(to newValue: Household) {
-        let updatingPublisher = updatePublisher(to: newValue)
+        let updatingPublisher = updatePublisher(to: newValue,
+                                                dataServerHost: DataFetcher.dataServerHost,
+                                                dataServerPort: DataFetcher.dataServerPort)
         updatingSubscriber = updatingPublisher
         .receive(on: RunLoop.main)
         .sink(receiveCompletion: { completion in

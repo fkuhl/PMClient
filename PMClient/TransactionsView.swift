@@ -9,6 +9,8 @@
 import SwiftUI
 
 struct TransactionsView: View {
+    @ObservedObject var familyAccumulator = FamilyAccumulator()
+    
     var body: some View {
         NavigationView {
             List {
@@ -26,6 +28,9 @@ struct TransactionsView: View {
             .navigationBarTitle("Transaction Types")
             .listStyle(GroupedListStyle())
         }
+            //A little odd having this here, but make sense:
+            //this object will be referred to throughout the navigation.
+        .environmentObject(familyAccumulator)
     }
 }
 

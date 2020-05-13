@@ -7,17 +7,23 @@
 //
 
 import SwiftUI
+import PMDataTypes
 
 struct FamilyInitialEntryView: View {
-    @ObservedObject var accumulator = FamilyAccumulator()
+    @EnvironmentObject var accumulator: FamilyAccumulator
     var body: some View {
         Form {
+            DateSelectionView(captionWidth: 150,
+                              caption: "Date received")
             ReceptionTypeView(captionWidth: 150,
-                              caption: "Reception type",
-                              accumulator: accumulator)
+                              caption: "Reception type")
+            NavigationLink(destination: MemberEditView2(member: accumulator.head, closingAction: { $1.head = $0 })) {
+                MemberLinkView(captionWidth: 150,
+                               caption: "Head of household")
+            }
             
         }
-        .navigationBarTitle("Manner of Reception")
+        .navigationBarTitle("Family Joins")
         .onAppear() {
             NSLog("onAppear \(self.accumulator.seed)")
         }
@@ -30,10 +36,44 @@ struct FamilyInitialEntryView: View {
 //    }
 //}
 
+struct MemberLinkView: View {
+    var captionWidth: CGFloat = 150
+    var caption: String
+    @EnvironmentObject var accumulator: FamilyAccumulator
+
+    var body: some View {
+        HStack(alignment: .lastTextBaseline) {
+            Text(caption)
+                .frame(width: captionWidth, alignment: .trailing)
+                .font(.caption)
+            Spacer()
+            Text(accumulator.headName()).frame(alignment: .leading).font(.body)
+        }
+    }
+}
+
+struct DateSelectionView: View {
+    var captionWidth: CGFloat = 150
+    var caption: String
+    @EnvironmentObject var accumulator: FamilyAccumulator
+
+    var body: some View {
+        HStack(alignment: .lastTextBaseline) {
+            Text(caption)
+                .frame(width: captionWidth, alignment: .trailing)
+                .font(.caption)
+            DatePicker("",
+                       selection: $accumulator.dateReceived,
+                       in: ...Date(),
+                       displayedComponents: .date).font(.body)
+        }
+    }
+}
+
 struct ReceptionTypeView: View {
     var captionWidth: CGFloat = 150
     var caption: String
-    @ObservedObject var accumulator: FamilyAccumulator
+    @EnvironmentObject var accumulator: FamilyAccumulator
 
     var body: some View {
         HStack(alignment: .lastTextBaseline) {

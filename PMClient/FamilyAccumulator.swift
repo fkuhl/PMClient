@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import PMDataTypes
 /**
  Accumulate the data needed to add a family to the DB as user steps through the various screens.
  */
@@ -17,6 +18,11 @@ class FamilyAccumulator: ObservableObject {
     //The picker needs an Int index, and it needs to be stored here.
     @Published var receptionTypeIndex = 2
     @Published var churchFrom = ""
+    @Published var head: Member = Member()
+    
+    func headName() -> String {
+        self.head.fullName()
+    }
     
     init() {
         NSLog("new accum \(seed)")

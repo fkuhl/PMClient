@@ -10,10 +10,8 @@ import Foundation
 import Combine
 import PMDataTypes
 
-fileprivate let urlPrefix = "http://localhost:8000"
-
-func readAllPublisher() -> AnyPublisher<[Household], CallError> {
-    var request = URLRequest(url: URL(string: "\(urlPrefix)\(Endpoint.households.rawValue)?scope=all")!)
+func readAllPublisher(dataServerHost: String, dataServerPort: Int) -> AnyPublisher<[Household], CallError> {
+    var request = URLRequest(url: URL(string: "http://\(dataServerHost):\(dataServerPort)\(Endpoint.households.rawValue)?scope=all")!)
     request.setValue("application/json", forHTTPHeaderField: "Content-Type")
     request.httpMethod = "GET"
     request.httpBody = nil
@@ -40,8 +38,8 @@ func readAllPublisher() -> AnyPublisher<[Household], CallError> {
         .eraseToAnyPublisher()
 }
 
-func updatePublisher(to newValue: Household) -> AnyPublisher<Void, CallError> {
-    var request = URLRequest(url: URL(string: "\(urlPrefix)\(Endpoint.households.rawValue)?id=\(newValue.id)")!)
+func updatePublisher(to newValue: Household, dataServerHost: String, dataServerPort: Int) -> AnyPublisher<Void, CallError> {
+    var request = URLRequest(url: URL(string: "http://\(dataServerHost):\(dataServerPort)\(Endpoint.households.rawValue)?id=\(newValue.id)")!)
     request.setValue("application/json", forHTTPHeaderField: "Content-Type")
     request.httpMethod = "POST"
     request.httpBody = try! jsonEncoder.encode(newValue) //TODO hmmm
