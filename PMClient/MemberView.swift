@@ -10,18 +10,20 @@ import SwiftUI
 import PMDataTypes
 
 struct MemberView: View {
-    @State var showingEdit = false
     var member: Member
+    let memberEditDelegate = MemberViewEditDelegate()
     
     var body: some View {
         VStack {
             HStack {
                 Spacer()
-                Button(action: {
-                    self.showingEdit.toggle()
-                }) {
-                    Text("Edit")
-                    .font(.body)
+                NavigationLink(
+                    destination: MemberEditView2(
+                                    member: member,
+                                    memberEditDelegate: memberEditDelegate,
+                                    closingAction: { $1.processA(member: $0) },
+                                    navigationBarTitle: member.fullName()))  {
+                    Text("Edit").font(.body)
                 }
             }.padding()
             List {
@@ -40,10 +42,24 @@ struct MemberView: View {
                 MemberTextAttributeView(caption: "date of birth:", text: dateForDisplay(member.dateOfBirth))
             }
         }.navigationBarTitle("\(member.fullName())")
-        .sheet(isPresented: $showingEdit) {
-            MemberEditView(showingEdit: self.$showingEdit, member: self.member)
-        }
     }
+}
+
+class MemberViewEditDelegate: MemberEditDelegate {
+    func processA(member: Member) {
+        NSLog("onDis: val is \(member.givenName)")
+        DataFetcher.sharedInstance.update(to: member)
+    }
+    
+    func processB(member: Member) {
+        //not used
+    }
+    
+    func processC(member: Member) {
+        // not used
+    }
+    
+    
 }
 
 //struct MemberView_Previews: PreviewProvider {
