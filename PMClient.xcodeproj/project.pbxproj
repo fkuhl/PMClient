@@ -19,10 +19,9 @@
 		2731796A23D12AB200BC707E /* MemberRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2731796923D12AB200BC707E /* MemberRowView.swift */; };
 		2749A06324250B2E001E0571 /* TransactionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2749A06224250B2E001E0571 /* TransactionsView.swift */; };
 		2749A06524250E1D001E0571 /* Bundle+decode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2749A06424250E1D001E0571 /* Bundle+decode.swift */; };
-		2749A06A24256153001E0571 /* FamilyInitialEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2749A06924256153001E0571 /* FamilyInitialEntryView.swift */; };
+		2749A06A24256153001E0571 /* FamilyJoinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2749A06924256153001E0571 /* FamilyJoinView.swift */; };
 		2749A06C24265BAF001E0571 /* FamilyAccumulator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2749A06B24265BAF001E0571 /* FamilyAccumulator.swift */; };
 		2749A07324266453001E0571 /* EditTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2749A07224266453001E0571 /* EditTextView.swift */; };
-		2749A075242666EA001E0571 /* EditEnumeration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2749A074242666EA001E0571 /* EditEnumeration.swift */; };
 		277273F823D64F5F00EE4FDA /* DataCheckReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277273F723D64F5F00EE4FDA /* DataCheckReport.swift */; };
 		277273FA23D64FA700EE4FDA /* DataCheckReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277273F923D64FA700EE4FDA /* DataCheckReportView.swift */; };
 		277273FC23D650CB00EE4FDA /* DataChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277273FB23D650CB00EE4FDA /* DataChecker.swift */; };
@@ -51,10 +50,9 @@
 		2731796923D12AB200BC707E /* MemberRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberRowView.swift; sourceTree = "<group>"; };
 		2749A06224250B2E001E0571 /* TransactionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsView.swift; sourceTree = "<group>"; };
 		2749A06424250E1D001E0571 /* Bundle+decode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+decode.swift"; sourceTree = "<group>"; };
-		2749A06924256153001E0571 /* FamilyInitialEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyInitialEntryView.swift; sourceTree = "<group>"; };
+		2749A06924256153001E0571 /* FamilyJoinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyJoinView.swift; sourceTree = "<group>"; };
 		2749A06B24265BAF001E0571 /* FamilyAccumulator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyAccumulator.swift; sourceTree = "<group>"; };
 		2749A07224266453001E0571 /* EditTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTextView.swift; sourceTree = "<group>"; };
-		2749A074242666EA001E0571 /* EditEnumeration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditEnumeration.swift; sourceTree = "<group>"; };
 		277273F723D64F5F00EE4FDA /* DataCheckReport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataCheckReport.swift; sourceTree = "<group>"; };
 		277273F923D64FA700EE4FDA /* DataCheckReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataCheckReportView.swift; sourceTree = "<group>"; };
 		277273FB23D650CB00EE4FDA /* DataChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataChecker.swift; sourceTree = "<group>"; };
@@ -146,7 +144,7 @@
 		2749A0682425611B001E0571 /* Family */ = {
 			isa = PBXGroup;
 			children = (
-				2749A06924256153001E0571 /* FamilyInitialEntryView.swift */,
+				2749A06924256153001E0571 /* FamilyJoinView.swift */,
 				2749A06B24265BAF001E0571 /* FamilyAccumulator.swift */,
 			);
 			name = Family;
@@ -156,7 +154,6 @@
 			isa = PBXGroup;
 			children = (
 				2749A07224266453001E0571 /* EditTextView.swift */,
-				2749A074242666EA001E0571 /* EditEnumeration.swift */,
 			);
 			name = EditFields;
 			sourceTree = "<group>";
@@ -286,9 +283,8 @@
 				2702B1A123AC0E6B009F0A68 /* SceneDelegate.swift in Sources */,
 				2731796A23D12AB200BC707E /* MemberRowView.swift in Sources */,
 				2700229323B7EA3F009EF8EE /* MockedData.swift in Sources */,
-				2749A075242666EA001E0571 /* EditEnumeration.swift in Sources */,
 				2728A7CE23CA3E9700655298 /* DataPublishers.swift in Sources */,
-				2749A06A24256153001E0571 /* FamilyInitialEntryView.swift in Sources */,
+				2749A06A24256153001E0571 /* FamilyJoinView.swift in Sources */,
 				277273FC23D650CB00EE4FDA /* DataChecker.swift in Sources */,
 				2702B1A323AC0E6B009F0A68 /* ContentView.swift in Sources */,
 			);

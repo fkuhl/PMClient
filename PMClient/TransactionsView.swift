@@ -15,7 +15,7 @@ struct TransactionsView: View {
         NavigationView {
             List {
                 Section(header: Text("Families")) {
-                    NavigationLink(destination: FamilyInitialEntryView()) {
+                    NavigationLink(destination: FamilyJoinView()) {
                         Text("Family joins").font(.body)
                     }
                 }

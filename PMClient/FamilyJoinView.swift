@@ -9,7 +9,7 @@
 import SwiftUI
 import PMDataTypes
 
-struct FamilyInitialEntryView: View {
+struct FamilyJoinView: View {
     @EnvironmentObject var accumulator: FamilyAccumulator
     var body: some View {
         Form {
