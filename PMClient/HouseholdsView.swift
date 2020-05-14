@@ -10,13 +10,24 @@ import SwiftUI
 
 struct HouseholdsView: View {
     @ObservedObject var dataFetcher = DataFetcher.sharedInstance
+    @State private var allOrActive = 0
+    
     var body: some View {
-        VStack {
-            List {
-                ForEach(dataFetcher.households, id: \.id) {
-                    Text($0.head.fullName())
+        NavigationView {
+            VStack {
+                Picker(selection: $allOrActive,
+                       label: Text("What's in a name?"),
+                       content: {
+                        Text("All Households").tag(0)
+                        Text("Active Households").tag(1)
+                }).pickerStyle(SegmentedPickerStyle())
+                List {
+                    ForEach(allOrActive == 0 ? dataFetcher.sortedHouseholds : dataFetcher.activeHouseholds, id: \.id) {
+                        HouseholdRowView(item: $0)
+                    }
                 }
             }
+            .navigationBarTitle(allOrActive == 0 ? "All Households" : "Active Households")
         }
     }
 }

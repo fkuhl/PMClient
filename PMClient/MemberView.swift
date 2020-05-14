@@ -12,20 +12,23 @@ import PMDataTypes
 struct MemberView: View {
     var member: Member
     let memberEditDelegate = MemberViewEditDelegate()
+    var editable = true
     
     var body: some View {
         VStack {
-            HStack {
-                Spacer()
-                NavigationLink(
-                    destination: MemberEditView(
-                                    member: member,
-                                    memberEditDelegate: memberEditDelegate,
-                                    closingAction: { $1.processA(member: $0) },
-                                    navigationBarTitle: member.fullName()))  {
-                    Text("Edit").font(.body)
-                }
-            }.padding()
+            if editable {
+                HStack {
+                    Spacer()
+                    NavigationLink(
+                        destination: MemberEditView(
+                            member: member,
+                            memberEditDelegate: memberEditDelegate,
+                            closingAction: { $1.processA(member: $0) },
+                            navigationBarTitle: member.fullName()))  {
+                                Text("Edit").font(.body)
+                    }
+                }.padding()
+            }
             List {
                 MemberTextAttributeView(caption: "family name:", text: member.familyName)
                 MemberTextAttributeView(caption: "given name:", text: member.givenName)

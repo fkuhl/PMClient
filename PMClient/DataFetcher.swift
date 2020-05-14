@@ -29,11 +29,17 @@ class DataFetcher: ObservableObject {
     // MARK: - Household data cache
     @Published public var householdIndex = [Id: Household]() {
         didSet {
+            NSLog("hh index had \(householdIndex.count)")
             self.households = [Household](householdIndex.values)
-        }
+            NSLog("fetched \(households.count) households")
+            self.sortedHouseholds = households.sorted { $0.head.fullName() < $1.head.fullName() }
+            self.activeHouseholds = sortedHouseholds.filter {$0.head.status.isActive() }
+}
     }
     @Published public var households = [Household]()
-    
+    @Published public var sortedHouseholds = [Household]()
+    @Published public var activeHouseholds = [Household]()
+
     // MARK: - Member data cache
     @Published public var memberIndex = [Id: MemberIndexRecord]() {
         didSet {
@@ -85,6 +91,7 @@ class DataFetcher: ObservableObject {
                     self.fetchError = error
                 }
             }, receiveValue: { households in
+                NSLog("recd \(households.count) from fetcher")
                 self.fetchError = nil //indicate no error
                 var newIndex = [Id: Household]()
                 var newMemberIndex = [Id: MemberIndexRecord]()

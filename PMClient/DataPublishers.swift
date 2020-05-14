@@ -41,7 +41,7 @@ func readAllPublisher(dataServerHost: String, dataServerPort: Int) -> AnyPublish
 func updatePublisher(to newValue: Household, dataServerHost: String, dataServerPort: Int) -> AnyPublisher<Void, CallError> {
     var request = URLRequest(url: URL(string: "http://\(dataServerHost):\(dataServerPort)\(Endpoint.households.rawValue)?id=\(newValue.id)")!)
     request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-    request.httpMethod = "POST"
+    request.httpMethod = "PUT"
     request.httpBody = try! jsonEncoder.encode(newValue) //TODO hmmm
     return URLSession.shared.dataTaskPublisher(for: request)
         .tryMap {
@@ -51,12 +51,6 @@ func updatePublisher(to newValue: Household, dataServerHost: String, dataServerP
                 NSLog("client got err resp: \(log)")
                 throw CallError(errorString: "update household failed", reason: log)
             }
-//            do {
-//                let updated = try jsonDecoder.decode(Household.self, from: data)
-//                return updated
-//            } catch {
-//                throw CallError(errorString: "error.localizedDescription", reason: "client decode of Household failed")
-//            }
     }
     .mapError {
         error in
