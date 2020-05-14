@@ -15,7 +15,7 @@ protocol MemberEditDelegate {
     func processC(member: Member) -> Void
 }
 
-struct MemberEditView2: View {
+struct MemberEditView: View {
     @EnvironmentObject var accumulator: FamilyAccumulator
     @State var member: Member
     var memberEditDelegate: MemberEditDelegate

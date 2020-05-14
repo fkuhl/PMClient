@@ -18,7 +18,7 @@ struct MemberView: View {
             HStack {
                 Spacer()
                 NavigationLink(
-                    destination: MemberEditView2(
+                    destination: MemberEditView(
                                     member: member,
                                     memberEditDelegate: memberEditDelegate,
                                     closingAction: { $1.processA(member: $0) },
