@@ -1,5 +1,5 @@
 //
-//  Member"View.swift
+//  MemberView.swift
 //  PMClient
 //
 //  Created by Frederick Kuhl on 1/1/20.
@@ -45,6 +45,9 @@ struct MemberView: View {
     }
 }
 
+/**
+ Delegate implementation used only by MemberView.
+ */
 class MemberViewEditDelegate: MemberEditDelegate {
     func processA(member: Member) {
         NSLog("onDis: val is \(member.givenName)")

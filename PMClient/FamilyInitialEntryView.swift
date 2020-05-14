@@ -23,9 +23,19 @@ struct FamilyInitialEntryView: View {
                     closingAction: { $1.processA(member: $0) },
                     navigationBarTitle: "Head of Household")) {
                 MemberLinkView(captionWidth: 150,
-                               caption: "Head of household")
+                               caption: "Head of household",
+                               name: accumulator.head.fullName())
             }
-            
+            NavigationLink(destination: MemberEditView2(
+                    member: accumulator.spouse,
+                    memberEditDelegate: accumulator,
+                    closingAction: { $1.processB(member: $0) },
+                    navigationBarTitle: "Spouse")) {
+                MemberLinkView(captionWidth: 150,
+                               caption: "Spouse",
+                               name: accumulator.spouse.fullName())
+            }
+
         }
         .navigationBarTitle("Family Joins")
         .onAppear() {
@@ -43,7 +53,7 @@ struct FamilyInitialEntryView: View {
 struct MemberLinkView: View {
     var captionWidth: CGFloat = 150
     var caption: String
-    @EnvironmentObject var accumulator: FamilyAccumulator
+    var name: String
 
     var body: some View {
         HStack(alignment: .lastTextBaseline) {
@@ -51,7 +61,7 @@ struct MemberLinkView: View {
                 .frame(width: captionWidth, alignment: .trailing)
                 .font(.caption)
             Spacer()
-            Text(accumulator.headName()).frame(alignment: .leading).font(.body)
+            Text(name).frame(alignment: .leading).font(.body)
         }
     }
 }
