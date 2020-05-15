@@ -43,9 +43,17 @@ struct MemberView: View {
                 }
                 MemberTextAttributeView(caption: "sex:", text: member.sex.rawValue)
                 MemberTextAttributeView(caption: "date of birth:", text: dateForDisplay(member.dateOfBirth))
+                MemberTextAttributeView(caption: "status:", text: member.status.rawValue)
+                MemberTextAttributeView(caption: "resident:", text: member.resident ? "yes" : "no")
+                MemberTextAttributeView(caption: "household:", text: householdName(for: member))
             }
         }.navigationBarTitle("\(member.fullName())")
     }
+}
+
+fileprivate func householdName(for member: Member) -> String {
+    let household = DataFetcher.sharedInstance.householdIndex[member.household]
+    return household == nil ? "[none]" : household!.head.fullName()
 }
 
 /**

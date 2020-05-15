@@ -35,7 +35,10 @@ struct FamilyJoinView: View {
                                caption: "Spouse",
                                name: accumulator.spouse.fullName())
             }
-
+            ForEach(accumulator.others, id: \.id) {
+                OtherRowView(other: $0)
+            }
+            //Need a "+" button
         }
         .navigationBarTitle("Family Joins")
         .onAppear() {
@@ -49,6 +52,23 @@ struct FamilyJoinView: View {
 //        FamilyInitialEntryView()
 //    }
 //}
+
+fileprivate struct OtherRowView: View {
+    var other: Member
+    @EnvironmentObject var accumulator: FamilyAccumulator
+
+    var body: some View {
+        NavigationLink(destination: MemberEditView(
+                member: other,
+                memberEditDelegate: accumulator,
+                closingAction: { $1.processC(member: $0) },
+                navigationBarTitle: "Other Member")) {
+            MemberLinkView(captionWidth: 150,
+                           caption: "",
+                           name: accumulator.spouse.fullName())
+        }
+    }
+}
 
 struct MemberLinkView: View {
     var captionWidth: CGFloat = 150

@@ -27,7 +27,7 @@ struct ContentView: View {
                     Text("Households")
                 }
                 .tag(1)
-            TransactionsView()
+            DataTransactionsView()
                 .font(.title)
                 .tabItem {
                     Image(systemName: "pencil.circle")

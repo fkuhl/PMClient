@@ -30,8 +30,25 @@ struct HouseholdView: View {
                                        name: item.spouse!.fullName())
                 }
             }
+            ForEach(item.others, id: \.id) {
+                OtherRowView(other: $0)
+            }
         }
         .navigationBarTitle(item.head.fullName())
+    }
+}
+
+fileprivate struct OtherRowView: View {
+    var other: Member
+    
+    var body: some View {
+        NavigationLink(destination: MemberView(
+            member: other,
+            editable: false)) {
+                MemberLinkView(captionWidth: 150,
+                               caption: "",
+                               name: other.fullName())
+        }
     }
 }
 

@@ -21,6 +21,7 @@ class FamilyAccumulator: ObservableObject, MemberEditDelegate {
     @Published var churchFrom = ""
     @Published var head: Member = Member()
     @Published var spouse: Member = Member()
+    @Published var others: [Member] = [Member]()
     
     init() {
         NSLog("new accum \(seed)")
