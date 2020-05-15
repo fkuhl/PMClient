@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct MemberTextAttributeView: View {
+struct TextAttributeView: View {
     var caption: String
     var text: String?
     
@@ -24,8 +24,8 @@ struct MemberTextAttributeView: View {
     }
 }
 
-struct MemberTextAttributeView_Previews: PreviewProvider {
+struct TextAttributeView_Previews: PreviewProvider {
     static var previews: some View {
-        MemberTextAttributeView(caption: "some caption", text: "some text")
+        TextAttributeView(caption: "some caption", text: "some text")
     }
 }

@@ -9,14 +9,13 @@
 import SwiftUI
 import PMDataTypes
 
-struct Transactions: View {
+struct TransactionsView: View {
     var member: Member
     
     var body: some View {
-        List {
-            ForEach(member.transactions, id: \.self) { transaction in
-                TransactionRowView(item: transaction)
-            }
+        //Don't put these inside a Vstack or List: in context they're already in a List
+        ForEach(member.transactions, id: \.self) { transaction in
+            TransactionRowView(item: transaction)
         }
     }
 }
@@ -36,18 +35,19 @@ struct TransactionView: View {
     var transaction: PMDataTypes.Transaction
     var body: some View {
         List {
-            MemberTextAttributeView(caption: "date", text: dateForDisplay(transaction.date))
-            MemberTextAttributeView(caption: "type", text: transaction.type.rawValue)
-            if transaction.authority != nil {
-                MemberTextAttributeView(caption: "authority", text: transaction.authority)
+            TextAttributeView(caption: "date", text: dateForDisplay(transaction.date))
+            TextAttributeView(caption: "type", text: transaction.type.rawValue)
+            if !nugatory(transaction.authority) {
+                TextAttributeView(caption: "authority", text: transaction.authority)
             }
-            if transaction.church != nil {
-                MemberTextAttributeView(caption: "authority", text: transaction.church)
+            if !nugatory(transaction.church) {
+                TextAttributeView(caption: "church", text: transaction.church)
             }
-            if transaction.comment != nil {
-                MemberTextAttributeView(caption: "authority", text: transaction.comment)
+            if !nugatory(transaction.comment) {
+                TextAttributeView(caption: "comment", text: transaction.comment)
             }
-        }
+        }        .navigationBarTitle("Transaction")
+
     }
 }
 

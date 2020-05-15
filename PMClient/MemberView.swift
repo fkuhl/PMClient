@@ -30,22 +30,28 @@ struct MemberView: View {
                 }.padding()
             }
             List {
-                MemberTextAttributeView(caption: "family name:", text: member.familyName)
-                MemberTextAttributeView(caption: "given name:", text: member.givenName)
-                if member.middleName != nil {
-                    MemberTextAttributeView(caption: "middle name:", text: member.middleName)
+                Section {
+                    TextAttributeView(caption: "family name:", text: member.familyName)
+                    TextAttributeView(caption: "given name:", text: member.givenName)
+                    if member.middleName != nil {
+                        TextAttributeView(caption: "middle name:", text: member.middleName)
+                    }
+                    if member.previousFamilyName != nil {
+                        TextAttributeView(caption: "prev fam name:", text: member.previousFamilyName)
+                    }
+                    if member.nameSuffix != nil {
+                        TextAttributeView(caption: "suffix:", text: member.nameSuffix)
+                    }
+                    TextAttributeView(caption: "sex:", text: member.sex.rawValue)
+                    TextAttributeView(caption: "date of birth:", text: dateForDisplay(member.dateOfBirth))
+                    TextAttributeView(caption: "status:", text: member.status.rawValue)
+                    TextAttributeView(caption: "resident:", text: member.resident ? "yes" : "no")
+                    TextAttributeView(caption: "household:", text: householdName(for: member))
                 }
-                if member.previousFamilyName != nil {
-                    MemberTextAttributeView(caption: "prev fam name:", text: member.previousFamilyName)
+                Section {
+                    Text("Transactions").font(.callout).italic()
+                    TransactionsView(member: member)
                 }
-                if member.nameSuffix != nil {
-                    MemberTextAttributeView(caption: "suffix:", text: member.nameSuffix)
-                }
-                MemberTextAttributeView(caption: "sex:", text: member.sex.rawValue)
-                MemberTextAttributeView(caption: "date of birth:", text: dateForDisplay(member.dateOfBirth))
-                MemberTextAttributeView(caption: "status:", text: member.status.rawValue)
-                MemberTextAttributeView(caption: "resident:", text: member.resident ? "yes" : "no")
-                MemberTextAttributeView(caption: "household:", text: householdName(for: member))
             }
         }.navigationBarTitle("\(member.fullName())")
     }
