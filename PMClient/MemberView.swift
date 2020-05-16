@@ -52,6 +52,12 @@ struct MemberView: View {
                     Text("Transactions").font(.callout).italic()
                     TransactionsView(member: member)
                 }
+                if member.services.count > 0 {
+                 Section {
+                        Text("Services").font(.callout).italic()
+                        ServicesView(member: member)
+                    }
+                }
             }
         }.navigationBarTitle("\(member.fullName())")
     }
