@@ -17,7 +17,7 @@ struct HouseholdView: View {
             NavigationLink(destination: MemberView(
                 member: item.head,
                 editable: false)) {
-                    MemberLinkView(captionWidth: 150,
+                    MemberLinkView(captionWidth: defaultCaptionWidth,
                                    caption: "Head of household",
                                    name: item.head.fullName())
             }
@@ -25,7 +25,7 @@ struct HouseholdView: View {
                 NavigationLink(destination: MemberView(
                     member: item.spouse!,
                     editable: false)) {
-                        MemberLinkView(captionWidth: 150,
+                        MemberLinkView(captionWidth: defaultCaptionWidth,
                                        caption: "Spouse",
                                        name: item.spouse!.fullName())
                 }
@@ -45,7 +45,7 @@ fileprivate struct OtherRowView: View {
         NavigationLink(destination: MemberView(
             member: other,
             editable: false)) {
-                MemberLinkView(captionWidth: 150,
+                MemberLinkView(captionWidth: defaultCaptionWidth,
                                caption: "",
                                name: other.fullName())
         }

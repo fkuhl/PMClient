@@ -42,11 +42,61 @@ struct MemberView: View {
                     if member.nameSuffix != nil {
                         TextAttributeView(caption: "suffix:", text: member.nameSuffix)
                     }
+                    if member.title != nil {
+                        TextAttributeView(caption: "title:", text: member.title)
+                    }
+                    if member.nickName != nil {
+                        TextAttributeView(caption: "nickname:", text: member.nickName)
+                    }
                     TextAttributeView(caption: "sex:", text: member.sex.rawValue)
-                    TextAttributeView(caption: "date of birth:", text: dateForDisplay(member.dateOfBirth))
                     TextAttributeView(caption: "status:", text: member.status.rawValue)
+                }
+                Section {
                     TextAttributeView(caption: "resident:", text: member.resident ? "yes" : "no")
+                    TextAttributeView(caption: "ex-directory:", text: member.exDirectory ? "yes" : "no")
+                    if member.dateOfBirth != nil {
+                        TextAttributeView(caption: "date of birth:", text: dateForDisplay(member.dateOfBirth!))
+                    }
+                    if member.placeOfBirth != nil {
+                        TextAttributeView(caption: "place of birth:", text: member.placeOfBirth!)
+                    }
+                    if member.baptism != nil {
+                        TextAttributeView(caption: "baptism:", text: member.baptism)
+                    }
                     TextAttributeView(caption: "household:", text: householdName(for: member))
+                    TextAttributeView(caption: "martial status:", text: member.maritalStatus.rawValue)
+                    if member.spouse != nil {
+                        TextAttributeView(caption: "spouse:", text: member.spouse)
+                    }
+                    if member.dateOfMarriage != nil {
+                        TextAttributeView(caption: "date of marriage:", text: dateForDisplay(member.dateOfMarriage))
+                    }
+                    if member.divorce != nil {
+                        TextAttributeView(caption: "divorce:", text: member.divorce)
+                    }
+                }
+                Section {
+                    if member.father != nil {
+                        TextAttributeView(caption: "father:", text: memberName(id: member.father!))
+                    }
+                    if member.mother != nil {
+                        TextAttributeView(caption: "mother:", text: memberName(id: member.mother!))
+                    }
+                    if member.eMail != nil {
+                        TextAttributeView(caption: "email:", text: member.eMail)
+                    }
+                    if member.workEmail != nil {
+                        TextAttributeView(caption: "work email:", text: member.workEmail)
+                    }
+                    if member.mobilePhone != nil {
+                        TextAttributeView(caption: "mobile phone:", text: member.mobilePhone)
+                    }
+                    if member.workPhone != nil {
+                        TextAttributeView(caption: "work phone:", text: member.workPhone)
+                    }
+                }
+                if member.dateLastChanged != nil {
+                    TextAttributeView(caption: "date last changed:", text: dateForDisplay(member.dateLastChanged!))
                 }
                 Section {
                     Text("Transactions").font(.callout).italic()
@@ -66,6 +116,11 @@ struct MemberView: View {
 fileprivate func householdName(for member: Member) -> String {
     let household = DataFetcher.sharedInstance.householdIndex[member.household]
     return household == nil ? "[none]" : household!.head.fullName()
+}
+
+fileprivate func memberName(id: Id) -> String {
+    let memberRecord = DataFetcher.sharedInstance.memberIndex[id]
+    return memberRecord == nil ? "[none]" : memberRecord!.member.fullName()
 }
 
 /**

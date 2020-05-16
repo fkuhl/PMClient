@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct EditTextView: View {
-    var captionWidth: CGFloat = 150
+    var captionWidth: CGFloat = defaultCaptionWidth
     var caption: String
     @Binding var text: String
     

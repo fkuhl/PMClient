@@ -43,3 +43,5 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
+
+let defaultCaptionWidth: CGFloat = 150

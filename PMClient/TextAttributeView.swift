@@ -15,7 +15,7 @@ struct TextAttributeView: View {
     var body: some View {
         HStack {
             Text(caption)
-                .frame(width: 150, alignment: .trailing) //a magic number for you
+                .frame(width: defaultCaptionWidth, alignment: .trailing) //a magic number for you
                 .font(.caption)
             Text(text ?? "[none]")
                 .frame(alignment: .leading)
