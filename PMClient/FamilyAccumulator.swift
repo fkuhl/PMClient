@@ -42,12 +42,6 @@ class FamilyAccumulator: ObservableObject, MemberEditDelegate {
 }
 
 enum ReceptionType: String, CaseIterable {
-    static var stringArray: [String] {
-        get {
-            ReceptionType.allCases.map { $0.rawValue }
-        }
-    }
-    
     case PROFESSION
     case AFFIRMATION
     case TRANSFER

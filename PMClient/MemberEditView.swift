@@ -33,10 +33,15 @@ struct MemberEditView: View {
                     EditOptionalTextView(caption: "suffix:", text: $member.nameSuffix)
                     EditOptionalTextView(caption: "title:", text: $member.title)
                     EditOptionalTextView(caption: "nickname:", text: $member.nickName)
+                    EditSexView(caption: "sex:", sex: $member.sex)
                 }
             }
         }.onDisappear() {
+            NSLog("MEV onDis")
             self.closingAction(self.member, self.memberEditDelegate)
+        }
+        .onAppear() {
+            NSLog("MEV onApp")
         }
         .navigationBarTitle(navigationBarTitle)
     }

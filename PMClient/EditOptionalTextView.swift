@@ -32,6 +32,9 @@ struct EditOptionalTextView: View {
             NSLog("EditOTV onApp '\(self.text ?? "<nil>")'")
             self.unwrappedText = self.text ?? ""
         }
+        .onDisappear() {
+            NSLog("EditOTV onDis")
+        }
     }
 }
 

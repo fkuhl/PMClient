@@ -116,9 +116,9 @@ struct ReceptionTypeView: View {
                 .font(.caption)
             Picker(selection: $accumulator.receptionTypeIndex, label: Text("")) {
                 //The ForEach can be written using just ReceptionType.stringArray, but then the Picker doesn't work.
-                ForEach (0 ..< ReceptionType.stringArray.count, id: \.self) {
+                ForEach (0 ..< ReceptionType.allCases.count, id: \.self) {
                     //Don't forget the tag!
-                    Text(ReceptionType.stringArray[$0]).font(.body).tag($0)
+                    Text(ReceptionType.allCases[$0].rawValue).font(.body).tag($0)
                 }
             }
         }
