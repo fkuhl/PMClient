@@ -21,13 +21,18 @@ struct MemberEditView: View {
     var memberEditDelegate: MemberEditDelegate
     var closingAction: (_ member: Member, _ delegate: MemberEditDelegate) -> Void
     var navigationBarTitle: String
-    
+
     var body: some View {
         VStack {
             Form {
                 Section { //Section to group in sets of <= 10
-                    EditTextView(caption: "Family name:", text: $member.familyName)
-                    EditTextView(caption: "Given name:", text: $member.givenName)
+                    EditTextView(caption: "family name:", text: $member.familyName)
+                    EditTextView(caption: "given name:", text: $member.givenName)
+                    EditOptionalTextView(caption: "middle name:", text: $member.middleName)
+                    EditOptionalTextView(caption: "prev fam name:", text: $member.previousFamilyName)
+                    EditOptionalTextView(caption: "suffix:", text: $member.nameSuffix)
+                    EditOptionalTextView(caption: "title:", text: $member.title)
+                    EditOptionalTextView(caption: "nickname:", text: $member.nickName)
                 }
             }
         }.onDisappear() {
