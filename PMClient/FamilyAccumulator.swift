@@ -17,7 +17,7 @@ class FamilyAccumulator: ObservableObject, MemberEditDelegate {
     @Published var seed = UUID().uuidString
     @Published var dateReceived = Date()
     //The picker needs an Int index, and it needs to be stored here.
-    @Published var receptionTypeIndex = 2
+    @Published var receptionType: ReceptionType = .TRANSFER
     @Published var churchFrom = ""
     @Published var head: Member = Member()
     @Published var spouse: Member = Member()

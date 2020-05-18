@@ -27,12 +27,6 @@ struct EditSexView: View {
                 }
             }
         }
-//        .onAppear() {
-//            NSLog("EditSV onApp \(self.sex.rawValue)")
-//        }
-//        .onDisappear() {
-//            NSLog("EditSV onDis \(self.sex.rawValue)")
-//        }
     }
 }
 
