@@ -16,6 +16,7 @@ protocol MemberEditDelegate {
 }
 
 struct MemberEditView: View {
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @EnvironmentObject var accumulator: FamilyAccumulator
     @State var member: Member
     var memberEditDelegate: MemberEditDelegate
@@ -36,14 +37,25 @@ struct MemberEditView: View {
                     EditSexView(caption: "sex:", sex: $member.sex)
                 }
             }
-        }.onDisappear() {
-            NSLog("MEV onDis")
-            self.closingAction(self.member, self.memberEditDelegate)
+            .navigationBarTitle(navigationBarTitle)
+            .navigationBarBackButtonHidden(true)
+            .navigationBarItems(leading:
+                Button(action: {
+                    NSLog("MEV save+finish")
+                    self.presentationMode.wrappedValue.dismiss()
+                    self.closingAction(self.member, self.memberEditDelegate)
+                }) {
+                    Text("Save + Finish").font(.body)
+                }
+                , trailing:
+                Button(action: {
+                    NSLog("MEV cancel")
+                    self.presentationMode.wrappedValue.dismiss()
+                }) {
+                    Text("Cancel").font(.body)
+                }
+            )
         }
-        .onAppear() {
-            NSLog("MEV onApp")
-        }
-        .navigationBarTitle(navigationBarTitle)
     }
 }
 

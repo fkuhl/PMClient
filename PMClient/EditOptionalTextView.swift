@@ -21,7 +21,7 @@ struct EditOptionalTextView: View {
                 .font(.caption)
             TextField(caption, text: $unwrappedText, onEditingChanged: { changed in
                 //This would be more elegant if on onDisappear, but that doesn't seem to be working.
-                NSLog("EditOTV onEC '\(self.unwrappedText)'")
+                NSLog("EditOTV onEC '\(self.unwrappedText)' changed: \(changed)")
                 self.text = self.unwrappedText
             })
             .textFieldStyle(RoundedBorderTextFieldStyle())
