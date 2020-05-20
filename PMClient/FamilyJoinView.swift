@@ -101,6 +101,12 @@ struct DateSelectionView: View {
                        in: ...Date(),
                        displayedComponents: .date).font(.body)
         }
+        .onAppear() {
+            NSLog("DSV onApp")
+        }
+        .onDisappear() {
+            NSLog("DSV onDis")
+        }
     }
 }
 
@@ -115,7 +121,6 @@ struct ReceptionTypeView: View {
                 .frame(width: captionWidth, alignment: .trailing)
                 .font(.caption)
             Picker(selection: $accumulator.receptionType, label: Text("")) {
-                //The ForEach can be written using just ReceptionType.stringArray, but then the Picker doesn't work.
                 ForEach (ReceptionType.allCases, id: \.self) {
                     //Don't forget the tag!
                     Text($0.rawValue).font(.body).tag($0)

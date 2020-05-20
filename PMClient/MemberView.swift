@@ -96,7 +96,7 @@ struct MemberView: View {
                     }
                 }
                 if member.dateLastChanged != nil {
-                    TextAttributeView(caption: "date last changed:", text: dateForDisplay(member.dateLastChanged!))
+                    TextAttributeView(caption: "date last changed:", text: dateForDisplay(member.dateLastChanged))
                 }
                 Section {
                     Text("Transactions").font(.callout).italic()
@@ -108,7 +108,7 @@ struct MemberView: View {
                         ServicesView(member: member)
                     }
                 }
-            }
+            }.listStyle(GroupedListStyle())
         }.navigationBarTitle("\(member.fullName())")
     }
 }

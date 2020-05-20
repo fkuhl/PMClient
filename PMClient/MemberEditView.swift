@@ -36,6 +36,7 @@ struct MemberEditView: View {
                     EditOptionalTextView(caption: "nickname:", text: $member.nickName)
                     EditSexView(caption: "sex:", sex: $member.sex)
                 }
+                EditOptionalDateView(caption: "date of marriage:", date: $member.dateOfMarriage)
             }
             .navigationBarTitle(navigationBarTitle)
             .navigationBarBackButtonHidden(true)

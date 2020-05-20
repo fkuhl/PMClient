@@ -27,6 +27,7 @@
 		277273FC23D650CB00EE4FDA /* DataChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277273FB23D650CB00EE4FDA /* DataChecker.swift */; };
 		2776DDC323BD2D5900F0CE04 /* DataCheckerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2776DDC223BD2D5900F0CE04 /* DataCheckerView.swift */; };
 		277AA60123E9F2390015312D /* MemberEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277AA60023E9F2390015312D /* MemberEditView.swift */; };
+		277EFA8224756FCA00708610 /* EditOptionalDateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277EFA8124756FCA00708610 /* EditOptionalDateView.swift */; };
 		27A38BEE246DB30A00612CE0 /* HouseholdRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A38BED246DB30A00612CE0 /* HouseholdRowView.swift */; };
 		27A38BF0246DB41300612CE0 /* HouseholdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A38BEF246DB41300612CE0 /* HouseholdView.swift */; };
 		27A38BF2246F12E400612CE0 /* Transactions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A38BF1246F12E400612CE0 /* Transactions.swift */; };
@@ -64,6 +65,7 @@
 		277273FB23D650CB00EE4FDA /* DataChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataChecker.swift; sourceTree = "<group>"; };
 		2776DDC223BD2D5900F0CE04 /* DataCheckerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataCheckerView.swift; sourceTree = "<group>"; };
 		277AA60023E9F2390015312D /* MemberEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberEditView.swift; sourceTree = "<group>"; };
+		277EFA8124756FCA00708610 /* EditOptionalDateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditOptionalDateView.swift; sourceTree = "<group>"; };
 		27A38BED246DB30A00612CE0 /* HouseholdRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseholdRowView.swift; sourceTree = "<group>"; };
 		27A38BEF246DB41300612CE0 /* HouseholdView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseholdView.swift; sourceTree = "<group>"; };
 		27A38BF1246F12E400612CE0 /* Transactions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transactions.swift; sourceTree = "<group>"; };
@@ -168,6 +170,7 @@
 				27C7400024707AA4007984A5 /* EditOptionalTextView.swift */,
 				2749A07224266453001E0571 /* EditTextView.swift */,
 				27C740022472E70A007984A5 /* EditSexView.swift */,
+				277EFA8124756FCA00708610 /* EditOptionalDateView.swift */,
 			);
 			name = EditFields;
 			sourceTree = "<group>";
@@ -290,6 +293,7 @@
 				2731796823D1286C00BC707E /* MemberView.swift in Sources */,
 				27A38BEE246DB30A00612CE0 /* HouseholdRowView.swift in Sources */,
 				277AA60123E9F2390015312D /* MemberEditView.swift in Sources */,
+				277EFA8224756FCA00708610 /* EditOptionalDateView.swift in Sources */,
 				27A38BF2246F12E400612CE0 /* Transactions.swift in Sources */,
 				2749A06C24265BAF001E0571 /* FamilyAccumulator.swift in Sources */,
 				27C740032472E70A007984A5 /* EditSexView.swift in Sources */,
