@@ -176,3 +176,10 @@ struct MemberIndexRecord {
     var member: Member
     var relation: HouseholdRelation
 }
+
+func nameOfHousehold(_ id: Id) -> String {
+    if let household = DataFetcher.sharedInstance.householdIndex[id] {
+        return household.head.fullName()
+    }
+    return "[none]"
+}

@@ -17,6 +17,7 @@
 		2728A7CE23CA3E9700655298 /* DataPublishers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2728A7CD23CA3E9700655298 /* DataPublishers.swift */; };
 		2731796823D1286C00BC707E /* MemberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2731796723D1286C00BC707E /* MemberView.swift */; };
 		2731796A23D12AB200BC707E /* MemberRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2731796923D12AB200BC707E /* MemberRowView.swift */; };
+		274430F524785D13005212A9 /* EditDisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274430F424785D13005212A9 /* EditDisplayView.swift */; };
 		2749A06324250B2E001E0571 /* DataTransactionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2749A06224250B2E001E0571 /* DataTransactionsView.swift */; };
 		2749A06524250E1D001E0571 /* Bundle+decode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2749A06424250E1D001E0571 /* Bundle+decode.swift */; };
 		2749A06A24256153001E0571 /* FamilyJoinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2749A06924256153001E0571 /* FamilyJoinView.swift */; };
@@ -39,6 +40,8 @@
 		27C7400124707AA5007984A5 /* EditOptionalTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C7400024707AA4007984A5 /* EditOptionalTextView.swift */; };
 		27C740032472E70A007984A5 /* EditSexView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C740022472E70A007984A5 /* EditSexView.swift */; };
 		27CCBB8623E2148500CE2C5F /* TextAttributeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CCBB8523E2148500CE2C5F /* TextAttributeView.swift */; };
+		27CEEDCC2476E1F300665520 /* EditBoolView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CEEDCB2476E1F300665520 /* EditBoolView.swift */; };
+		27CEEDCE2476FEF000665520 /* ChooseHouseholdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CEEDCD2476FEF000665520 /* ChooseHouseholdView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,6 +58,7 @@
 		2728A7CD23CA3E9700655298 /* DataPublishers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPublishers.swift; sourceTree = "<group>"; };
 		2731796723D1286C00BC707E /* MemberView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemberView.swift; sourceTree = "<group>"; };
 		2731796923D12AB200BC707E /* MemberRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberRowView.swift; sourceTree = "<group>"; };
+		274430F424785D13005212A9 /* EditDisplayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditDisplayView.swift; sourceTree = "<group>"; };
 		2749A06224250B2E001E0571 /* DataTransactionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTransactionsView.swift; sourceTree = "<group>"; };
 		2749A06424250E1D001E0571 /* Bundle+decode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+decode.swift"; sourceTree = "<group>"; };
 		2749A06924256153001E0571 /* FamilyJoinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyJoinView.swift; sourceTree = "<group>"; };
@@ -76,6 +80,8 @@
 		27C7400024707AA4007984A5 /* EditOptionalTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditOptionalTextView.swift; sourceTree = "<group>"; };
 		27C740022472E70A007984A5 /* EditSexView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditSexView.swift; sourceTree = "<group>"; };
 		27CCBB8523E2148500CE2C5F /* TextAttributeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextAttributeView.swift; sourceTree = "<group>"; };
+		27CEEDCB2476E1F300665520 /* EditBoolView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditBoolView.swift; sourceTree = "<group>"; };
+		27CEEDCD2476FEF000665520 /* ChooseHouseholdView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseHouseholdView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,10 +173,13 @@
 		2749A06D2426637E001E0571 /* EditFields */ = {
 			isa = PBXGroup;
 			children = (
+				274430F424785D13005212A9 /* EditDisplayView.swift */,
+				27CEEDCB2476E1F300665520 /* EditBoolView.swift */,
 				27C7400024707AA4007984A5 /* EditOptionalTextView.swift */,
 				2749A07224266453001E0571 /* EditTextView.swift */,
 				27C740022472E70A007984A5 /* EditSexView.swift */,
 				277EFA8124756FCA00708610 /* EditOptionalDateView.swift */,
+				27CEEDCD2476FEF000665520 /* ChooseHouseholdView.swift */,
 			);
 			name = EditFields;
 			sourceTree = "<group>";
@@ -290,11 +299,13 @@
 				27C40ACE23B1678300B337A7 /* DataFetcher.swift in Sources */,
 				27A38BF0246DB41300612CE0 /* HouseholdView.swift in Sources */,
 				27C40ACA23B1628800B337A7 /* MembersView.swift in Sources */,
+				27CEEDCE2476FEF000665520 /* ChooseHouseholdView.swift in Sources */,
 				2731796823D1286C00BC707E /* MemberView.swift in Sources */,
 				27A38BEE246DB30A00612CE0 /* HouseholdRowView.swift in Sources */,
 				277AA60123E9F2390015312D /* MemberEditView.swift in Sources */,
 				277EFA8224756FCA00708610 /* EditOptionalDateView.swift in Sources */,
 				27A38BF2246F12E400612CE0 /* Transactions.swift in Sources */,
+				27CEEDCC2476E1F300665520 /* EditBoolView.swift in Sources */,
 				2749A06C24265BAF001E0571 /* FamilyAccumulator.swift in Sources */,
 				27C740032472E70A007984A5 /* EditSexView.swift in Sources */,
 				2749A06524250E1D001E0571 /* Bundle+decode.swift in Sources */,
@@ -302,6 +313,7 @@
 				27C73FFF24706516007984A5 /* Services.swift in Sources */,
 				2749A07324266453001E0571 /* EditTextView.swift in Sources */,
 				2749A06324250B2E001E0571 /* DataTransactionsView.swift in Sources */,
+				274430F524785D13005212A9 /* EditDisplayView.swift in Sources */,
 				2702B19F23AC0E6B009F0A68 /* AppDelegate.swift in Sources */,
 				27C40ACC23B1631800B337A7 /* HouseholdsView.swift in Sources */,
 				277273FA23D64FA700EE4FDA /* DataCheckReportView.swift in Sources */,

@@ -32,6 +32,7 @@ struct EditOptionalDateView: View {
                 }
             } else {
                 HStack{
+                    Spacer()
                     Button(action: { self.date = nil }) {
                         Text("Remove Date").font(.body)
                     }

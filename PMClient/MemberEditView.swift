@@ -35,14 +35,26 @@ struct MemberEditView: View {
                     EditOptionalTextView(caption: "title:", text: $member.title)
                     EditOptionalTextView(caption: "nickname:", text: $member.nickName)
                     EditSexView(caption: "sex:", sex: $member.sex)
+                    EditMemberStatusView(caption: "status:", memberStatus: $member.status)
                 }
-                EditOptionalDateView(caption: "date of marriage:", date: $member.dateOfMarriage)
+                Section {
+                    EditBoolView(caption: "resident:", choice: $member.resident)
+                    EditBoolView(caption: "ex-directory:", choice: $member.exDirectory)
+                    EditOptionalDateView(caption: "date of birth:", date: $member.dateOfBirth)
+                    EditOptionalTextView(caption: "place of birth:", text: $member.placeOfBirth)
+                    EditOptionalTextView(caption: "baptism:", text: $member.baptism)
+                    EditDisplayView(caption: "household:", message: "Change household via 'Change member's household.")
+                    EditMaritalStatusView(caption: "marital status:", maritalStatus: $member.maritalStatus)
+                    EditOptionalTextView(caption: "spouse:", text: $member.spouse)
+                    EditOptionalDateView(caption: "date of marriage:", date: $member.dateOfMarriage)
+                    EditOptionalTextView(caption: "divorce:", text: $member.divorce)
+                }
             }
             .navigationBarTitle(navigationBarTitle)
             .navigationBarBackButtonHidden(true)
             .navigationBarItems(leading:
                 Button(action: {
-                    NSLog("MEV save+finish")
+                    NSLog("MEV save+finish household \(nameOfHousehold(self.member.household))")
                     self.presentationMode.wrappedValue.dismiss()
                     self.closingAction(self.member, self.memberEditDelegate)
                 }) {

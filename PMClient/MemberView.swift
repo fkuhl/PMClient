@@ -128,7 +128,9 @@ fileprivate func memberName(id: Id) -> String {
  */
 class MemberViewEditDelegate: MemberEditDelegate {
     func processA(member: Member) {
-        NSLog("MemberEditVieiwDel onDis: val is \(member.fullName())")
+        NSLog("MemberEditViewDel onDis: val is \(member.fullName())")
+        NSLog("MemberEditViewDel onDis: hh is \(nameOfHousehold(member.household))")
+        NSLog("MemberEditViewDel onDis: hh is \(member.household)")
         DataFetcher.sharedInstance.update(to: member)
     }
     
