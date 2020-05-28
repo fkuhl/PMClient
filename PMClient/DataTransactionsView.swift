@@ -10,6 +10,7 @@ import SwiftUI
 
 struct DataTransactionsView: View {
     @ObservedObject var familyAccumulator = FamilyAccumulator()
+    @ObservedObject var moveToHouseholdAccumulator = MoveToHouseholdAccumulator()
     
     var body: some View {
         NavigationView {
@@ -17,6 +18,11 @@ struct DataTransactionsView: View {
                 Section(header: Text("Families")) {
                     NavigationLink(destination: FamilyJoinView()) {
                         Text("Family joins").font(.body)
+                    }
+                }
+                Section(header: Text("Members")) {
+                    NavigationLink(destination: MoveToHouseholdView()) {
+                        Text("Member moves to different household").font(.body)
                     }
                 }
                 Section(header: Text("Miscellaneous")) {
@@ -31,6 +37,7 @@ struct DataTransactionsView: View {
             //A little odd having this here, but make sense:
             //this object will be referred to throughout the navigation.
         .environmentObject(familyAccumulator)
+        .environmentObject(moveToHouseholdAccumulator)
     }
 }
 

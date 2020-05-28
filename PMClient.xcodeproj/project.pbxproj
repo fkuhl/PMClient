@@ -14,10 +14,13 @@
 		2702B1A523AC0E6C009F0A68 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2702B1A423AC0E6C009F0A68 /* Assets.xcassets */; };
 		2702B1A823AC0E6C009F0A68 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2702B1A723AC0E6C009F0A68 /* Preview Assets.xcassets */; };
 		2702B1AB23AC0E6C009F0A68 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2702B1A923AC0E6C009F0A68 /* LaunchScreen.storyboard */; };
+		2721A19F248047D700E06BDC /* EditDateButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2721A19E248047D700E06BDC /* EditDateButton.swift */; };
 		2728A7CE23CA3E9700655298 /* DataPublishers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2728A7CD23CA3E9700655298 /* DataPublishers.swift */; };
 		2731796823D1286C00BC707E /* MemberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2731796723D1286C00BC707E /* MemberView.swift */; };
 		2731796A23D12AB200BC707E /* MemberRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2731796923D12AB200BC707E /* MemberRowView.swift */; };
 		274430F524785D13005212A9 /* EditDisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274430F424785D13005212A9 /* EditDisplayView.swift */; };
+		274430F724787B5C005212A9 /* MoveToHouseholdAccumulator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274430F624787B5C005212A9 /* MoveToHouseholdAccumulator.swift */; };
+		274430F924787C0B005212A9 /* MoveToHouseholdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274430F824787C0B005212A9 /* MoveToHouseholdView.swift */; };
 		2749A06324250B2E001E0571 /* DataTransactionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2749A06224250B2E001E0571 /* DataTransactionsView.swift */; };
 		2749A06524250E1D001E0571 /* Bundle+decode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2749A06424250E1D001E0571 /* Bundle+decode.swift */; };
 		2749A06A24256153001E0571 /* FamilyJoinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2749A06924256153001E0571 /* FamilyJoinView.swift */; };
@@ -55,10 +58,13 @@
 		2702B1AA23AC0E6C009F0A68 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2702B1AC23AC0E6C009F0A68 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2702B1B223AC0E8A009F0A68 /* PMClient.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PMClient.entitlements; sourceTree = "<group>"; };
+		2721A19E248047D700E06BDC /* EditDateButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDateButton.swift; sourceTree = "<group>"; };
 		2728A7CD23CA3E9700655298 /* DataPublishers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPublishers.swift; sourceTree = "<group>"; };
 		2731796723D1286C00BC707E /* MemberView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemberView.swift; sourceTree = "<group>"; };
 		2731796923D12AB200BC707E /* MemberRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberRowView.swift; sourceTree = "<group>"; };
 		274430F424785D13005212A9 /* EditDisplayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditDisplayView.swift; sourceTree = "<group>"; };
+		274430F624787B5C005212A9 /* MoveToHouseholdAccumulator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveToHouseholdAccumulator.swift; sourceTree = "<group>"; };
+		274430F824787C0B005212A9 /* MoveToHouseholdView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveToHouseholdView.swift; sourceTree = "<group>"; };
 		2749A06224250B2E001E0571 /* DataTransactionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTransactionsView.swift; sourceTree = "<group>"; };
 		2749A06424250E1D001E0571 /* Bundle+decode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+decode.swift"; sourceTree = "<group>"; };
 		2749A06924256153001E0571 /* FamilyJoinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyJoinView.swift; sourceTree = "<group>"; };
@@ -157,6 +163,8 @@
 			isa = PBXGroup;
 			children = (
 				2749A06224250B2E001E0571 /* DataTransactionsView.swift */,
+				274430F624787B5C005212A9 /* MoveToHouseholdAccumulator.swift */,
+				274430F824787C0B005212A9 /* MoveToHouseholdView.swift */,
 			);
 			name = Transactions;
 			sourceTree = "<group>";
@@ -180,6 +188,7 @@
 				27C740022472E70A007984A5 /* EditSexView.swift */,
 				277EFA8124756FCA00708610 /* EditOptionalDateView.swift */,
 				27CEEDCD2476FEF000665520 /* ChooseHouseholdView.swift */,
+				2721A19E248047D700E06BDC /* EditDateButton.swift */,
 			);
 			name = EditFields;
 			sourceTree = "<group>";
@@ -296,6 +305,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				274430F724787B5C005212A9 /* MoveToHouseholdAccumulator.swift in Sources */,
 				27C40ACE23B1678300B337A7 /* DataFetcher.swift in Sources */,
 				27A38BF0246DB41300612CE0 /* HouseholdView.swift in Sources */,
 				27C40ACA23B1628800B337A7 /* MembersView.swift in Sources */,
@@ -314,6 +324,7 @@
 				2749A07324266453001E0571 /* EditTextView.swift in Sources */,
 				2749A06324250B2E001E0571 /* DataTransactionsView.swift in Sources */,
 				274430F524785D13005212A9 /* EditDisplayView.swift in Sources */,
+				2721A19F248047D700E06BDC /* EditDateButton.swift in Sources */,
 				2702B19F23AC0E6B009F0A68 /* AppDelegate.swift in Sources */,
 				27C40ACC23B1631800B337A7 /* HouseholdsView.swift in Sources */,
 				277273FA23D64FA700EE4FDA /* DataCheckReportView.swift in Sources */,
@@ -321,6 +332,7 @@
 				27CCBB8623E2148500CE2C5F /* TextAttributeView.swift in Sources */,
 				2702B1A123AC0E6B009F0A68 /* SceneDelegate.swift in Sources */,
 				27C7400124707AA5007984A5 /* EditOptionalTextView.swift in Sources */,
+				274430F924787C0B005212A9 /* MoveToHouseholdView.swift in Sources */,
 				2731796A23D12AB200BC707E /* MemberRowView.swift in Sources */,
 				2700229323B7EA3F009EF8EE /* MockedData.swift in Sources */,
 				2728A7CE23CA3E9700655298 /* DataPublishers.swift in Sources */,

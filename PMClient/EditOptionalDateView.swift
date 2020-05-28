@@ -12,13 +12,14 @@ struct EditOptionalDateView: View {
     var captionWidth: CGFloat = defaultCaptionWidth
     var caption: String
     @Binding var date: Date?
+    
 
     var body: some View {
         let proxyBinding = Binding<Date> (
             get: { self.date ?? Date() },
             set: { self.date = $0 })
         
-        return HStack(alignment: .lastTextBaseline) {
+        return HStack {
             Text(caption)
                 .frame(width: captionWidth, alignment: .trailing)
                 .font(.caption)
@@ -31,11 +32,7 @@ struct EditOptionalDateView: View {
                     }
                 }
             } else {
-                HStack{
-                    Spacer()
-                    Button(action: { self.date = nil }) {
-                        Text("Remove Date").font(.body)
-                    }
+                VStack(alignment: .leading) {
                     DatePicker("",
                                selection: proxyBinding,
                                in: ...Date(),
