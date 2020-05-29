@@ -17,6 +17,7 @@
 		2721A19F248047D700E06BDC /* EditDateButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2721A19E248047D700E06BDC /* EditDateButton.swift */; };
 		2721A1A12480512800E06BDC /* EditOptionalParentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2721A1A02480512800E06BDC /* EditOptionalParentView.swift */; };
 		2721A1A324815D0200E06BDC /* TransactionEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2721A1A224815D0200E06BDC /* TransactionEditView.swift */; };
+		2721A1A524817D0D00E06BDC /* ServiceEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2721A1A424817D0D00E06BDC /* ServiceEditView.swift */; };
 		2728A7CE23CA3E9700655298 /* DataPublishers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2728A7CD23CA3E9700655298 /* DataPublishers.swift */; };
 		2731796823D1286C00BC707E /* MemberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2731796723D1286C00BC707E /* MemberView.swift */; };
 		2731796A23D12AB200BC707E /* MemberRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2731796923D12AB200BC707E /* MemberRowView.swift */; };
@@ -63,6 +64,7 @@
 		2721A19E248047D700E06BDC /* EditDateButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDateButton.swift; sourceTree = "<group>"; };
 		2721A1A02480512800E06BDC /* EditOptionalParentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditOptionalParentView.swift; sourceTree = "<group>"; };
 		2721A1A224815D0200E06BDC /* TransactionEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionEditView.swift; sourceTree = "<group>"; };
+		2721A1A424817D0D00E06BDC /* ServiceEditView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceEditView.swift; sourceTree = "<group>"; };
 		2728A7CD23CA3E9700655298 /* DataPublishers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPublishers.swift; sourceTree = "<group>"; };
 		2731796723D1286C00BC707E /* MemberView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemberView.swift; sourceTree = "<group>"; };
 		2731796923D12AB200BC707E /* MemberRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberRowView.swift; sourceTree = "<group>"; };
@@ -212,6 +214,7 @@
 		277273F523D64EB000EE4FDA /* Members */ = {
 			isa = PBXGroup;
 			children = (
+				2721A1A424817D0D00E06BDC /* ServiceEditView.swift */,
 				27C73FFE24706516007984A5 /* Services.swift */,
 				2731796723D1286C00BC707E /* MemberView.swift */,
 				27C40AC923B1628800B337A7 /* MembersView.swift */,
@@ -317,6 +320,7 @@
 				27C40ACA23B1628800B337A7 /* MembersView.swift in Sources */,
 				27CEEDCE2476FEF000665520 /* ChooseHouseholdView.swift in Sources */,
 				2731796823D1286C00BC707E /* MemberView.swift in Sources */,
+				2721A1A524817D0D00E06BDC /* ServiceEditView.swift in Sources */,
 				27A38BEE246DB30A00612CE0 /* HouseholdRowView.swift in Sources */,
 				277AA60123E9F2390015312D /* MemberEditView.swift in Sources */,
 				2721A1A12480512800E06BDC /* EditOptionalParentView.swift in Sources */,
