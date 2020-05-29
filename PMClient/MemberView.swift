@@ -131,6 +131,7 @@ class MemberViewEditDelegate: MemberEditDelegate {
         NSLog("MemberEditViewDel onDis: val is \(member.fullName())")
         NSLog("MemberEditViewDel onDis: hh is \(nameOfHousehold(member.household))")
         NSLog("MemberEditViewDel onDis: hh is \(member.household)")
+        NSLog("MemberEditViewDel onDis: last changed is \(dateForDisplay(member.dateLastChanged))")
         DataFetcher.sharedInstance.update(to: member)
     }
     

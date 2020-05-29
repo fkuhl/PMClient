@@ -16,6 +16,7 @@
 		2702B1AB23AC0E6C009F0A68 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2702B1A923AC0E6C009F0A68 /* LaunchScreen.storyboard */; };
 		2721A19F248047D700E06BDC /* EditDateButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2721A19E248047D700E06BDC /* EditDateButton.swift */; };
 		2721A1A12480512800E06BDC /* EditOptionalParentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2721A1A02480512800E06BDC /* EditOptionalParentView.swift */; };
+		2721A1A324815D0200E06BDC /* TransactionEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2721A1A224815D0200E06BDC /* TransactionEditView.swift */; };
 		2728A7CE23CA3E9700655298 /* DataPublishers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2728A7CD23CA3E9700655298 /* DataPublishers.swift */; };
 		2731796823D1286C00BC707E /* MemberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2731796723D1286C00BC707E /* MemberView.swift */; };
 		2731796A23D12AB200BC707E /* MemberRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2731796923D12AB200BC707E /* MemberRowView.swift */; };
@@ -61,6 +62,7 @@
 		2702B1B223AC0E8A009F0A68 /* PMClient.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PMClient.entitlements; sourceTree = "<group>"; };
 		2721A19E248047D700E06BDC /* EditDateButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDateButton.swift; sourceTree = "<group>"; };
 		2721A1A02480512800E06BDC /* EditOptionalParentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditOptionalParentView.swift; sourceTree = "<group>"; };
+		2721A1A224815D0200E06BDC /* TransactionEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionEditView.swift; sourceTree = "<group>"; };
 		2728A7CD23CA3E9700655298 /* DataPublishers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPublishers.swift; sourceTree = "<group>"; };
 		2731796723D1286C00BC707E /* MemberView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemberView.swift; sourceTree = "<group>"; };
 		2731796923D12AB200BC707E /* MemberRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberRowView.swift; sourceTree = "<group>"; };
@@ -217,6 +219,7 @@
 				27CCBB8523E2148500CE2C5F /* TextAttributeView.swift */,
 				277AA60023E9F2390015312D /* MemberEditView.swift */,
 				27A38BF1246F12E400612CE0 /* Transactions.swift */,
+				2721A1A224815D0200E06BDC /* TransactionEditView.swift */,
 			);
 			name = Members;
 			sourceTree = "<group>";
@@ -319,6 +322,7 @@
 				2721A1A12480512800E06BDC /* EditOptionalParentView.swift in Sources */,
 				277EFA8224756FCA00708610 /* EditOptionalDateView.swift in Sources */,
 				27A38BF2246F12E400612CE0 /* Transactions.swift in Sources */,
+				2721A1A324815D0200E06BDC /* TransactionEditView.swift in Sources */,
 				27CEEDCC2476E1F300665520 /* EditBoolView.swift in Sources */,
 				2749A06C24265BAF001E0571 /* FamilyAccumulator.swift in Sources */,
 				27C740032472E70A007984A5 /* EditSexView.swift in Sources */,

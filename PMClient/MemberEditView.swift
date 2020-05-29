@@ -61,6 +61,11 @@ struct MemberEditView: View {
                     EditOptionalTextView(caption: "mobile phone:", text: $member.mobilePhone)
                     EditOptionalTextView(caption: "work phone:", text: $member.workPhone)
                 }
+                Section {
+                    Text("Transactions").font(.callout).italic()
+                    TransactionsEditView(member: $member)
+                    TransactionsEditAddView(member: $member)
+                }
                 EditOptionalDateView(caption: "date last changed:", date: $member.dateLastChanged)
                 EditDateButton(caption: "date last changed:", date: $member.dateLastChanged)
             }
