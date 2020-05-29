@@ -159,11 +159,13 @@ class DataFetcher: ObservableObject {
             self.fetchError = nil
         })
     }
+    
+    func parentList(mustBeActive: Bool, sex: Sex) -> [Member] {
+        return sortedMembers.filter {
+            $0.sex == sex && !(mustBeActive && !$0.status.isActive())
+        }
+    }
 
-//    static func url(operation: CrudOperation) -> URL {
-//        return URL(string: "http://\(dataServerHost):\(dataServerPort)/\(CollectionName.households.rawValue)/\(operation.rawValue)")!
-//    }
-//
 }
 
 enum HouseholdRelation {
@@ -180,6 +182,14 @@ struct MemberIndexRecord {
 func nameOfHousehold(_ id: Id) -> String {
     if let household = DataFetcher.sharedInstance.householdIndex[id] {
         return household.head.fullName()
+    }
+    return "[none]"
+}
+
+func nameOfMember(_ id: Id?) -> String {
+    if id == nil { return "[none]" }
+    if let memberRecord = DataFetcher.sharedInstance.memberIndex[id!] {
+        return memberRecord.member.fullName()
     }
     return "[none]"
 }

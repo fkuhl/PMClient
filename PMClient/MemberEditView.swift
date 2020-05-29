@@ -50,8 +50,19 @@ struct MemberEditView: View {
                     EditMaritalStatusView(caption: "marital status:", maritalStatus: $member.maritalStatus)
                     EditOptionalTextView(caption: "spouse:", text: $member.spouse)
                     EditOptionalDateView(caption: "date of marriage:", date: $member.dateOfMarriage)
+                    EditDateButton(caption: "date of marriage:", date: $member.dateOfMarriage)
                     EditOptionalTextView(caption: "divorce:", text: $member.divorce)
                 }
+                Section {
+                    EditOptionalParentView(caption: "father", sex: .MALE, parentId: $member.father)
+                    EditOptionalParentView(caption: "mother", sex: .FEMALE, parentId: $member.mother)
+                    EditOptionalTextView(caption: "email:", text: $member.eMail)
+                    EditOptionalTextView(caption: "work email:", text: $member.workEmail)
+                    EditOptionalTextView(caption: "mobile phone:", text: $member.mobilePhone)
+                    EditOptionalTextView(caption: "work phone:", text: $member.workPhone)
+                }
+                EditOptionalDateView(caption: "date last changed:", date: $member.dateLastChanged)
+                EditDateButton(caption: "date last changed:", date: $member.dateLastChanged)
             }
             .navigationBarTitle(navigationBarTitle)
             .navigationBarBackButtonHidden(true)

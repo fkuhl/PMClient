@@ -14,12 +14,8 @@ struct EditOptionalTextView: View {
     
     var body: some View {
         let proxyBinding = Binding<String> (
-            get: {
-                self.text ?? ""
-        },
-            set: {
-                self.text = $0
-        })
+            get: { self.text ?? ""  },
+            set: { self.text = $0 })
         
         return HStack(alignment: .lastTextBaseline) {
             Text(caption)
