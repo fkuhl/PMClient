@@ -14,18 +14,16 @@ import PMDataTypes
 
 class FamilyAccumulator: ObservableObject, MemberEditDelegate {
     
-    @Published var seed = UUID().uuidString
+    
     @Published var dateReceived = Date()
-    //The picker needs an Int index, and it needs to be stored here.
     @Published var receptionType: ReceptionType = .TRANSFER
     @Published var churchFrom = ""
+    @Published var authority = ""
+    @Published var comment = ""
     @Published var head: Member = Member()
     @Published var spouse: Member = Member()
     @Published var others: [Member] = [Member]()
-    
-    init() {
-        NSLog("new accum \(seed)")
-    }
+    @Published var address: Address = Address()
     
     // MARK - MemberEditDelegate
     func processA(member: Member) {
@@ -38,6 +36,18 @@ class FamilyAccumulator: ObservableObject, MemberEditDelegate {
     
     func processC(member: Member) {
         // TODO for others
+    }
+}
+
+class FamilyAddressEditDelegate: AddressEditDelegate {
+    var householdId: Id
+
+    init(householdId: Id) {
+        self.householdId = householdId
+    }
+    
+    func store(address: Address) {
+        // TODO
     }
 }
 

@@ -98,13 +98,11 @@ struct MemberView: View {
                 if member.dateLastChanged != nil {
                     TextAttributeView(caption: "date last changed:", text: dateForDisplay(member.dateLastChanged))
                 }
-                Section {
-                    Text("Transactions").font(.callout).italic()
+                Section(header: Text("Transactions").font(.callout).italic()) {
                     TransactionsView(member: member)
                 }
                 if member.services.count > 0 {
-                 Section {
-                        Text("Services").font(.callout).italic()
+                 Section(header: Text("Officer Service").font(.callout).italic()) {
                         ServicesView(member: member)
                     }
                 }
@@ -151,11 +149,3 @@ class MemberViewEditDelegate: MemberEditDelegate {
 //        MemberView(member: member1)
 //    }
 //}
-
-func dateForDisplay(_ date: Date?) -> String {
-    if let date = date {
-        return dateFormatter.string(from: date)
-    } else {
-        return "[none]"
-    }
-}

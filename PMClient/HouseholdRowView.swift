@@ -13,7 +13,7 @@ struct HouseholdRowView: View {
     var item: Household
     
     var body: some View {
-        NavigationLink(destination: HouseholdView(item: item)) {
+        NavigationLink(destination: HouseholdView(item: item, address: item.address ?? Address())) {
             Text(item.head.fullName()).font(.body)
         }
     }

@@ -18,6 +18,8 @@
 		2721A1A12480512800E06BDC /* EditOptionalParentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2721A1A02480512800E06BDC /* EditOptionalParentView.swift */; };
 		2721A1A324815D0200E06BDC /* TransactionEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2721A1A224815D0200E06BDC /* TransactionEditView.swift */; };
 		2721A1A524817D0D00E06BDC /* ServiceEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2721A1A424817D0D00E06BDC /* ServiceEditView.swift */; };
+		2721A1A82485379700E06BDC /* AddressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2721A1A72485379700E06BDC /* AddressView.swift */; };
+		2721A1AA24853A1700E06BDC /* AddressEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2721A1A924853A1700E06BDC /* AddressEditView.swift */; };
 		2728A7CE23CA3E9700655298 /* DataPublishers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2728A7CD23CA3E9700655298 /* DataPublishers.swift */; };
 		2731796823D1286C00BC707E /* MemberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2731796723D1286C00BC707E /* MemberView.swift */; };
 		2731796A23D12AB200BC707E /* MemberRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2731796923D12AB200BC707E /* MemberRowView.swift */; };
@@ -65,6 +67,8 @@
 		2721A1A02480512800E06BDC /* EditOptionalParentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditOptionalParentView.swift; sourceTree = "<group>"; };
 		2721A1A224815D0200E06BDC /* TransactionEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionEditView.swift; sourceTree = "<group>"; };
 		2721A1A424817D0D00E06BDC /* ServiceEditView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceEditView.swift; sourceTree = "<group>"; };
+		2721A1A72485379700E06BDC /* AddressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressView.swift; sourceTree = "<group>"; };
+		2721A1A924853A1700E06BDC /* AddressEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressEditView.swift; sourceTree = "<group>"; };
 		2728A7CD23CA3E9700655298 /* DataPublishers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPublishers.swift; sourceTree = "<group>"; };
 		2731796723D1286C00BC707E /* MemberView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemberView.swift; sourceTree = "<group>"; };
 		2731796923D12AB200BC707E /* MemberRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberRowView.swift; sourceTree = "<group>"; };
@@ -128,6 +132,7 @@
 		2702B19D23AC0E6B009F0A68 /* PMClient */ = {
 			isa = PBXGroup;
 			children = (
+				2721A1A62485377400E06BDC /* Address */,
 				2749A06D2426637E001E0571 /* EditFields */,
 				2749A0682425611B001E0571 /* Family */,
 				2749A06124250B03001E0571 /* Transactions */,
@@ -156,6 +161,15 @@
 				2702B1A723AC0E6C009F0A68 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		2721A1A62485377400E06BDC /* Address */ = {
+			isa = PBXGroup;
+			children = (
+				2721A1A72485379700E06BDC /* AddressView.swift */,
+				2721A1A924853A1700E06BDC /* AddressEditView.swift */,
+			);
+			name = Address;
 			sourceTree = "<group>";
 		};
 		2738F67F23BAAEC800B86A3E /* Frameworks */ = {
@@ -332,6 +346,7 @@
 				27C740032472E70A007984A5 /* EditSexView.swift in Sources */,
 				2749A06524250E1D001E0571 /* Bundle+decode.swift in Sources */,
 				277273F823D64F5F00EE4FDA /* DataCheckReport.swift in Sources */,
+				2721A1AA24853A1700E06BDC /* AddressEditView.swift in Sources */,
 				27C73FFF24706516007984A5 /* Services.swift in Sources */,
 				2749A07324266453001E0571 /* EditTextView.swift in Sources */,
 				2749A06324250B2E001E0571 /* DataTransactionsView.swift in Sources */,
@@ -341,6 +356,7 @@
 				27C40ACC23B1631800B337A7 /* HouseholdsView.swift in Sources */,
 				277273FA23D64FA700EE4FDA /* DataCheckReportView.swift in Sources */,
 				2776DDC323BD2D5900F0CE04 /* DataCheckerView.swift in Sources */,
+				2721A1A82485379700E06BDC /* AddressView.swift in Sources */,
 				27CCBB8623E2148500CE2C5F /* TextAttributeView.swift in Sources */,
 				2702B1A123AC0E6B009F0A68 /* SceneDelegate.swift in Sources */,
 				27C7400124707AA5007984A5 /* EditOptionalTextView.swift in Sources */,

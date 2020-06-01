@@ -9,29 +9,61 @@
 import SwiftUI
 import PMDataTypes
 
+class HouseholdAddressEditDelegate: AddressEditDelegate {
+    var householdId: Id
+    
+    init(householdId: Id) {
+        self.householdId = householdId
+    }
+
+    func store(address: Address) {
+        NSLog("HAED addr: \(address.address ?? "[none]")")
+        DataFetcher.sharedInstance.update(householdId: self.householdId, to: address)
+    }
+}
+
 struct HouseholdView: View {
     var item: Household
+    var addressEditable = true
+    @State var address: Address
     
     var body: some View {
         Form {
-            NavigationLink(destination: MemberView(
-                member: item.head,
-                editable: false)) {
-                    MemberLinkView(captionWidth: defaultCaptionWidth,
-                                   caption: "Head of household",
-                                   name: item.head.fullName())
-            }
-            if item.spouse != nil {
+            Section {
                 NavigationLink(destination: MemberView(
-                    member: item.spouse!,
+                    member: item.head,
                     editable: false)) {
                         MemberLinkView(captionWidth: defaultCaptionWidth,
-                                       caption: "Spouse",
-                                       name: item.spouse!.fullName())
+                                       caption: "Head of household",
+                                       name: item.head.fullName())
+                }
+                if item.spouse != nil {
+                    NavigationLink(destination: MemberView(
+                        member: item.spouse!,
+                        editable: false)) {
+                            MemberLinkView(captionWidth: defaultCaptionWidth,
+                                           caption: "Spouse",
+                                           name: item.spouse!.fullName())
+                    }
                 }
             }
-            ForEach(item.others, id: \.id) {
-                OtherRowView(other: $0)
+            if !item.others.isEmpty {
+                Section(header: Text("Dependents").font(.callout).italic()) {
+                    ForEach(item.others, id: \.id) {
+                        OtherRowView(other: $0)
+                    }
+                }
+            }
+            Section(header: Text("Address").font(.callout).italic()) {
+                if nugatory(item.address) {
+                    NavigationLink(destination: AddressEditView(addressEditDelegate: HouseholdAddressEditDelegate(householdId: item.id), address: Address())) {
+                        Text("Add address").font(.body)
+                    }
+                } else {
+                    NavigationLink(destination: AddressEditView(addressEditDelegate: HouseholdAddressEditDelegate(householdId: item.id), address: item.address!)) {
+                        Text("Edit: \(item.address!.addressForDisplay())").font(.body)
+                    }
+                }
             }
         }
         .navigationBarTitle(item.head.fullName())

@@ -112,7 +112,7 @@ class DataFetcher: ObservableObject {
     
     func update(to updatedMember: Member) {
         guard let householdToEdit = householdIndex[updatedMember.household] else {
-            NSLog("no household to update for member \(updatedMember.fullName()); hosehold id was \(updatedMember.household)")
+            NSLog("no household to update for member \(updatedMember.fullName()); household id was \(updatedMember.household)")
             return
         }
         var updated = householdToEdit
@@ -163,6 +163,18 @@ class DataFetcher: ObservableObject {
     func parentList(mustBeActive: Bool, sex: Sex) -> [Member] {
         return sortedMembers.filter {
             $0.sex == sex && !(mustBeActive && !$0.status.isActive())
+        }
+    }
+    
+    func update(householdId: Id, to updatedAddress: Address) {
+        guard let householdToEdit = householdIndex[householdId] else {
+            NSLog("no household to update for id \(householdId)")
+            return
+        }
+        var updated = householdToEdit
+        updated.address = updatedAddress
+        updatingQueue.async {
+            self.updateData(to: updated)
         }
     }
 

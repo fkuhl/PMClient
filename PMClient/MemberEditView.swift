@@ -61,13 +61,11 @@ struct MemberEditView: View {
                     EditOptionalTextView(caption: "mobile phone:", text: $member.mobilePhone)
                     EditOptionalTextView(caption: "work phone:", text: $member.workPhone)
                 }
-                Section {
-                    Text("Transactions").font(.callout).italic()
+                Section(header: Text("Transactions").font(.callout).italic()) {
                     TransactionsEditView(member: $member)
                     TransactionsEditAddView(member: $member)
                 }
-                Section {
-                    Text("Officer Service").font(.callout).italic()
+                Section(header: Text("Officer Service").font(.callout).italic()) {
                     ServicesEditView(member: $member)
                     ServicesEditAddView(member: $member)
                 }
@@ -78,18 +76,18 @@ struct MemberEditView: View {
             .navigationBarBackButtonHidden(true)
             .navigationBarItems(leading:
                 Button(action: {
+                    NSLog("MEV cancel")
+                    self.presentationMode.wrappedValue.dismiss()
+                }) {
+                    Text("Cancel").font(.body)
+                }
+                , trailing:
+                Button(action: {
                     NSLog("MEV save+finish household \(nameOfHousehold(self.member.household))")
                     self.presentationMode.wrappedValue.dismiss()
                     self.closingAction(self.member, self.memberEditDelegate)
                 }) {
                     Text("Save + Finish").font(.body)
-                }
-                , trailing:
-                Button(action: {
-                    NSLog("MEV cancel")
-                    self.presentationMode.wrappedValue.dismiss()
-                }) {
-                    Text("Cancel").font(.body)
                 }
             )
         }
