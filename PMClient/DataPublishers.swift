@@ -19,7 +19,9 @@ func readAllPublisher(dataServerHost: String, dataServerPort: Int) -> AnyPublish
         .tryMap {
             data, response in
             guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
-                let log = String(data: data, encoding: .utf8) ?? "nada"
+                let message = String(data: data, encoding: .utf8) ?? "[no response]"
+                let status = (response as? HTTPURLResponse)?.statusCode ?? 0
+                let log = "(\(status)) \(message)"
                 NSLog("client got err resp: \(log)")
                 throw CallError(errorString: "read all households failed", reason: log)
             }
@@ -42,15 +44,47 @@ func updatePublisher(to newValue: Household, dataServerHost: String, dataServerP
     var request = URLRequest(url: URL(string: "http://\(dataServerHost):\(dataServerPort)\(Endpoint.households.rawValue)?id=\(newValue.id)")!)
     request.setValue("application/json", forHTTPHeaderField: "Content-Type")
     request.httpMethod = "PUT"
-    request.httpBody = try! jsonEncoder.encode(newValue) //TODO hmmm
+    request.httpBody = try! jsonEncoder.encode(newValue)
     return URLSession.shared.dataTaskPublisher(for: request)
         .tryMap {
             data, response in
             guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
-                let log = String(data: data, encoding: .utf8) ?? "nada"
+                let message = String(data: data, encoding: .utf8) ?? "[no response]"
+                let status = (response as? HTTPURLResponse)?.statusCode ?? 0
+                let log = "(\(status)) \(message)"
                 NSLog("client got err resp: \(log)")
                 throw CallError(errorString: "update household failed", reason: log)
             }
+    }
+    .mapError {
+        error in
+        if let error = error as? CallError { return error }
+        else { return CallError(errorString: error.localizedDescription, reason: "some unk err")}
+    }
+    .eraseToAnyPublisher()
+}
+
+func addPublisher(_ newValue: Household, dataServerHost: String, dataServerPort: Int) -> AnyPublisher<String, CallError> {
+    var request = URLRequest(url: URL(string: "http://\(dataServerHost):\(dataServerPort)\(Endpoint.households.rawValue)")!)
+    request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+    request.httpMethod = "POST"
+    request.httpBody = try! jsonEncoder.encode(newValue)
+    return URLSession.shared.dataTaskPublisher(for: request)
+        .tryMap {
+            data, response in
+            guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
+                let message = String(data: data, encoding: .utf8) ?? "[no response]"
+                let status = (response as? HTTPURLResponse)?.statusCode ?? 0
+                let log = "(\(status)) \(message)"
+                NSLog("client got err resp: \(log)")
+                throw CallError(errorString: "add household failed", reason: log)
+            }
+            guard let newId = String(data: data, encoding: .utf8) else {
+                let log = "error decoding response"
+                NSLog("client got err resp: \(log)")
+                throw CallError(errorString: "add household failed", reason: log)
+            }
+            return newId
     }
     .mapError {
         error in

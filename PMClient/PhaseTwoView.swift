@@ -1,18 +1,17 @@
 //
-//  FamilyInitialEntryView.swift
+//  PhaseTwoView.swift
 //  PMClient
 //
-//  Created by Frederick Kuhl on 3/20/20.
+//  Created by Frederick Kuhl on 6/5/20.
 //  Copyright © 2020 TyndaleSoft LLC. All rights reserved.
 //
 
 import SwiftUI
 import PMDataTypes
 
-struct FamilyJoinView: View {
+struct PhaseTwoView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @EnvironmentObject var accumulator: FamilyAccumulator
-    @ObservedObject var dataFetcher = DataFetcher.sharedInstance
     
     var body: some View {
         Form {
@@ -50,17 +49,17 @@ struct FamilyJoinView: View {
             }
             //Need a "+" button
             // TODO need to rearrange so only show addr after household made in DB
-//            Section(header: Text("Address").font(.callout).italic()) {
-//                NavigationLink(destination: AddressView(address: $accumulator.address, addressEditDelegate: accumulator)) {
-//                    Text("Address").font(.body)
-//                }
-//            }
+            //            Section(header: Text("Address").font(.callout).italic()) {
+            //                NavigationLink(destination: AddressView(address: $accumulator.address, addressEditDelegate: accumulator)) {
+            //                    Text("Address").font(.body)
+            //                }
+            //            }
         }
         .navigationBarTitle("Family Joins")
         .navigationBarBackButtonHidden(true)
         .navigationBarItems(leading:
             Button(action: {
-                NSLog("MEV cancel")
+                NSLog("Ph2 cancel")
                 self.presentationMode.wrappedValue.dismiss()
             }) {
                 Text("Cancel").font(.body)
@@ -75,12 +74,6 @@ struct FamilyJoinView: View {
         )
     }
 }
-
-//struct FamilyInitialEntryView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        FamilyInitialEntryView()
-//    }
-//}
 
 fileprivate struct OtherRowView: View {
     var other: Member
@@ -99,62 +92,8 @@ fileprivate struct OtherRowView: View {
     }
 }
 
-struct MemberLinkView: View {
-    var captionWidth: CGFloat = defaultCaptionWidth
-    var caption: String
-    var name: String
-
-    var body: some View {
-        HStack(alignment: .lastTextBaseline) {
-            Text(caption)
-                .frame(width: captionWidth, alignment: .trailing)
-                .font(.caption)
-            Spacer()
-            Text(name).frame(alignment: .leading).font(.body)
-        }
-    }
-}
-
-struct DateSelectionView: View {
-    var captionWidth: CGFloat = defaultCaptionWidth
-    var caption: String
-    @EnvironmentObject var accumulator: FamilyAccumulator
-
-    var body: some View {
-        HStack(alignment: .lastTextBaseline) {
-            Text(caption)
-                .frame(width: captionWidth, alignment: .trailing)
-                .font(.caption)
-            DatePicker("",
-                       selection: $accumulator.dateReceived,
-                       in: ...Date(),
-                       displayedComponents: .date).font(.body)
-        }
-        .onAppear() {
-            NSLog("DSV onApp")
-        }
-        .onDisappear() {
-            NSLog("DSV onDis")
-        }
-    }
-}
-
-struct ReceptionTypeView: View {
-    var captionWidth: CGFloat = defaultCaptionWidth
-    var caption: String
-    @EnvironmentObject var accumulator: FamilyAccumulator
-
-    var body: some View {
-        HStack(alignment: .lastTextBaseline) {
-            Text(caption)
-                .frame(width: captionWidth, alignment: .trailing)
-                .font(.caption)
-            Picker(selection: $accumulator.receptionType, label: Text("")) {
-                ForEach (ReceptionType.allCases, id: \.self) {
-                    //Don't forget the tag!
-                    Text($0.rawValue).font(.body).tag($0)
-                }
-            }
-        }
-    }
-}
+//struct PhaseTwoView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        PhaseTwoView()
+//    }
+//}

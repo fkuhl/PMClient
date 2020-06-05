@@ -13,7 +13,6 @@ import Combine
 class DataFetcher: ObservableObject {
     private static let dataServerHost = "localhost"
     private static let dataServerPort = 8000
-    static let readAllBody = try! jsonEncoder.encode("{}")
     
     private let fetchingQueue = DispatchQueue(label: "com.tamelea.PMClient.readAll", qos: .background)
     //these need to be ivars, so they don't go out of scope!
@@ -25,6 +24,11 @@ class DataFetcher: ObservableObject {
     private var updatingPublisher: AnyPublisher<Household, CallError>? = nil
     private var updatingSubscriber: Cancellable? = nil
     
+    private let addingQueue = DispatchQueue(label: "com.tamelea.PMClient.add", qos: .background)
+    //these need to be ivars, so they don't go out of scope!
+    private var addingPublisher: AnyPublisher<Household, CallError>? = nil
+    private var addingSubscriber: Cancellable? = nil
+
     
     // MARK: - Household data cache
     @Published public var householdIndex = [Id: Household]() {
@@ -34,11 +38,12 @@ class DataFetcher: ObservableObject {
             NSLog("fetched \(households.count) households")
             self.sortedHouseholds = households.sorted { $0.head.fullName() < $1.head.fullName() }
             self.activeHouseholds = sortedHouseholds.filter {$0.head.status.isActive() }
-}
+        }
     }
     @Published public var households = [Household]()
     @Published public var sortedHouseholds = [Household]()
     @Published public var activeHouseholds = [Household]()
+    @Published public var addedHouseholdId = ""
 
     // MARK: - Member data cache
     @Published public var memberIndex = [Id: MemberIndexRecord]() {
@@ -177,7 +182,34 @@ class DataFetcher: ObservableObject {
             self.updateData(to: updated)
         }
     }
-
+    
+    func add(household: Household) {
+        addingQueue.async {
+            self.add(household: household)
+        }
+    }
+    
+    fileprivate func addHousehold(_ newValue: Household) {
+        let addingPublisher = addPublisher(newValue,
+                                           dataServerHost: DataFetcher.dataServerHost,
+                                           dataServerPort: DataFetcher.dataServerPort)
+        addingSubscriber = addingPublisher
+            .receive(on: RunLoop.main)
+            .sink(receiveCompletion: { completion in
+                switch completion {
+                case .finished:
+                    break
+                case .failure(let error):
+                    NSLog("call failure, err: \(error.errorString), response: \(error.reason)")
+                    self.fetchError = error
+                }
+            }, receiveValue: { household in
+                self.addedHouseholdId = household
+                self.fetch() //reload 'em all
+                self.fetchError = nil
+            })
+    }
+    
 }
 
 enum HouseholdRelation {
