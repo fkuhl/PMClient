@@ -43,7 +43,12 @@ class DataFetcher: ObservableObject {
     @Published public var households = [Household]()
     @Published public var sortedHouseholds = [Household]()
     @Published public var activeHouseholds = [Household]()
-    @Published public var addedHouseholdId = ""
+    @Published public var addedHouseholdId = "" {
+        didSet {
+            addedHousehold = householdIndex[addedHouseholdId]
+        }
+    }
+    @Published public var addedHousehold: Household? = nil
 
     // MARK: - Member data cache
     @Published public var memberIndex = [Id: MemberIndexRecord]() {
@@ -185,7 +190,7 @@ class DataFetcher: ObservableObject {
     
     func add(household: Household) {
         addingQueue.async {
-            self.add(household: household)
+            self.addHousehold(household)
         }
     }
     
@@ -204,6 +209,7 @@ class DataFetcher: ObservableObject {
                     self.fetchError = error
                 }
             }, receiveValue: { household in
+                NSLog("add household returned \(household)")
                 self.addedHouseholdId = household
                 self.fetch() //reload 'em all
                 self.fetchError = nil

@@ -25,22 +25,23 @@ class HouseholdAddressEditDelegate: AddressEditDelegate {
 struct HouseholdView: View {
     var item: Household
     var addressEditable = true
-    @State var address: Address
     
     var body: some View {
         Form {
             Section {
                 NavigationLink(destination: MemberView(
                     member: item.head,
-                    editable: false)) {
+                    editable: true)) {
                         MemberLinkView(captionWidth: defaultCaptionWidth,
                                        caption: "Head of household",
                                        name: item.head.fullName())
                 }
-                if item.spouse != nil {
+                if item.spouse == nil {
+                    // TODO edit + add spouse
+                } else {
                     NavigationLink(destination: MemberView(
                         member: item.spouse!,
-                        editable: false)) {
+                        editable: true)) {
                             MemberLinkView(captionWidth: defaultCaptionWidth,
                                            caption: "Spouse",
                                            name: item.spouse!.fullName())
@@ -76,10 +77,26 @@ fileprivate struct OtherRowView: View {
     var body: some View {
         NavigationLink(destination: MemberView(
             member: other,
-            editable: false)) {
+            editable: true)) {
                 MemberLinkView(captionWidth: defaultCaptionWidth,
                                caption: "",
                                name: other.fullName())
+        }
+    }
+}
+
+struct MemberLinkView: View {
+    var captionWidth: CGFloat = defaultCaptionWidth
+    var caption: String
+    var name: String
+
+    var body: some View {
+        HStack(alignment: .lastTextBaseline) {
+            Text(caption)
+                .frame(width: captionWidth, alignment: .trailing)
+                .font(.caption)
+            Spacer()
+            Text(name).frame(alignment: .leading).font(.body)
         }
     }
 }

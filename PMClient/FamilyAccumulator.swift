@@ -12,31 +12,24 @@ import PMDataTypes
  Accumulate the data needed to add a family to the DB as user steps through the various screens.
  */
 
-class FamilyAccumulator: ObservableObject, MemberEditDelegate {
+class FamilyAccumulator: ObservableObject {
     
-    
+    @Published var phase: FamilyJoinPhase = .transaction
     @Published var dateReceived = Date()
     @Published var receptionType: ReceptionType = .TRANSFER
     @Published var churchFrom = ""
     @Published var authority = ""
     @Published var comment = ""
     @Published var head: Member = Member()
-    @Published var spouse: Member = Member()
-    @Published var others: [Member] = [Member]()
-    @Published var address: Address = Address()
+    @Published var receptionTransaction = Transaction()
+    @Published var household = Household()
     
-    // MARK - MemberEditDelegate
-    func processA(member: Member) {
-        self.head = member
-    }
-    
-    func processB(member: Member) {
-        self.spouse = member
-    }
-    
-    func processC(member: Member) {
-        // TODO for others
-    }
+}
+
+enum FamilyJoinPhase {
+    case transaction
+    case head
+    case others
 }
 
 class FamilyAddressEditDelegate: AddressEditDelegate {
@@ -55,4 +48,14 @@ enum ReceptionType: String, CaseIterable {
     case PROFESSION
     case AFFIRMATION
     case TRANSFER
+//
+//    var transactionType: TransactionType {
+//        get {
+//            switch self {
+//            case .PROFESSION: return .PROFESSION
+//            case .AFFIRMATION: return .RECEIVED
+//            case .TRANSFER: return .RECEIVED
+//            }
+//        }
+//    }
 }
