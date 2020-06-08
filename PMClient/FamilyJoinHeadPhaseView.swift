@@ -40,7 +40,7 @@ class FamilyJoinEditDelegate: MemberEditDelegate {
         NSLog("FJED onDis: val is \(member.fullName())")
         accumulator.household.head = member
         DataFetcher.sharedInstance.add(household: accumulator.household)
-        accumulator.phase = .others
+        accumulator.phase = .household
     }
     
     func processB(member: Member) {

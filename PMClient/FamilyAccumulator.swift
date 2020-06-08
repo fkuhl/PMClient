@@ -29,7 +29,7 @@ class FamilyAccumulator: ObservableObject {
 enum FamilyJoinPhase {
     case transaction
     case head
-    case others
+    case household
 }
 
 class FamilyAddressEditDelegate: AddressEditDelegate {

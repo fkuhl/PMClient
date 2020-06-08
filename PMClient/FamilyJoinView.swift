@@ -20,8 +20,8 @@ struct FamilyJoinView: View {
                 FamilyJoinTransactionPhaseView()
             } else if accumulator.phase == .head {
                 FamilyJoinHeadPhaseView()
-            } else if /*accumulator.phase == .others &&*/ dataFetcher.addedHousehold != nil {
-                FamilyJoinOthersPhaseView()
+            } else if accumulator.phase == .household {
+                FamilyJoinHouseholdPhaseView()
             } else {
                 Text("Oops!") // the cases must be exhaustive, right?
             }

@@ -21,7 +21,7 @@
 		2721A1A82485379700E06BDC /* AddressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2721A1A72485379700E06BDC /* AddressView.swift */; };
 		2721A1AA24853A1700E06BDC /* AddressEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2721A1A924853A1700E06BDC /* AddressEditView.swift */; };
 		2721A1AC248A8F5100E06BDC /* FamilyJoinHeadPhaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2721A1AB248A8F5100E06BDC /* FamilyJoinHeadPhaseView.swift */; };
-		2721A1AE248A902400E06BDC /* FamilyJoinOthersPhaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2721A1AD248A902400E06BDC /* FamilyJoinOthersPhaseView.swift */; };
+		2721A1AE248A902400E06BDC /* FamilyJoinHouseholdPhaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2721A1AD248A902400E06BDC /* FamilyJoinHouseholdPhaseView.swift */; };
 		2721A1B0248A9BD500E06BDC /* FamilyJoinTransactionPhaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2721A1AF248A9BD500E06BDC /* FamilyJoinTransactionPhaseView.swift */; };
 		2728A7CE23CA3E9700655298 /* DataPublishers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2728A7CD23CA3E9700655298 /* DataPublishers.swift */; };
 		2731796823D1286C00BC707E /* MemberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2731796723D1286C00BC707E /* MemberView.swift */; };
@@ -73,7 +73,7 @@
 		2721A1A72485379700E06BDC /* AddressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressView.swift; sourceTree = "<group>"; };
 		2721A1A924853A1700E06BDC /* AddressEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressEditView.swift; sourceTree = "<group>"; };
 		2721A1AB248A8F5100E06BDC /* FamilyJoinHeadPhaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyJoinHeadPhaseView.swift; sourceTree = "<group>"; };
-		2721A1AD248A902400E06BDC /* FamilyJoinOthersPhaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyJoinOthersPhaseView.swift; sourceTree = "<group>"; };
+		2721A1AD248A902400E06BDC /* FamilyJoinHouseholdPhaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyJoinHouseholdPhaseView.swift; sourceTree = "<group>"; };
 		2721A1AF248A9BD500E06BDC /* FamilyJoinTransactionPhaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyJoinTransactionPhaseView.swift; sourceTree = "<group>"; };
 		2728A7CD23CA3E9700655298 /* DataPublishers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPublishers.swift; sourceTree = "<group>"; };
 		2731796723D1286C00BC707E /* MemberView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemberView.swift; sourceTree = "<group>"; };
@@ -201,7 +201,7 @@
 				2749A06924256153001E0571 /* FamilyJoinView.swift */,
 				2749A06B24265BAF001E0571 /* FamilyAccumulator.swift */,
 				2721A1AB248A8F5100E06BDC /* FamilyJoinHeadPhaseView.swift */,
-				2721A1AD248A902400E06BDC /* FamilyJoinOthersPhaseView.swift */,
+				2721A1AD248A902400E06BDC /* FamilyJoinHouseholdPhaseView.swift */,
 				2721A1AF248A9BD500E06BDC /* FamilyJoinTransactionPhaseView.swift */,
 			);
 			name = Family;
@@ -366,7 +366,7 @@
 				2702B19F23AC0E6B009F0A68 /* AppDelegate.swift in Sources */,
 				27C40ACC23B1631800B337A7 /* HouseholdsView.swift in Sources */,
 				277273FA23D64FA700EE4FDA /* DataCheckReportView.swift in Sources */,
-				2721A1AE248A902400E06BDC /* FamilyJoinOthersPhaseView.swift in Sources */,
+				2721A1AE248A902400E06BDC /* FamilyJoinHouseholdPhaseView.swift in Sources */,
 				2776DDC323BD2D5900F0CE04 /* DataCheckerView.swift in Sources */,
 				2721A1A82485379700E06BDC /* AddressView.swift in Sources */,
 				27CCBB8623E2148500CE2C5F /* TextAttributeView.swift in Sources */,

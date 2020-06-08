@@ -16,9 +16,9 @@ struct FamilyJoinHouseholdPhaseView: View {
     var body: some View {
         VStack {
             if dataFetcher.addedHousehold != nil {
-                HouseholdView(item: dataFetcher.addedHousehold!)
+                HouseholdView(item: dataFetcher.addedHousehold!, removeButtons: true)
             } else {
-                Text("new id not found")
+                Text("Waiting for new household to be added...")
             }
         }
     }

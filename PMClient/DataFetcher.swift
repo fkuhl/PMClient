@@ -38,6 +38,13 @@ class DataFetcher: ObservableObject {
             NSLog("fetched \(households.count) households")
             self.sortedHouseholds = households.sorted { $0.head.fullName() < $1.head.fullName() }
             self.activeHouseholds = sortedHouseholds.filter {$0.head.status.isActive() }
+            addedHousehold = householdIndex[addedHouseholdId]
+            if var newHousehold = addedHousehold, newHousehold.head.household.isEmpty {
+                newHousehold.head.household = newHousehold.id
+                updatingQueue.async {
+                    self.updateData(to: newHousehold)
+                }
+            }
         }
     }
     @Published public var households = [Household]()
@@ -46,8 +53,10 @@ class DataFetcher: ObservableObject {
     @Published public var addedHouseholdId = "" {
         didSet {
             addedHousehold = householdIndex[addedHouseholdId]
+            NSLog("addedHouseholdId didSet: \(addedHouseholdId), addedHousehold: \(addedHousehold?.head.fullName() ?? "nil")")
         }
     }
+    // This is updated with addedHouseholdId, and with householdIndex
     @Published public var addedHousehold: Household? = nil
 
     // MARK: - Member data cache

@@ -25,6 +25,25 @@ class HouseholdAddressEditDelegate: AddressEditDelegate {
 struct HouseholdView: View {
     var item: Household
     var addressEditable = true
+    var removeButtons = false
+    
+    var body: some View {
+        VStack {
+            if removeButtons {
+                UnadornedHouseholdView(item: item, addressEditable: addressEditable)
+                .navigationBarBackButtonHidden(true)
+                .navigationBarItems(leading: EmptyView(), trailing:EmptyView()
+                )
+            } else {
+                UnadornedHouseholdView(item: item, addressEditable: addressEditable)
+            }
+        }
+    }
+}
+
+fileprivate struct UnadornedHouseholdView: View {
+    var item: Household
+    var addressEditable = true
     
     var body: some View {
         Form {
