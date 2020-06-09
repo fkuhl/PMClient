@@ -129,6 +129,12 @@ class DataFetcher: ObservableObject {
             })
     }
     
+    func update(household: Household) {
+        updatingQueue.async {
+            self.updateData(to: household)
+        }
+    }
+    
     func update(to updatedMember: Member) {
         guard let householdToEdit = householdIndex[updatedMember.household] else {
             NSLog("no household to update for member \(updatedMember.fullName()); household id was \(updatedMember.household)")
