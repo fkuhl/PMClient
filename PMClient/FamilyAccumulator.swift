@@ -33,13 +33,8 @@ enum FamilyJoinPhase {
 }
 
 class FamilyAddressEditDelegate: AddressEditDelegate {
-    var householdId: Id
-
-    init(householdId: Id) {
-        self.householdId = householdId
-    }
     
-    func store(address: Address) {
+    func store(address: Address, in household: Household) {
         // TODO
     }
 }
@@ -48,14 +43,4 @@ enum ReceptionType: String, CaseIterable {
     case PROFESSION
     case AFFIRMATION
     case TRANSFER
-//
-//    var transactionType: TransactionType {
-//        get {
-//            switch self {
-//            case .PROFESSION: return .PROFESSION
-//            case .AFFIRMATION: return .RECEIVED
-//            case .TRANSFER: return .RECEIVED
-//            }
-//        }
-//    }
 }

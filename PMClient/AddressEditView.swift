@@ -10,13 +10,13 @@ import SwiftUI
 import PMDataTypes
 
 protocol AddressEditDelegate {
-    var householdId: Id { get set }
-    func store(address: Address) -> Void
+    func store(address: Address, in household: Household) -> Void
 }
 
 struct AddressEditView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     var addressEditDelegate: AddressEditDelegate
+    @Binding var household: Household
     @State var address: Address
 
     var body: some View {
@@ -45,7 +45,7 @@ struct AddressEditView: View {
             , trailing:
             Button(action: {
                 self.presentationMode.wrappedValue.dismiss()
-                self.addressEditDelegate.store(address: self.address)
+                self.addressEditDelegate.store(address: self.address, in: self.household)
             }) {
                 Text("Save + Finish").font(.body)
             }

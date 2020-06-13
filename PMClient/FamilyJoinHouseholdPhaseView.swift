@@ -28,7 +28,7 @@ struct FamilyJoinHouseholdPhaseView: View {
 }
 
 fileprivate class SpouseFactory: HouseholdMemberFactoryDelegate {
-    let household: Household
+    var household: Household
     
     init(household: Household) {
         self.household = household
@@ -36,6 +36,7 @@ fileprivate class SpouseFactory: HouseholdMemberFactoryDelegate {
     
     func make() -> Member {
         var newval = Member()
+        NSLog("made spouse \(newval.id)")
         newval.household = self.household.id
         newval.givenName = "Spouse"
         newval.familyName = self.household.head.familyName
@@ -45,12 +46,13 @@ fileprivate class SpouseFactory: HouseholdMemberFactoryDelegate {
         if let trans = self.household.head.transactions.first {
             newval.transactions.append(trans)
         }
+        self.household.spouse = newval
         return newval
     }
 }
 
 fileprivate class OtherFactory: HouseholdMemberFactoryDelegate {
-    let household: Household
+    var household: Household
     
     init(household: Household) {
         self.household = household

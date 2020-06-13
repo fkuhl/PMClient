@@ -13,6 +13,7 @@ struct FamilyJoinView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @EnvironmentObject var accumulator: FamilyAccumulator
     @ObservedObject var dataFetcher = DataFetcher.sharedInstance
+    @ObservedObject var accumulatingHousehold = AccumulatingHousehold()
 
     var body: some View {
         VStack {
@@ -26,7 +27,12 @@ struct FamilyJoinView: View {
                 Text("Oops!") // the cases must be exhaustive, right?
             }
         }
+    .environmentObject(accumulatingHousehold)
     }
+}
+
+class AccumulatingHousehold: ObservableObject {
+    @Published var household = Household()
 }
 
 //struct FamilyInitialEntryView_Previews: PreviewProvider {

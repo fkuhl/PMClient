@@ -10,9 +10,7 @@ import SwiftUI
 import PMDataTypes
 
 protocol MemberEditDelegate {
-    func processA(member: Member) -> Void
-    func processB(member: Member) -> Void
-    func processC(member: Member) -> Void
+    func store(member: Member, in household: Household?) -> Void
 }
 
 struct MemberEditView: View {

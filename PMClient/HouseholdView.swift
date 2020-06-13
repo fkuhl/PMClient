@@ -17,29 +17,26 @@ protocol HouseholdMemberFactoryDelegate {
 
 
 class HouseholdAddressEditDelegate: AddressEditDelegate {
-    var householdId: Id
-    
-    init(householdId: Id) {
-        self.householdId = householdId
-    }
 
-    func store(address: Address) {
-        NSLog("HAED addr: \(address.address ?? "[none]")")
-        DataFetcher.sharedInstance.update(householdId: self.householdId, to: address)
+    func store(address: Address, in household: Household) {
+        NSLog("HAED addr: \(address.address ?? "[none]") on \(household.head.fullName())")
+        var localH = household
+        localH.address = address
+        DataFetcher.sharedInstance.update(household: localH)
     }
 }
 
 struct HouseholdView: View {
-    var item: Household
+    @State var item: Household
     var addressEditable = true
     var removeButtons = false
-    var spouseFactory: HouseholdMemberFactoryDelegate? = nil
-    var otherFactory: HouseholdMemberFactoryDelegate? = nil
+    var spouseFactory: HouseholdMemberFactoryDelegate
+    var otherFactory: HouseholdMemberFactoryDelegate
     
     var body: some View {
         VStack {
             if removeButtons {
-                UnadornedHouseholdView(item: item,
+                UnadornedHouseholdView(item: $item,
                                        addressEditable: addressEditable,
                                        spouseFactory: self.spouseFactory,
                                        otherFactory: self.otherFactory)
@@ -54,37 +51,52 @@ struct HouseholdView: View {
                     }
                 )
             } else {
-                UnadornedHouseholdView(item: item, addressEditable: addressEditable)
+                UnadornedHouseholdView(item: $item,
+                                       addressEditable: addressEditable,
+                                       spouseFactory: self.spouseFactory,
+                                       otherFactory: self.otherFactory)
             }
         }
     }
 }
 
 fileprivate struct UnadornedHouseholdView: View {
-    @State var item: Household
+    @Binding var item: Household
     var addressEditable = true
-    var spouseFactory: HouseholdMemberFactoryDelegate? = nil
-    var otherFactory: HouseholdMemberFactoryDelegate? = nil
+    var spouseFactory: HouseholdMemberFactoryDelegate
+    var otherFactory: HouseholdMemberFactoryDelegate
 
     var body: some View {
         Form {
             Section {
-                NavigationLink(destination: MemberView(
+                NavigationLink(destination: MemberInHouseholdView(
                     member: item.head,
+                    household: $item,
+                    relation: .head,
                     editable: true)) {
                         MemberLinkView(caption: "Head of household",
                                        name: item.head.fullName())
                 }
                 if item.spouse == nil {
-                    NavigationLink(destination: MemberView(
-                        member: makeMember(from: self.spouseFactory),
-                        editable: true)) {
-                            MemberLinkView(caption: "Spouse",
-                                           name: "Add spouse")
+//                    NavigationLink(destination: MemberInHouseholdView(
+//                        member: makeMember(from: self.spouseFactory),
+//                        household: item,
+//                        relation: .spouse,
+//                        editable: true)) {
+//                            MemberLinkView(caption: "Spouse",
+//                                           name: "Add spouse")
+//                    }
+                    Button(action: {
+                        self.item.spouse = makeMember(from: self.spouseFactory)
+                        DataFetcher.sharedInstance.update(household: self.item)
+                    }) {
+                        Text("Add spouse").font(.body)
                     }
                 } else {
-                    NavigationLink(destination: MemberView(
+                    NavigationLink(destination: MemberInHouseholdView(
                         member: item.spouse!,
+                        household: $item,
+                        relation: .spouse,
                         editable: true)) {
                             MemberLinkView(caption: "Spouse",
                                            name: item.spouse!.fullName())
@@ -93,23 +105,31 @@ fileprivate struct UnadornedHouseholdView: View {
             }
             Section(header: Text("Dependents").font(.callout).italic()) {
                 ForEach(item.others, id: \.id) {
-                    OtherRowView(other: $0)
+                    OtherRowView(other: $0, household: self.$item)
                 }
                 OtherAddView(otherFactory: self.otherFactory, household: $item)
             }
             Section(header: Text("Address").font(.callout).italic()) {
                 if nugatory(item.address) {
-                    NavigationLink(destination: AddressEditView(addressEditDelegate: HouseholdAddressEditDelegate(householdId: item.id), address: Address())) {
+                    NavigationLink(destination: AddressEditView(addressEditDelegate: HouseholdAddressEditDelegate(), household: $item, address: Address())) {
                         Text("Add address").font(.body)
                     }
                 } else {
-                    NavigationLink(destination: AddressEditView(addressEditDelegate: HouseholdAddressEditDelegate(householdId: item.id), address: item.address!)) {
-                        Text("Edit: \(item.address!.addressForDisplay())").font(.body)
+                    NavigationLink(destination: AddressEditView(addressEditDelegate: HouseholdAddressEditDelegate(), household: $item, address: item.address!)) {
+                        AddressLinkView(household: $item)
                     }
                 }
             }
         }
         .navigationBarTitle(item.head.fullName())
+    }
+}
+
+fileprivate struct AddressLinkView: View {
+    @Binding var household: Household
+    
+    var body: some View {
+        Text(self.household.address?.addressForDisplay() ?? "[none]").font(.body)
     }
 }
 
@@ -122,10 +142,13 @@ fileprivate func makeMember(from factory: HouseholdMemberFactoryDelegate?) -> Me
 
 fileprivate struct OtherRowView: View {
     var other: Member
+    @Binding var household: Household
     
     var body: some View {
-        NavigationLink(destination: MemberView(
+        NavigationLink(destination: MemberInHouseholdView(
             member: other,
+            household: $household,
+            relation: .other,
             editable: true)) {
                 MemberLinkView(captionWidth: defaultCaptionWidth,
                                caption: "",
@@ -156,16 +179,12 @@ struct OtherAddView: View {
     
     var body: some View {
         Button(action: {
-            appendEmptyOther(to: self.$household, using: self.otherFactory)
+            self.household.others.append(makeMember(from: self.otherFactory))
+            NSLog("OAV hh \(self.household.head.fullName()) has \(self.household.others.count) others")
         }) {
             Image(systemName: "plus").font(.body)
         }
     }
-}
-
-fileprivate func appendEmptyOther(to household: Binding<Household>,
-                                  using factory: HouseholdMemberFactoryDelegate?) {
-    household.others.wrappedValue.append(makeMember(from: factory))
 }
 
 //struct HouseholdView_Previews: PreviewProvider {

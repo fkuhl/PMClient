@@ -38,13 +38,9 @@ class DataFetcher: ObservableObject {
             NSLog("fetched \(households.count) households")
             self.sortedHouseholds = households.sorted { $0.head.fullName() < $1.head.fullName() }
             self.activeHouseholds = sortedHouseholds.filter {$0.head.status.isActive() }
+            NSLog("updated addedhousehold, id: \(addedHouseholdId)")
+            //If there's an addedHousehold, update it
             addedHousehold = householdIndex[addedHouseholdId]
-            if var newHousehold = addedHousehold, newHousehold.head.household.isEmpty {
-                newHousehold.head.household = newHousehold.id
-                updatingQueue.async {
-                    self.updateData(to: newHousehold)
-                }
-            }
         }
     }
     @Published public var households = [Household]()
@@ -57,7 +53,11 @@ class DataFetcher: ObservableObject {
         }
     }
     // This is updated with addedHouseholdId, and with householdIndex
-    @Published public var addedHousehold: Household? = nil
+    @Published public var addedHousehold: Household? = nil {
+        didSet {
+            NSLog("addedHousehold didSet")
+        }
+    }
 
     // MARK: - Member data cache
     @Published public var memberIndex = [Id: MemberIndexRecord]() {
@@ -191,18 +191,6 @@ class DataFetcher: ObservableObject {
         }
     }
     
-    func update(householdId: Id, to updatedAddress: Address) {
-        guard let householdToEdit = householdIndex[householdId] else {
-            NSLog("no household to update for id \(householdId)")
-            return
-        }
-        var updated = householdToEdit
-        updated.address = updatedAddress
-        updatingQueue.async {
-            self.updateData(to: updated)
-        }
-    }
-    
     func add(household: Household) {
         addingQueue.async {
             self.addHousehold(household)
@@ -229,6 +217,14 @@ class DataFetcher: ObservableObject {
                 self.fetch() //reload 'em all
                 self.fetchError = nil
             })
+    }
+    
+    /**
+     Used only for the temporary case of a new member being added.
+     */
+    func addToMemberIndex(member: Member, relation: HouseholdRelation) {
+        NSLog("addToMI \(member.id)")
+        self.memberIndex[member.id] = MemberIndexRecord(member: member, relation: relation)
     }
     
 }
