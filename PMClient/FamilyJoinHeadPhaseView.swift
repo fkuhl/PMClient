@@ -16,7 +16,7 @@ struct FamilyJoinHeadPhaseView: View {
     var body: some View {
         MemberEditView(
             member: accumulator.head,
-            memberEditDelegate: FamilyJoinEditDelegate(),
+            memberEditDelegate: FamilyJoinEditDelegate(accumulator: accumulator),
             closingAction: { $1.store(member: $0, in: nil) },
             navigationBarTitle: accumulator.head.fullName())
     }
@@ -30,12 +30,17 @@ struct FamilyJoinHeadPhaseView: View {
  Delegate implementation used only by this View.
  */
 class FamilyJoinEditDelegate: MemberEditDelegate {
-    @EnvironmentObject var accumulator: FamilyAccumulator
+    var accumulator: FamilyAccumulator
+    
+    init(accumulator: FamilyAccumulator) {
+        self.accumulator = accumulator
+    }
     
     func store(member: Member, in unused: Household?) {
         NSLog("FJED onDis: val is \(member.fullName())")
-        self.accumulator.household.head = member
-        DataFetcher.sharedInstance.add(household: accumulator.household)
+        var newHousehold = Household()
+        newHousehold.head = member
+        DataFetcher.sharedInstance.add(household: newHousehold)
         self.accumulator.phase = .household
     }
 }

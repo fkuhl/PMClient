@@ -22,7 +22,6 @@ class FamilyAccumulator: ObservableObject {
     @Published var comment = ""
     @Published var head: Member = Member()
     @Published var receptionTransaction = Transaction()
-    @Published var household = Household()
     
 }
 

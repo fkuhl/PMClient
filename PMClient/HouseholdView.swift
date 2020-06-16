@@ -78,14 +78,6 @@ fileprivate struct UnadornedHouseholdView: View {
                                        name: item.head.fullName())
                 }
                 if item.spouse == nil {
-//                    NavigationLink(destination: MemberInHouseholdView(
-//                        member: makeMember(from: self.spouseFactory),
-//                        household: item,
-//                        relation: .spouse,
-//                        editable: true)) {
-//                            MemberLinkView(caption: "Spouse",
-//                                           name: "Add spouse")
-//                    }
                     Button(action: {
                         self.item.spouse = makeMember(from: self.spouseFactory)
                         DataFetcher.sharedInstance.update(household: self.item)

@@ -10,14 +10,13 @@ import SwiftUI
 import PMDataTypes
 
 struct FamilyJoinHouseholdPhaseView: View {
-    @EnvironmentObject var accumulator: FamilyAccumulator
     @ObservedObject var dataFetcher = DataFetcher.sharedInstance
     
     var body: some View {
         VStack {
             if dataFetcher.addedHousehold != nil {
                 HouseholdView(item: dataFetcher.addedHousehold!,
-                              removeButtons: true,
+                              /*removeButtons: true,*/
                               spouseFactory: SpouseFactory(household: dataFetcher.addedHousehold!),
                               otherFactory: OtherFactory(household: dataFetcher.addedHousehold!))
             } else {

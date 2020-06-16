@@ -22,17 +22,16 @@ struct MemberInHouseholdView: View {
     var body: some View {
         CoreMemberView(member: self.member,
                        memberEditDelegate: MemberInHouseholdViewEditDelegate(
-                        household: self.household, relation: self.relation),
+                        relation: self.relation),
                        editable: self.editable,
                        closingAction: { $1.store(member: $0, in: self.household) })
     }
 }
 
-//{ $1.store(member: $0, in: nil) }
 fileprivate class MemberInHouseholdViewEditDelegate: MemberEditDelegate {
     var relation: HouseholdRelation
     
-    init(household: Household, relation: HouseholdRelation) {
+    init(relation: HouseholdRelation) {
         self.relation = relation
     }
     
@@ -41,7 +40,7 @@ fileprivate class MemberInHouseholdViewEditDelegate: MemberEditDelegate {
             NSLog("MIHVED with nil household")
             return
         }
-        NSLog("MIHVED store: val is \(member.fullName())")
+        NSLog("MIHVED store '\(member.fullName())' in household '\(household.head.fullName())'")
         var localH = household
         switch self.relation {
         case .head:
@@ -55,6 +54,7 @@ fileprivate class MemberInHouseholdViewEditDelegate: MemberEditDelegate {
                 NSLog("MIHVED no entry for other \(member.id)")
             }
         }
+        NSLog("MIHVED spouse '\(localH.spouse?.fullName() ?? "[none]")'")
         NSLog("MIHVED storing with \(localH.others.count) others")
         DataFetcher.sharedInstance.update(household: localH)
     }

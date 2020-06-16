@@ -241,17 +241,17 @@
 		277273F523D64EB000EE4FDA /* Members */ = {
 			isa = PBXGroup;
 			children = (
+				27AAE7F42492B4310045CAD2 /* CoreMemberView.swift */,
+				277AA60023E9F2390015312D /* MemberEditView.swift */,
+				27AAE7F62493BD7D0045CAD2 /* MemberInHouseholdView.swift */,
+				2731796923D12AB200BC707E /* MemberRowView.swift */,
+				27C40AC923B1628800B337A7 /* MembersView.swift */,
+				2731796723D1286C00BC707E /* MemberView.swift */,
 				2721A1A424817D0D00E06BDC /* ServiceEditView.swift */,
 				27C73FFE24706516007984A5 /* Services.swift */,
-				2731796723D1286C00BC707E /* MemberView.swift */,
-				27C40AC923B1628800B337A7 /* MembersView.swift */,
-				2731796923D12AB200BC707E /* MemberRowView.swift */,
 				27CCBB8523E2148500CE2C5F /* TextAttributeView.swift */,
-				277AA60023E9F2390015312D /* MemberEditView.swift */,
-				27A38BF1246F12E400612CE0 /* Transactions.swift */,
 				2721A1A224815D0200E06BDC /* TransactionEditView.swift */,
-				27AAE7F42492B4310045CAD2 /* CoreMemberView.swift */,
-				27AAE7F62493BD7D0045CAD2 /* MemberInHouseholdView.swift */,
+				27A38BF1246F12E400612CE0 /* Transactions.swift */,
 			);
 			name = Members;
 			sourceTree = "<group>";
