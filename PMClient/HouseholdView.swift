@@ -18,11 +18,10 @@ protocol HouseholdMemberFactoryDelegate {
 
 class HouseholdAddressEditDelegate: AddressEditDelegate {
 
-    func store(address: Address, in household: Household) {
-        NSLog("HAED addr: \(address.address ?? "[none]") on \(household.head.fullName())")
-        var localH = household
-        localH.address = address
-        DataFetcher.sharedInstance.update(household: localH)
+    func store(address: Address, in household: Binding<Household>) {
+        NSLog("HAED addr: \(address.address ?? "[none]") on \(household.wrappedValue.head.fullName())")
+        household.wrappedValue.address = address
+        DataFetcher.sharedInstance.update(household: household.wrappedValue)
     }
 }
 
@@ -103,12 +102,18 @@ fileprivate struct UnadornedHouseholdView: View {
             }
             Section(header: Text("Address").font(.callout).italic()) {
                 if nugatory(item.address) {
-                    NavigationLink(destination: AddressEditView(addressEditDelegate: HouseholdAddressEditDelegate(), household: $item, address: Address())) {
-                        Text("Add address").font(.body)
+                    NavigationLink(destination: AddressEditView(
+                        addressEditDelegate: HouseholdAddressEditDelegate(),
+                        household: $item,
+                        address: Address())) {
+                            Text("Add address").font(.body)
                     }
                 } else {
-                    NavigationLink(destination: AddressEditView(addressEditDelegate: HouseholdAddressEditDelegate(), household: $item, address: item.address!)) {
-                        AddressLinkView(household: $item)
+                    NavigationLink(destination: AddressEditView(
+                        addressEditDelegate: HouseholdAddressEditDelegate(),
+                        household: $item,
+                        address: item.address!)) {
+                            AddressLinkView(household: $item)
                     }
                 }
             }

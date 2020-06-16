@@ -6,7 +6,7 @@
 //  Copyright © 2020 TyndaleSoft LLC. All rights reserved.
 //
 
-import Foundation
+import SwiftUI
 import PMDataTypes
 /**
  Accumulate the data needed to add a family to the DB as user steps through the various screens.
@@ -21,7 +21,7 @@ class FamilyAccumulator: ObservableObject {
     @Published var authority = ""
     @Published var comment = ""
     @Published var head: Member = Member()
-    @Published var receptionTransaction = Transaction()
+    @Published var receptionTransaction = PMDataTypes.Transaction()
     
 }
 
@@ -29,13 +29,6 @@ enum FamilyJoinPhase {
     case transaction
     case head
     case household
-}
-
-class FamilyAddressEditDelegate: AddressEditDelegate {
-    
-    func store(address: Address, in household: Household) {
-        // TODO
-    }
 }
 
 enum ReceptionType: String, CaseIterable {
