@@ -24,7 +24,7 @@ struct MemberView: View {
  Delegate implementation used only by MemberView.
  */
 fileprivate class MemberViewEditDelegate: MemberEditDelegate {
-    func store(member: Member, in household: Household? = nil) {
+    func store(member: Member, in household: Binding<Household>? = nil) {
         NSLog("MemberEditViewDel onDis: val is \(member.fullName())")
         //Because this occurs only in context of editing an existing member in
         //an existing household, DataFetcher can find the right household to update.

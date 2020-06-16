@@ -10,7 +10,7 @@ import SwiftUI
 import PMDataTypes
 
 protocol MemberEditDelegate {
-    func store(member: Member, in household: Household?) -> Void
+    func store(member: Member, in household: Binding<Household>?) -> Void
 }
 
 struct MemberEditView: View {

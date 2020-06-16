@@ -36,7 +36,7 @@ class FamilyJoinEditDelegate: MemberEditDelegate {
         self.accumulator = accumulator
     }
     
-    func store(member: Member, in unused: Household?) {
+    func store(member: Member, in unused: Binding<Household>?) {
         NSLog("FJED onDis: val is \(member.fullName())")
         var newHousehold = Household()
         newHousehold.head = member

@@ -24,7 +24,7 @@ struct MemberInHouseholdView: View {
                        memberEditDelegate: MemberInHouseholdViewEditDelegate(
                         relation: self.relation),
                        editable: self.editable,
-                       closingAction: { $1.store(member: $0, in: self.household) })
+                       closingAction: { $1.store(member: $0, in: self.$household) })
     }
 }
 
@@ -35,28 +35,27 @@ fileprivate class MemberInHouseholdViewEditDelegate: MemberEditDelegate {
         self.relation = relation
     }
     
-    func store(member: Member, in household: Household?) {
+    func store(member: Member, in household: Binding<Household>?) {
         guard let household = household  else {
             NSLog("MIHVED with nil household")
             return
         }
-        NSLog("MIHVED store '\(member.fullName())' in household '\(household.head.fullName())'")
-        var localH = household
+        NSLog("MIHVED store '\(member.fullName())' in household '\(household.wrappedValue.head.fullName())'")
         switch self.relation {
         case .head:
-            localH.head = member
+            household.wrappedValue.head = member
         case .spouse:
-            localH.spouse = member
+            household.wrappedValue.spouse = member
         case .other:
-            if let otherIndex = localH.others.firstIndex(where: {$0.id == member.id}) {
-                localH.others[otherIndex] = member
+            if let otherIndex = household.wrappedValue.others.firstIndex(where: {$0.id == member.id}) {
+                household.wrappedValue.others[otherIndex] = member
             } else {
                 NSLog("MIHVED no entry for other \(member.id)")
             }
         }
-        NSLog("MIHVED spouse '\(localH.spouse?.fullName() ?? "[none]")'")
-        NSLog("MIHVED storing with \(localH.others.count) others")
-        DataFetcher.sharedInstance.update(household: localH)
+        NSLog("MIHVED spouse '\(household.wrappedValue.spouse?.fullName() ?? "[none]")'")
+        NSLog("MIHVED storing with \(household.wrappedValue.others.count) others")
+        DataFetcher.sharedInstance.update(household: household.wrappedValue)
     }
 }
 
