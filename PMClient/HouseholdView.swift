@@ -42,12 +42,6 @@ struct HouseholdView: View {
                 .navigationBarBackButtonHidden(true)
                 .navigationBarItems(leading: EmptyView(),
                                     trailing: EmptyView()
-                    /*Button(action: {
-                        NSLog("HV save household \(self.item.head.fullName())")
-                        DataFetcher.sharedInstance.update(household: self.item)
-                    }) {
-                        Text("Save").font(.body)
-                    }*/
                 )
             } else {
                 UnadornedHouseholdView(item: $item,

@@ -46,6 +46,9 @@ fileprivate class MemberInHouseholdViewEditDelegate: MemberEditDelegate {
             household.wrappedValue.head = member
         case .spouse:
             household.wrappedValue.spouse = member
+            household.wrappedValue.head.maritalStatus = .MARRIED
+            household.wrappedValue.head.spouse = member.fullName()
+            household.wrappedValue.head.dateOfMarriage = member.dateOfMarriage
         case .other:
             if let otherIndex = household.wrappedValue.others.firstIndex(where: {$0.id == member.id}) {
                 household.wrappedValue.others[otherIndex] = member
