@@ -16,7 +16,7 @@ struct FamilyJoinHouseholdPhaseView: View {
         VStack {
             if dataFetcher.addedHousehold != nil {
                 HouseholdView(item: dataFetcher.addedHousehold!,
-                              /*removeButtons: true,*/
+                              removeButtons: true,
                               spouseFactory: SpouseFactory(household: dataFetcher.addedHousehold!),
                               otherFactory: OtherFactory(household: dataFetcher.addedHousehold!))
             } else {
