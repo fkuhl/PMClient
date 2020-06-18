@@ -25,14 +25,7 @@ struct FamilyJoinTransactionPhaseView: View {
         }
         .navigationBarTitle("Family Joins - Reception")
         .navigationBarBackButtonHidden(true)
-        .navigationBarItems(leading:
-            Button(action: {
-                NSLog("FJTransV cancel")
-                self.presentationMode.wrappedValue.dismiss()
-            }) {
-                Text("Cancel").font(.body)
-            }
-            , trailing:
+        .navigationBarItems(leading:EmptyView(), trailing:
             Button(action: {
                 self.presentationMode.wrappedValue.dismiss()
                 self.accumulator.receptionTransaction.date = self.accumulator.dateReceived
@@ -49,9 +42,9 @@ struct FamilyJoinTransactionPhaseView: View {
                 }
                 self.accumulator.receptionTransaction.church = self.accumulator.churchFrom
                 self.accumulator.receptionTransaction.authority = self.accumulator.authority
-                self.accumulator.head.transactions.append(self.accumulator.receptionTransaction)
-                self.accumulator.head.familyName = "Fill in"
-                self.accumulator.head.givenName = " the other info"
+                self.accumulator.head.transactions = [self.accumulator.receptionTransaction]
+                self.accumulator.head.familyName = "Head"
+                self.accumulator.head.givenName = "of this household"
                 self.accumulator.phase = .head
             }) {
                 Text("Save + Finish").font(.body)

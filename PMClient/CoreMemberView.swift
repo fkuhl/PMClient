@@ -12,6 +12,7 @@ import PMDataTypes
 struct CoreMemberView: View {
     var member: Member
     var memberEditDelegate: MemberEditDelegate
+    var memberCancelDelegate: MemberCancelDelegate
     var editable = true
     let closingAction: (_ member: Member, _ delegate: MemberEditDelegate) -> Void
     
@@ -24,6 +25,7 @@ struct CoreMemberView: View {
                         destination: MemberEditView(
                             member: member,
                             memberEditDelegate: memberEditDelegate,
+                            memberCancelDelegate: memberCancelDelegate,
                             closingAction: self.closingAction,
                             navigationBarTitle: member.fullName()))  {
                                 Text("Edit").font(.body)

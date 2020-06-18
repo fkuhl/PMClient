@@ -17,6 +17,7 @@ struct FamilyJoinHeadPhaseView: View {
         MemberEditView(
             member: accumulator.head,
             memberEditDelegate: FamilyJoinEditDelegate(accumulator: accumulator),
+            memberCancelDelegate: FamilyJoinCancelDelegate(accumulator: accumulator),
             closingAction: { $1.store(member: $0, in: nil) },
             navigationBarTitle: accumulator.head.fullName())
     }
@@ -43,6 +44,18 @@ class FamilyJoinEditDelegate: MemberEditDelegate {
         DataFetcher.sharedInstance.add(household: newHousehold)
         self.accumulator.phase = .household
     }
+}
+
+class FamilyJoinCancelDelegate: MemberCancelDelegate {
+    var accumulator: FamilyAccumulator
+    
+    init(accumulator: FamilyAccumulator) {
+        self.accumulator = accumulator
+    }
+    func cancel() {
+        self.accumulator.phase = .transaction
+    }
+
 }
 
 //struct PhaseOneView_Previews: PreviewProvider {

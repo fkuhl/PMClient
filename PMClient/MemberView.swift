@@ -16,6 +16,7 @@ struct MemberView: View {
     var body: some View {
         CoreMemberView(member: self.member,
                        memberEditDelegate: MemberViewEditDelegate(),
+                       memberCancelDelegate: MemberViewCancelDelegate(),
                        editable: self.editable,
                        closingAction: { $1.store(member: $0, in: nil) })
     }
@@ -31,6 +32,10 @@ fileprivate class MemberViewEditDelegate: MemberEditDelegate {
         //(Member might not actually be the head.)
         DataFetcher.sharedInstance.update(to: member)
     }
+}
+
+fileprivate class MemberViewCancelDelegate: MemberCancelDelegate {
+    func cancel() { }
 }
 
 //struct MemberView_Previews: PreviewProvider {

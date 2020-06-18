@@ -40,7 +40,7 @@ struct ContentView: View {
                     Image(systemName: "magnifyingglass")
                     Text("Queries")
                 }
-                .tag(2)
+                .tag(3)
         }
     }
 }

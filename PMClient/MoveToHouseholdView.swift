@@ -13,14 +13,14 @@ struct MoveToHouseholdView: View {
     
     var body: some View {
         Form {
-            Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+            Text("Coming soon!")
         }
         .navigationBarTitle("Member Moves To Different Household")
     }
 }
 
-//struct MoveToHouseholdView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        MoveToHouseholdView()
-//    }
-//}
+struct MoveToHouseholdView_Previews: PreviewProvider {
+    static var previews: some View {
+        MoveToHouseholdView()
+    }
+}

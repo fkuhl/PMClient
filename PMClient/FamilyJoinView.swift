@@ -35,8 +35,8 @@ class AccumulatingHousehold: ObservableObject {
     @Published var household = Household()
 }
 
-//struct FamilyInitialEntryView_Previews: PreviewProvider {
+//struct FamilyJoinView_Previews: PreviewProvider {
 //    static var previews: some View {
-//        FamilyInitialEntryView()
+//        FamilyJoinView()
 //    }
 //}

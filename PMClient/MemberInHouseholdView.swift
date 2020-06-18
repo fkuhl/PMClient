@@ -23,6 +23,7 @@ struct MemberInHouseholdView: View {
         CoreMemberView(member: self.member,
                        memberEditDelegate: MemberInHouseholdViewEditDelegate(
                         relation: self.relation),
+                       memberCancelDelegate: MemberInHouseholdViewCancelDelegate(),
                        editable: self.editable,
                        closingAction: { $1.store(member: $0, in: self.$household) })
     }
@@ -60,6 +61,10 @@ fileprivate class MemberInHouseholdViewEditDelegate: MemberEditDelegate {
         NSLog("MIHVED storing with \(household.wrappedValue.others.count) others")
         DataFetcher.sharedInstance.update(household: household.wrappedValue)
     }
+}
+
+fileprivate class MemberInHouseholdViewCancelDelegate: MemberCancelDelegate {
+    func cancel() { }
 }
 
 //struct MemberInHouseholdView_Previews: PreviewProvider {

@@ -13,11 +13,16 @@ protocol MemberEditDelegate {
     func store(member: Member, in household: Binding<Household>?) -> Void
 }
 
+protocol MemberCancelDelegate {
+    func cancel() -> Void
+}
+
 struct MemberEditView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @EnvironmentObject var accumulator: FamilyAccumulator
     @State var member: Member
     var memberEditDelegate: MemberEditDelegate
+    var memberCancelDelegate: MemberCancelDelegate
     var closingAction: (_ member: Member, _ delegate: MemberEditDelegate) -> Void
     var navigationBarTitle: String
 
@@ -76,6 +81,7 @@ struct MemberEditView: View {
                 Button(action: {
                     NSLog("MEV cancel")
                     self.presentationMode.wrappedValue.dismiss()
+                    self.memberCancelDelegate.cancel()
                 }) {
                     Text("Cancel").font(.body)
                 }
