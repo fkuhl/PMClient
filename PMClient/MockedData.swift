@@ -16,7 +16,7 @@ fileprivate func makeMv1() -> Member {
     mv1.givenName = "Horatio"
     mv1.middleName = "Quincy"
     mv1.previousFamilyName = nil
-    mv1.nickName = "Horry"
+    mv1.nickname = "Horry"
     mv1.sex = Sex.MALE
     mv1.household = "0"
     mv1.eMail = "horatio@nonsense.com"
@@ -31,7 +31,7 @@ let mockMember2 = Member(
     givenName: "Hortense",
     middleName: "",
     previousFamilyName: "Havisham",
-    nickName: "",
+    nickname: "",
     sex: Sex.FEMALE,
     household: "0",
     eMail: "hortense@nonsense.com",

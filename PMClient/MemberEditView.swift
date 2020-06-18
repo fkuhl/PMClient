@@ -31,7 +31,7 @@ struct MemberEditView: View {
                     EditOptionalTextView(caption: "prev fam name:", text: $member.previousFamilyName)
                     EditOptionalTextView(caption: "suffix:", text: $member.nameSuffix)
                     EditOptionalTextView(caption: "title:", text: $member.title)
-                    EditOptionalTextView(caption: "nickname:", text: $member.nickName)
+                    EditOptionalTextView(caption: "nickname:", text: $member.nickname)
                     EditSexView(caption: "sex:", sex: $member.sex)
                     EditMemberStatusView(caption: "status:", memberStatus: $member.status)
                 }

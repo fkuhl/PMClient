@@ -46,8 +46,8 @@ struct CoreMemberView: View {
                     if member.title != nil {
                         TextAttributeView(caption: "title:", text: member.title)
                     }
-                    if member.nickName != nil {
-                        TextAttributeView(caption: "nickname:", text: member.nickName)
+                    if member.nickname != nil {
+                        TextAttributeView(caption: "nickname:", text: member.nickname)
                     }
                     TextAttributeView(caption: "sex:", text: member.sex.rawValue)
                     TextAttributeView(caption: "status:", text: member.status.rawValue)
