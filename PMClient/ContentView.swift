@@ -31,7 +31,14 @@ struct ContentView: View {
                 .font(.title)
                 .tabItem {
                     Image(systemName: "pencil.circle")
-                    Text("Transactions")
+                    Text("DB Transactions")
+                }
+                .tag(2)
+            QueriesView()
+                .font(.title)
+                .tabItem {
+                    Image(systemName: "magnifyingglass")
+                    Text("Queries")
                 }
                 .tag(2)
         }
