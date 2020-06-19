@@ -9,6 +9,7 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State var serverSheetIsPresented = true
     @State private var selection = 0
     
     var body: some View {
@@ -41,6 +42,8 @@ struct ContentView: View {
                     Text("Queries")
                 }
                 .tag(3)
+        }.sheet(isPresented: $serverSheetIsPresented) {
+            ServerInfoView(serverSheetIsPresented: self.$serverSheetIsPresented)
         }
     }
 }

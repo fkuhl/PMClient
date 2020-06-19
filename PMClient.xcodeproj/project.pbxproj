@@ -43,6 +43,7 @@
 		279F2F5B249BB716008A32AD /* MembersByStatusEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279F2F5A249BB716008A32AD /* MembersByStatusEntryView.swift */; };
 		279F2F5D249BB774008A32AD /* CompactToggleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279F2F5C249BB774008A32AD /* CompactToggleView.swift */; };
 		279F2F5F249BC13E008A32AD /* MembersByStatusResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279F2F5E249BC13E008A32AD /* MembersByStatusResultsView.swift */; };
+		279F2F62249D1096008A32AD /* ServerInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279F2F61249D1096008A32AD /* ServerInfoView.swift */; };
 		27A38BEE246DB30A00612CE0 /* HouseholdRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A38BED246DB30A00612CE0 /* HouseholdRowView.swift */; };
 		27A38BF0246DB41300612CE0 /* HouseholdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A38BEF246DB41300612CE0 /* HouseholdView.swift */; };
 		27A38BF2246F12E400612CE0 /* Transactions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A38BF1246F12E400612CE0 /* Transactions.swift */; };
@@ -102,6 +103,7 @@
 		279F2F5A249BB716008A32AD /* MembersByStatusEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MembersByStatusEntryView.swift; sourceTree = "<group>"; };
 		279F2F5C249BB774008A32AD /* CompactToggleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompactToggleView.swift; sourceTree = "<group>"; };
 		279F2F5E249BC13E008A32AD /* MembersByStatusResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MembersByStatusResultsView.swift; sourceTree = "<group>"; };
+		279F2F61249D1096008A32AD /* ServerInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerInfoView.swift; sourceTree = "<group>"; };
 		27A38BED246DB30A00612CE0 /* HouseholdRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseholdRowView.swift; sourceTree = "<group>"; };
 		27A38BEF246DB41300612CE0 /* HouseholdView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseholdView.swift; sourceTree = "<group>"; };
 		27A38BF1246F12E400612CE0 /* Transactions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transactions.swift; sourceTree = "<group>"; };
@@ -281,6 +283,7 @@
 				2700229223B7EA3E009EF8EE /* MockedData.swift */,
 				2728A7CD23CA3E9700655298 /* DataPublishers.swift */,
 				27C40ACD23B1678300B337A7 /* DataFetcher.swift */,
+				279F2F61249D1096008A32AD /* ServerInfoView.swift */,
 			);
 			name = Data;
 			sourceTree = "<group>";
@@ -403,6 +406,7 @@
 				27C73FFF24706516007984A5 /* Services.swift in Sources */,
 				2749A07324266453001E0571 /* EditTextView.swift in Sources */,
 				2749A06324250B2E001E0571 /* DataTransactionsView.swift in Sources */,
+				279F2F62249D1096008A32AD /* ServerInfoView.swift in Sources */,
 				279F2F5F249BC13E008A32AD /* MembersByStatusResultsView.swift in Sources */,
 				274430F524785D13005212A9 /* EditDisplayView.swift in Sources */,
 				2721A19F248047D700E06BDC /* EditDateButton.swift in Sources */,

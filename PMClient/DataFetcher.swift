@@ -11,8 +11,8 @@ import PMDataTypes
 import Combine
 
 class DataFetcher: ObservableObject {
-    private static let dataServerHost = "localhost"
-    private static let dataServerPort = 8000
+    static var dataServerHost = "localhost"
+    static var dataServerPort = 8000
     
     private let fetchingQueue = DispatchQueue(label: "com.tamelea.PMClient.readAll", qos: .background)
     //these need to be ivars, so they don't go out of scope!
