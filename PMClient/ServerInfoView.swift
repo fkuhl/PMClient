@@ -46,6 +46,7 @@ struct ServerInfoView: View {
                     }) {
                         Image(systemName: "arrow.right.square.fill").imageScale(.large)
                     }.padding(.top, 20)
+                        .disabled(host.isEmpty || Int(port) == nil)
                 }.frame(maxWidth: 270)
             }.padding().background(RoundedRectangle(cornerRadius: 5).opacity(0.3))
         }
