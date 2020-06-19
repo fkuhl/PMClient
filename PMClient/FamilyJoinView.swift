@@ -10,13 +10,11 @@ import SwiftUI
 import PMDataTypes
 
 struct FamilyJoinView: View {
-    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @EnvironmentObject var accumulator: FamilyAccumulator
-    @ObservedObject var dataFetcher = DataFetcher.sharedInstance
-    @ObservedObject var accumulatingHousehold = AccumulatingHousehold()
 
     var body: some View {
         VStack {
+            //If SwiftUI supported a switch here, that would be the right thing to use.
             if accumulator.phase == .transaction {
                 FamilyJoinTransactionPhaseView()
             } else if accumulator.phase == .head {
@@ -24,15 +22,10 @@ struct FamilyJoinView: View {
             } else if accumulator.phase == .household {
                 FamilyJoinHouseholdPhaseView()
             } else {
-                Text("Oops!") // the cases must be exhaustive, right?
+                Text("Oops!")
             }
         }
-    .environmentObject(accumulatingHousehold)
     }
-}
-
-class AccumulatingHousehold: ObservableObject {
-    @Published var household = Household()
 }
 
 //struct FamilyJoinView_Previews: PreviewProvider {

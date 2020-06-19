@@ -28,21 +28,20 @@ class HouseholdAddressEditDelegate: AddressEditDelegate {
 struct HouseholdView: View {
     @State var item: Household
     var addressEditable = true
-    var removeButtons = false
+    var replaceButtons = false
     var spouseFactory: HouseholdMemberFactoryDelegate
     var otherFactory: HouseholdMemberFactoryDelegate
     
     var body: some View {
         VStack {
-            if removeButtons {
+            if replaceButtons {
                 UnadornedHouseholdView(item: $item,
                                        addressEditable: addressEditable,
                                        spouseFactory: self.spouseFactory,
                                        otherFactory: self.otherFactory)
                 .navigationBarBackButtonHidden(true)
                 .navigationBarItems(leading: EmptyView(),
-                                    trailing: EmptyView()
-                )
+                                    trailing: EmptyView())
             } else {
                 UnadornedHouseholdView(item: $item,
                                        addressEditable: addressEditable,

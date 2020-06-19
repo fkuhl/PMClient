@@ -23,6 +23,17 @@ class FamilyAccumulator: ObservableObject {
     @Published var head: Member = Member()
     @Published var receptionTransaction = PMDataTypes.Transaction()
     
+    func reset() {
+        phase = .transaction
+        dateReceived = Date()
+        receptionType = .TRANSFER
+        churchFrom = ""
+        authority = ""
+        comment = ""
+        head = Member()
+        receptionTransaction = PMDataTypes.Transaction()
+    }
+    
 }
 
 enum FamilyJoinPhase {

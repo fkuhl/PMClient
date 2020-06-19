@@ -10,15 +10,27 @@ import SwiftUI
 import PMDataTypes
 
 struct FamilyJoinHouseholdPhaseView: View {
+    @Environment(\.presentationMode) var presentationMode
     @ObservedObject var dataFetcher = DataFetcher.sharedInstance
-    
+
     var body: some View {
         VStack {
             if dataFetcher.addedHousehold != nil {
                 HouseholdView(item: dataFetcher.addedHousehold!,
-                              removeButtons: true,
+                              replaceButtons: false,
                               spouseFactory: SpouseFactory(household: dataFetcher.addedHousehold!),
                               otherFactory: OtherFactory(household: dataFetcher.addedHousehold!))
+                .navigationBarBackButtonHidden(true)
+                .navigationBarItems(leading: EmptyView(),
+                                    trailing:
+                    Button(action: {
+                        NSLog("FJHPV close pres mode: \(self.presentationMode.wrappedValue)")
+                        self.presentationMode.wrappedValue.dismiss()
+                        NSLog("FJHPV after dismiss pres mode: \(self.presentationMode.wrappedValue)")
+                    }) {
+                        Text("Close").font(.body)
+                    }
+                )
             } else {
                 Text("Waiting for new household to be added...")
             }

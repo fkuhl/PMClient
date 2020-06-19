@@ -152,6 +152,7 @@
 		2702B19D23AC0E6B009F0A68 /* PMClient */ = {
 			isa = PBXGroup;
 			children = (
+				279F2F60249D0FA8008A32AD /* Data */,
 				27AAE7F8249A6DBA0045CAD2 /* Queries */,
 				2721A1A62485377400E06BDC /* Address */,
 				2749A06D2426637E001E0571 /* EditFields */,
@@ -163,14 +164,11 @@
 				2702B19E23AC0E6B009F0A68 /* AppDelegate.swift */,
 				2702B1A423AC0E6C009F0A68 /* Assets.xcassets */,
 				2702B1A223AC0E6B009F0A68 /* ContentView.swift */,
-				27C40ACD23B1678300B337A7 /* DataFetcher.swift */,
 				2702B1AC23AC0E6C009F0A68 /* Info.plist */,
 				2702B1A923AC0E6C009F0A68 /* LaunchScreen.storyboard */,
 				2702B1B223AC0E8A009F0A68 /* PMClient.entitlements */,
 				2702B1A623AC0E6C009F0A68 /* Preview Content */,
 				2702B1A023AC0E6B009F0A68 /* SceneDelegate.swift */,
-				2700229223B7EA3E009EF8EE /* MockedData.swift */,
-				2728A7CD23CA3E9700655298 /* DataPublishers.swift */,
 				2749A06424250E1D001E0571 /* Bundle+decode.swift */,
 			);
 			path = PMClient;
@@ -275,6 +273,16 @@
 				27A38BEF246DB41300612CE0 /* HouseholdView.swift */,
 			);
 			name = Households;
+			sourceTree = "<group>";
+		};
+		279F2F60249D0FA8008A32AD /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				2700229223B7EA3E009EF8EE /* MockedData.swift */,
+				2728A7CD23CA3E9700655298 /* DataPublishers.swift */,
+				27C40ACD23B1678300B337A7 /* DataFetcher.swift */,
+			);
+			name = Data;
 			sourceTree = "<group>";
 		};
 		27AAE7F8249A6DBA0045CAD2 /* Queries */ = {
