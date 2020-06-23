@@ -40,6 +40,7 @@ enum FamilyJoinPhase {
     case transaction
     case head
     case household
+    case reset
 }
 
 enum ReceptionType: String, CaseIterable {

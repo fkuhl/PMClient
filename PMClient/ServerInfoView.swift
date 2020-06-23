@@ -36,7 +36,9 @@ struct ServerInfoView: View {
                         .frame(width: 200, alignment: .leading)
                         .font(.body)
                 }
-                HStack {
+                HStack(alignment: .lastTextBaseline) {
+                    Text("v \(Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") ?? ""), " +
+                    "build \(Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion") ?? "")").font(.body)
                     Spacer()
                     Button(action: {
                         DataFetcher.dataServerHost = self.host
@@ -45,10 +47,10 @@ struct ServerInfoView: View {
                         self.$serverSheetIsPresented.wrappedValue = false
                     }) {
                         Image(systemName: "arrow.right.square.fill").imageScale(.large)
-                    }.padding(.top, 20)
+                    }/*.padding(.top, 20)*/
                         .disabled(host.isEmpty || Int(port) == nil)
-                }.frame(maxWidth: 270)
-            }.padding().background(RoundedRectangle(cornerRadius: 5).opacity(0.3))
+                }.padding(.top, 20).frame(maxWidth: 270)
+            }.padding(30).background(RoundedRectangle(cornerRadius: 5).opacity(0.3))
         }
     }
 }

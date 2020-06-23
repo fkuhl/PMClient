@@ -18,8 +18,8 @@ struct FamilyJoinTransactionPhaseView: View {
             Section {
                 DateSelectionView(caption: "Date received")
                 ReceptionTypeView(caption: "Reception type")
-                EditTextView(caption: "church from", text: $accumulator.churchFrom)
                 EditTextView(caption: "authority", text: $accumulator.authority)
+                EditTextView(caption: "church from", text: $accumulator.churchFrom)
                 EditTextView(caption: "comment", text: $accumulator.comment)
             }
         }

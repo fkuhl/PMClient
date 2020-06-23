@@ -11,6 +11,8 @@ import PMDataTypes
 
 struct FamilyJoinView: View {
     @EnvironmentObject var accumulator: FamilyAccumulator
+    @Environment(\.presentationMode) var presentationMode
+    @Binding var linkSelection: String?
 
     var body: some View {
         VStack {
@@ -21,6 +23,13 @@ struct FamilyJoinView: View {
                 FamilyJoinHeadPhaseView()
             } else if accumulator.phase == .household {
                 FamilyJoinHouseholdPhaseView()
+            } else if accumulator.phase == .reset {
+                Text("reset phase").onAppear() {
+                    NSLog("FJV in phase reset")
+                    self.accumulator.reset()
+                    self.linkSelection = nil
+                    self.presentationMode.wrappedValue.dismiss()
+                }
             } else {
                 Text("Oops!")
             }

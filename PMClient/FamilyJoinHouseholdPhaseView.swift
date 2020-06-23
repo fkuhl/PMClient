@@ -10,7 +10,7 @@ import SwiftUI
 import PMDataTypes
 
 struct FamilyJoinHouseholdPhaseView: View {
-    @Environment(\.presentationMode) var presentationMode
+    @EnvironmentObject var accumulator: FamilyAccumulator
     @ObservedObject var dataFetcher = DataFetcher.sharedInstance
 
     var body: some View {
@@ -24,9 +24,8 @@ struct FamilyJoinHouseholdPhaseView: View {
                 .navigationBarItems(leading: EmptyView(),
                                     trailing:
                     Button(action: {
-                        NSLog("FJHPV close pres mode: \(self.presentationMode.wrappedValue)")
-                        self.presentationMode.wrappedValue.dismiss()
-                        NSLog("FJHPV after dismiss pres mode: \(self.presentationMode.wrappedValue)")
+                        NSLog("FJHPV close")
+                        self.accumulator.phase = .reset
                     }) {
                         Text("Close").font(.body)
                     }

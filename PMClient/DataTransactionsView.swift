@@ -23,7 +23,7 @@ struct DataTransactionsView: View {
         NavigationView {
             List {
                 Section(header: Text("Families")) {
-                    NavigationLink(destination: FamilyJoinView(),
+                    NavigationLink(destination: FamilyJoinView(linkSelection: $linkSelection),
                                    tag: Link.familyJoins.rawValue,
                                    selection: $linkSelection) {
                         Button(action: {

@@ -29,6 +29,12 @@
 		274430F524785D13005212A9 /* EditDisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274430F424785D13005212A9 /* EditDisplayView.swift */; };
 		274430F724787B5C005212A9 /* MoveToHouseholdAccumulator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274430F624787B5C005212A9 /* MoveToHouseholdAccumulator.swift */; };
 		274430F924787C0B005212A9 /* MoveToHouseholdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274430F824787C0B005212A9 /* MoveToHouseholdView.swift */; };
+		2746261A249D3EF50044B11A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27462619249D3EF50044B11A /* AppDelegate.swift */; };
+		2746261C249D3EF50044B11A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2746261B249D3EF50044B11A /* ContentView.swift */; };
+		2746261E249D3EF80044B11A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2746261D249D3EF80044B11A /* Assets.xcassets */; };
+		27462621249D3EF80044B11A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27462620249D3EF80044B11A /* Preview Assets.xcassets */; };
+		27462624249D3EF80044B11A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27462622249D3EF80044B11A /* Main.storyboard */; };
+		2746262B249D3F1C0044B11A /* PMDataTypes in Frameworks */ = {isa = PBXBuildFile; productRef = 2746262A249D3F1C0044B11A /* PMDataTypes */; };
 		2749A06324250B2E001E0571 /* DataTransactionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2749A06224250B2E001E0571 /* DataTransactionsView.swift */; };
 		2749A06524250E1D001E0571 /* Bundle+decode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2749A06424250E1D001E0571 /* Bundle+decode.swift */; };
 		2749A06A24256153001E0571 /* FamilyJoinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2749A06924256153001E0571 /* FamilyJoinView.swift */; };
@@ -89,6 +95,14 @@
 		274430F424785D13005212A9 /* EditDisplayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditDisplayView.swift; sourceTree = "<group>"; };
 		274430F624787B5C005212A9 /* MoveToHouseholdAccumulator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveToHouseholdAccumulator.swift; sourceTree = "<group>"; };
 		274430F824787C0B005212A9 /* MoveToHouseholdView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveToHouseholdView.swift; sourceTree = "<group>"; };
+		27462617249D3EF50044B11A /* PMClientMac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PMClientMac.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		27462619249D3EF50044B11A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		2746261B249D3EF50044B11A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		2746261D249D3EF80044B11A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		27462620249D3EF80044B11A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		27462623249D3EF80044B11A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		27462625249D3EF80044B11A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		27462626249D3EF80044B11A /* PMClientMac.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PMClientMac.entitlements; sourceTree = "<group>"; };
 		2749A06224250B2E001E0571 /* DataTransactionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTransactionsView.swift; sourceTree = "<group>"; };
 		2749A06424250E1D001E0571 /* Bundle+decode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+decode.swift"; sourceTree = "<group>"; };
 		2749A06924256153001E0571 /* FamilyJoinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyJoinView.swift; sourceTree = "<group>"; };
@@ -131,6 +145,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		27462614249D3EF50044B11A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2746262B249D3F1C0044B11A /* PMDataTypes in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -138,6 +160,8 @@
 			isa = PBXGroup;
 			children = (
 				2702B19D23AC0E6B009F0A68 /* PMClient */,
+				27462618249D3EF50044B11A /* PMClientMac */,
+				2700229223B7EA3E009EF8EE /* MockedData.swift */,
 				2702B19C23AC0E6B009F0A68 /* Products */,
 				2738F67F23BAAEC800B86A3E /* Frameworks */,
 			);
@@ -147,6 +171,7 @@
 			isa = PBXGroup;
 			children = (
 				2702B19B23AC0E6B009F0A68 /* PMClient.app */,
+				27462617249D3EF50044B11A /* PMClientMac.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -198,6 +223,28 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		27462618249D3EF50044B11A /* PMClientMac */ = {
+			isa = PBXGroup;
+			children = (
+				27462619249D3EF50044B11A /* AppDelegate.swift */,
+				2746261B249D3EF50044B11A /* ContentView.swift */,
+				2746261D249D3EF80044B11A /* Assets.xcassets */,
+				27462622249D3EF80044B11A /* Main.storyboard */,
+				27462625249D3EF80044B11A /* Info.plist */,
+				27462626249D3EF80044B11A /* PMClientMac.entitlements */,
+				2746261F249D3EF80044B11A /* Preview Content */,
+			);
+			path = PMClientMac;
+			sourceTree = "<group>";
+		};
+		2746261F249D3EF80044B11A /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				27462620249D3EF80044B11A /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
 			sourceTree = "<group>";
 		};
 		2749A06124250B03001E0571 /* Transactions */ = {
@@ -280,7 +327,6 @@
 		279F2F60249D0FA8008A32AD /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				2700229223B7EA3E009EF8EE /* MockedData.swift */,
 				2728A7CD23CA3E9700655298 /* DataPublishers.swift */,
 				27C40ACD23B1678300B337A7 /* DataFetcher.swift */,
 				279F2F61249D1096008A32AD /* ServerInfoView.swift */,
@@ -323,18 +369,41 @@
 			productReference = 2702B19B23AC0E6B009F0A68 /* PMClient.app */;
 			productType = "com.apple.product-type.application";
 		};
+		27462616249D3EF50044B11A /* PMClientMac */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 27462627249D3EF80044B11A /* Build configuration list for PBXNativeTarget "PMClientMac" */;
+			buildPhases = (
+				27462613249D3EF50044B11A /* Sources */,
+				27462614249D3EF50044B11A /* Frameworks */,
+				27462615249D3EF50044B11A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PMClientMac;
+			packageProductDependencies = (
+				2746262A249D3F1C0044B11A /* PMDataTypes */,
+			);
+			productName = PMClientMac;
+			productReference = 27462617249D3EF50044B11A /* PMClientMac.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		2702B19323AC0E6B009F0A68 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1130;
+				LastSwiftUpdateCheck = 1150;
 				LastUpgradeCheck = 1130;
 				ORGANIZATIONNAME = "TyndaleSoft LLC";
 				TargetAttributes = {
 					2702B19A23AC0E6B009F0A68 = {
 						CreatedOnToolsVersion = 11.3;
+					};
+					27462616249D3EF50044B11A = {
+						CreatedOnToolsVersion = 11.5;
 					};
 				};
 			};
@@ -355,6 +424,7 @@
 			projectRoot = "";
 			targets = (
 				2702B19A23AC0E6B009F0A68 /* PMClient */,
+				27462616249D3EF50044B11A /* PMClientMac */,
 			);
 		};
 /* End PBXProject section */
@@ -367,6 +437,16 @@
 				2702B1AB23AC0E6C009F0A68 /* LaunchScreen.storyboard in Resources */,
 				2702B1A823AC0E6C009F0A68 /* Preview Assets.xcassets in Resources */,
 				2702B1A523AC0E6C009F0A68 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		27462615249D3EF50044B11A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				27462624249D3EF80044B11A /* Main.storyboard in Resources */,
+				27462621249D3EF80044B11A /* Preview Assets.xcassets in Resources */,
+				2746261E249D3EF80044B11A /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -430,6 +510,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		27462613249D3EF50044B11A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2746261C249D3EF50044B11A /* ContentView.swift in Sources */,
+				2746261A249D3EF50044B11A /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
@@ -439,6 +528,14 @@
 				2702B1AA23AC0E6C009F0A68 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		27462622249D3EF80044B11A /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				27462623249D3EF80044B11A /* Base */,
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -563,7 +660,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = PMClient/PMClient.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"PMClient/Preview Content\"";
 				DEVELOPMENT_TEAM = KRGB7TX9DU;
@@ -587,7 +686,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = PMClient/PMClient.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"PMClient/Preview Content\"";
 				DEVELOPMENT_TEAM = KRGB7TX9DU;
@@ -603,6 +704,58 @@
 				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Release;
+		};
+		27462628249D3EF80044B11A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = PMClientMac/PMClientMac.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 2;
+				DEVELOPMENT_ASSET_PATHS = "\"PMClientMac/Preview Content\"";
+				DEVELOPMENT_TEAM = KRGB7TX9DU;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = PMClientMac/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MARKETING_VERSION = 0.1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tyndalesoft.PMClientMac;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		27462629249D3EF80044B11A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = PMClientMac/PMClientMac.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 2;
+				DEVELOPMENT_ASSET_PATHS = "\"PMClientMac/Preview Content\"";
+				DEVELOPMENT_TEAM = KRGB7TX9DU;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = PMClientMac/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MARKETING_VERSION = 0.1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tyndalesoft.PMClientMac;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
@@ -627,6 +780,15 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		27462627249D3EF80044B11A /* Build configuration list for PBXNativeTarget "PMClientMac" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				27462628249D3EF80044B11A /* Debug */,
+				27462629249D3EF80044B11A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
@@ -641,6 +803,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		2746262A249D3F1C0044B11A /* PMDataTypes */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 27ADA22F23C3D1EF0011053F /* XCRemoteSwiftPackageReference "PMDataTypes" */;
+			productName = PMDataTypes;
+		};
 		27ADA23023C3D1EF0011053F /* PMDataTypes */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 27ADA22F23C3D1EF0011053F /* XCRemoteSwiftPackageReference "PMDataTypes" */;
